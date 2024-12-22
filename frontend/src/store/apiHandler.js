@@ -2,8 +2,7 @@ import { create } from "zustand";
 import { axiosInstance } from "../libs/axios.js";
 import toast from "react-hot-toast";
 
-// const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
-export const BASE_URL = "https://realestate-api-hu2r.onrender.com";
+export const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
 
 export const apiStore = create((set, get) => ({
   authUser: null,
@@ -57,6 +56,7 @@ export const apiStore = create((set, get) => ({
       // console.log(res.data);
       // setPropertyData(res.data);
     }catch{
+      console.log(BASE_URL);
       console.log("Error in getting properties details.");
       toast.error(error.response.data.message);
     }
