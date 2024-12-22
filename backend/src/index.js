@@ -14,10 +14,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use('/imgs', express.static("imgs"));
 app.use(
-  cors({
-    origin: process.env.CLIENT_APP,
-    credentials: true,
-  })
+  cors()
   );
 
 
