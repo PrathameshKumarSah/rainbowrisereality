@@ -3,7 +3,7 @@ import AdminRoutes from "./admin-components/AdminRoutes";
 import WebsiteRoutes from "./components/WebsiteRoutes";
 
 export const ADMIN_BASE_URL = "/admin";
-export const SERVER_URL = "http://localhost:5001/api/";
+export const SERVER_URL = "https://realestate-api-hu2r.onrender.com/api/";
 // const API_URL = process.env.REACT_APP_API_URL ;
 
 export default function App() {
