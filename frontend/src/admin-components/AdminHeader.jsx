@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileDropDown from './profileDropDown'
+import ProfileDropDown from './ProfileDropDown'
 
 const AdminHeader = ({title}) => {
   return (
