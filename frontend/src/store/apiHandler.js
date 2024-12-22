@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 // import { BASE_URL } from "../App.jsx";
 
 // const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
-export const BASE_URL = "http://localhost:5001";
+export const BASE_URL = "https://realestate-api-hu2r.onrender.com";
 
 export const apiStore = create((set, get) => ({
   authUser: null,
