@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use('/imgs', express.static("imgs"));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_APP,
     credentials: true,
   })
   );
