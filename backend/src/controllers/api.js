@@ -1,4 +1,4 @@
-import { connection} from "../index.js";
+import { connection} from "../../index.js";
 import bcrypt from 'bcrypt';
 import path, {dirname} from 'path';
 import fs from 'fs';
@@ -14,6 +14,7 @@ const __dirname = dirname(__filename);
 export const showProperties = async (req, res) => {
     try{
         const [rows] = await connection.query('SELECT * FROM properties');
+        // console.log(rows);
         res.send(rows);
     } catch(err){
         console.log(err);
