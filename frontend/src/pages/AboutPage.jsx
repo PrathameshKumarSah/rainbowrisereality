@@ -61,7 +61,7 @@ const AboutPage = () => {
         <img
           src={Team} 
           alt="Team Working Together"
-          className="relative bg-cover bg-center h-screen"
+          className="relative bg-cover bg-center"
         />
       </div>
     </div>
