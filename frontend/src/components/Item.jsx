@@ -29,7 +29,9 @@ const Item = ({ property }) => {
            
         </div> */}
         <div className="bold-18 mb-4">{property.price_title}</div>
-        <Link to={ADMIN_BASE_URL+'/view-properties'} className='btn-secondary rounded-xl shadow-sm mt-5'><button>Contact Us</button></Link>
+{/*         <Link to={ADMIN_BASE_URL+'/view-properties'} className='btn-secondary rounded-xl shadow-sm mt-5'><button>Contact Us</button></Link> */}
+              <div className='btn-secondary rounded-xl shadow-sm mt-5 text-center hover:bg-indigo-800 cursor-pointer'>Contact Us</div>
+
     </div>
   );
 };
