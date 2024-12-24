@@ -197,11 +197,9 @@ export const FOOTER_LINKS = [
     title: "Learn More",
     links: [
       {label: "About Us", value: "/about-us"},
-      {label: "Latest Items", value: "/"},
-      {label: "Hot Offers", value: "/"},
       {label: "Popular residencies", value: "/"},
-      {label: "FAQ", value: "/"},
       {label: "Privacy Policy", value: "/privacy-policy"},
+      {label: "Admin", value: "/admin"},
     ],
   },
   {
