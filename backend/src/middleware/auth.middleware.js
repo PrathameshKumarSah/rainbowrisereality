@@ -9,7 +9,7 @@ export const protectRoute = async (req, res) => {
       return res.status(401).json({ message: "Unauthorized - No Token Provided" });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
     if (!decoded) {
       return res.status(401).json({ message: "Unauthorized - Invalid Token" });
@@ -22,6 +22,8 @@ export const protectRoute = async (req, res) => {
     }
 
     const [row] = await connection.query('SELECT name, email, phone FROM admin WHERE email = ?', [user])
+    console.log(row);
+    
     if (row.length === 0) {
         return res.status(401).json({ message: 'Invalid email or password' });
     }
