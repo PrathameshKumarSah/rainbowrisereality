@@ -30,8 +30,8 @@ export default function AddProperty() {
 
   const validateForm = async (e) => {
     e.preventDefault();
+    // const { updatePropertyDetails} = apiStore();
     await updatePropertyDetails(formData);
-  const {isPropertyUploading, getPropertyForUpdate, initialFormState, imgFormData, updateImg, isImgUpdating, updatePropertyDetails} = apiStore();
     
     await setFormData(initialForm);
     navigate('/admin/');
