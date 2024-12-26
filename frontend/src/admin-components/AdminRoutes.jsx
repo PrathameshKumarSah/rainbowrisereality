@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import Sidebar from "./Sidebar";
 import AdminLogin from "./AdminLogin";
 import Logout from "./Logout";
 import {ADMIN_BASE_URL} from "../App";
@@ -22,11 +21,16 @@ import ChangePassword from "./ChangePassword.jsx";
 
 const AdminRoutes = () => {
   const { authUser, checkAuth, isCheckingAuth, otpVerified } = apiStore();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    checkAuth();
-    console.log( authUser );
-  }, [checkAuth]);
+    const getAuth = async () => {
+      await checkAuth();
+      console.log( authUser );
+    }
+
+    getAuth();
+  }, [pathname]);
 
   if (isCheckingAuth && !authUser)
     return (
@@ -53,7 +57,6 @@ const AdminRoutes = () => {
             <Route path="/logout" element={authUser ? <Logout /> : <Navigate to={ADMIN_BASE_URL+"/login"} />} />
 
 
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
         <Toaster />
       </>
