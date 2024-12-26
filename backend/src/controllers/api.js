@@ -390,6 +390,7 @@ export const protectRoute = async (req, res) => {
     const pool = await mysql2.createPool(config);
   try {
     const token = req.cookies.jwt;
+      console.log(token);
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized - No Token Provided" });
