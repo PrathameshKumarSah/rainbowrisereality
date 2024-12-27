@@ -24,14 +24,9 @@ const AdminRoutes = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const getAuth = async () => {
-      await checkAuth();
-      console.log( authUser );
-    }
-
-    getAuth();
-  }, [pathname]);
-
+    checkAuth();
+  }, [checkAuth]);
+  
   if (isCheckingAuth && !authUser)
     return (
       <div className="flex items-center justify-center h-screen">
