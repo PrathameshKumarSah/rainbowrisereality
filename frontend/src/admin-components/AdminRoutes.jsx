@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import AdminLogin from "./AdminLogin";
 import Logout from "./Logout";
@@ -21,22 +21,20 @@ import ChangePassword from "./ChangePassword.jsx";
 
 const AdminRoutes = () => {
   const { authUser, checkAuth, isCheckingAuth, otpVerified } = apiStore();
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
-  
-  if (isCheckingAuth && !authUser)
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <Loader className="size-10 animate-spin" />
-      </div>
-    );
+  // useEffect(() => {
+  //   checkAuth();
+  // }, [checkAuth]);
+
+  // if (isCheckingAuth && !authUser)
+  //   return (
+  //     <div className="flex items-center justify-center h-screen">
+  //       <Loader className="size-10 animate-spin" />
+  //     </div>
+  //   );
 
   return (
       <>
-        {/* <Sidebar /> */}
         <Routes>
             <Route path="/" element={authUser ? <Main><Dashboard /> Dashboard</Main> : <AdminLogin />} />
             <Route path="/enquires" element={authUser ? <Main><Enquires /> Enquires</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
@@ -52,6 +50,7 @@ const AdminRoutes = () => {
             <Route path="/logout" element={authUser ? <Logout /> : <Navigate to={ADMIN_BASE_URL+"/login"} />} />
 
 
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
         <Toaster />
       </>
