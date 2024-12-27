@@ -44,7 +44,7 @@ export const apiStore = create((set, get) => ({
       // set({ authUser: res.data });
     } catch (error) {
       console.log("Error in checkAuth:", error);
-      set({ authUser: null });
+      // set({ authUser: null });
     } finally {
       set({ isCheckingAuth: false });
     }
