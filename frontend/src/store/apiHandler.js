@@ -38,8 +38,10 @@ export const apiStore = create((set, get) => ({
 
   checkAuth: async () => {
     try {
-      const res = await axiosInstance.get("/auth-check");
-      set({ authUser: res.data });
+      console.log('checkauth has been started...');
+      // const res = await axiosInstance.get("/auth-check");
+      // console.log(res.data);
+      // set({ authUser: res.data });
     } catch (error) {
       console.log("Error in checkAuth:", error);
       set({ authUser: null });
@@ -67,8 +69,8 @@ export const apiStore = create((set, get) => ({
     try {
       let res = await axiosInstance.post("/login", data);
       toast.success("Logged in successfully");
-      // console.log(res)
-      set({ authUser: res.data });
+      console.log(res);
+      set({ authUser: res.data.loggedIn });
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error.response.data.message);
