@@ -417,7 +417,7 @@ export const protectRoute = async (req, res) => {
     return res.status(200).json(row[0]);
   } catch (error) {
     console.log("Error in protectRoute middleware: ", error);
-    res.status(500).json({ message: error });
+    res.status(500).json({ message: "internal server error", errorMsg: error });
   } finally {
     try {
         await pool.end();        
