@@ -388,39 +388,39 @@ export const createNewPass = async (req, res) => {
 // check auth
 export const protectRoute = async (req, res) => {
     const pool = await mysql2.createPool(config);
+    console.log('pool is created');
   try {
     const token = req.cookies.jwt;
-      console.log(token);
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized - No Token Provided" });
     }
 
-    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-
-    if (!decoded) {
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET);
+    } catch (error) {
       return res.status(401).json({ message: "Unauthorized - Invalid Token" });
     }
 
-    const user = decoded.userId;
+    const userId = decoded.userId;
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!userId) {
+      return res.status(400).json({ message: "Invalid token payload" });
     }
 
-    const [row] = await pool.query('SELECT name, email, phone FROM admin WHERE email = ?', [user]);
+    const [row] = await pool.query('SELECT name, email, phone FROM admin WHERE email = ?', [userId]);
     console.log(decoded, row);
     if (row.length === 0) {
-        res.status(401).json({ message: 'Invalid email or password' });
+        return res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json(row[0]);
+    return res.status(200).json(row[0]);
   } catch (error) {
-    console.log("Error in protectRoute middleware: ", error.message);
-    res.status(500).json({ message: error.message });
+    console.log("Error in protectRoute middleware: ", error);
+    res.status(500).json({ message: "Internal server error "+error.message });
   } finally {
     try {
-        await pool.end();
-        
+        await pool.end();        
     } catch (error) {
         console.error('Error closing the database connection pool:', error);
     }
