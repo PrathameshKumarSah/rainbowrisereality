@@ -425,5 +425,5 @@ export const protectRoute = async (req, res) => {
   //   } catch (error) {
   //       console.error('Error closing the database connection pool:', error);
   //   }
-  }
+  // }
 };
