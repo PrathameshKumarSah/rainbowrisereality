@@ -389,7 +389,7 @@ export const createNewPass = async (req, res) => {
 export const protectRoute = async (req, res) => {
     // const pool = await mysql2.createPool(config);
     // console.log('pool is created');
-  try {
+  // try {
     // const token = req.cookies.jwt;
 
     // if (!token) {
@@ -415,10 +415,10 @@ export const protectRoute = async (req, res) => {
     //     return res.status(404).json({ message: "User not found" });
     // }
     return res.status(200).json({ name: 'Admin', email: 'admin@gmail.com', phone: '9625136114' });
-  } catch (error) {
-    console.log("Error in protectRoute middleware: ", error);
-    res.status(500).json({ message: "internal server error", errorMsg: error });
-  } 
+  // } catch (error) {
+  //   console.log("Error in protectRoute middleware: ", error);
+  //   res.status(500).json({ message: "internal server error", errorMsg: error });
+  // } 
   // finally {
   //   try {
   //       await pool.end();        
