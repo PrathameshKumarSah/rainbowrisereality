@@ -21,7 +21,7 @@ import Party from '../assets/party.png'
 import Swimms from '../assets/swims.png'
 import Story1 from '../assets/story1.jpg'
 import Story2 from '../assets/story2.jpg'
-import Slides from '../constant/Slider'
+import Sliders from '../constant/Sliders'
 
 const Project = () => {
   return (
@@ -141,6 +141,9 @@ const Project = () => {
           </div>
         </div>
       </div>
+
+      <h3 className='text-[#000000] font-bold text-center text-5xl pt-4 overflow-y-hidden'>SUITS</h3>
+      <Sliders />
 
       {/* Enquire Now Button */}
       <div className="text-center mt-6">
@@ -377,8 +380,7 @@ const Project = () => {
           necessary communication purposes.
         </p>
       </div>
-    </div>
-    <Slides />
+    </div> 
   </div>
   )
 }
