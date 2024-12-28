@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import { MdClose, MdMenu } from 'react-icons/md';
 import userIcon from '../assets/user.svg'
-import logos from '../assets/rrr logos.png'
+import logos from '../assets/rrr logo.png'
 
 
 const Header = () => {
