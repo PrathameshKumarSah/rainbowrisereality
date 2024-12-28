@@ -9,7 +9,7 @@ const Profile = () => {
     name: userData.name,
     email: userData.email,
     phone: userData.phone,
-    profileImage: "https://cdn.tailgrids.com/2.2/assets/core-components/images/avatar/image-05.jpg",
+    profileImage: {userIcon},
   });
 
   const handleEditToggle = () => {
