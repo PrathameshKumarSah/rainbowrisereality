@@ -1,9 +1,9 @@
-import { PenBox } from "lucide-react";
 import React, { useState } from "react";
 import { apiStore } from "../store/apiHandler";
+import userIcon from '../assets/user.png';
 
 const Profile = () => {
-   const { updateProfileDetails, checkAuth, userData } = apiStore();
+  const { updateProfileDetails, checkAuth, userData } = apiStore();
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState({
     name: userData.name,
@@ -44,21 +44,11 @@ const Profile = () => {
         {/* Profile Image */}
         <div className="relative w-28 h-28">
           <img
-            src={user.profileImage}
+            src={userIcon}
             alt="Admin Profile"
-            className="w-full h-full rounded-full object-cover border-4 border-indigo-500"
+            className="w-full h-full rounded-full object-cover border border-indigo-500"
           />
-          {/* Pencil Icon */}
-          <label className="absolute bottom-1 right-1 bg-indigo-500 p-2 rounded-full cursor-pointer">
-            {/* <FaPencilAlt className="text-white text-sm" /> */}
-            <PenBox size={20} className="text-white text-sm" />
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageChange}
-            />
-          </label>
+          
         </div>
         {/* User Info */}
         <div>
