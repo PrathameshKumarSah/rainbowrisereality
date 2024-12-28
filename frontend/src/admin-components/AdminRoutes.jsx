@@ -22,9 +22,10 @@ import ChangePassword from "./ChangePassword.jsx";
 const AdminRoutes = () => {
   const { authUser, checkAuth, isCheckingAuth, otpVerified } = apiStore();
 
-  // useEffect(() => {
-  //   checkAuth();
-  // }, [checkAuth]);
+  useEffect(() => {
+    // checkAuth();
+    console.log("admin routes auth user check: ",authUser);
+  }, [authUser]);
 
   // if (isCheckingAuth && !authUser)
   //   return (
