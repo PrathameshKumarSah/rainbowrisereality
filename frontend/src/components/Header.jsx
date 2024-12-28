@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import { MdClose, MdMenu } from 'react-icons/md';
 import userIcon from '../assets/user.svg'
-import logos from '../assets/rrr logo.png'
+import logos from '../assets/rrr logos.png'
 
 
 const Header = () => {
@@ -48,11 +48,11 @@ const Header = () => {
   return (
    <header className="max-padd-container fixed top-2 w-full left-0 right-0 z-50 sm:w-full">
       {/* container */}
-      <div className={`${active ? "py-0" : "py-1"}max-padd-container bg-white transition-all duration-200 rounded-full px-5  ring-slate-900/5`}>
+      <div className={`${active ? "py-0" : "py-1"}max-padd-container bg-white transition-all duration-200 rounded-full px-6  ring-slate-900/5`}>
         <div className="flexBetween py-3">
             {/* logo */}
             <Link to={'/'} >
-            <img src={logos} className='w-10 md:w-14' ></img>  
+            <img src={logos} className='w-10 md:w-14 ' ></img>  
             </Link>
             
             {/* Navbar */}
