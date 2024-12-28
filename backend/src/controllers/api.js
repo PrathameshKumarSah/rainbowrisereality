@@ -38,13 +38,13 @@ export const handleLogin =  async (req, res) => {
     try{
         const [rows] = await pool.query('SELECT * FROM admin WHERE email = ?', [email])
         if (rows.length === 0) {
-            return res.status(401).json({ message: 'Invalid email' });
+            return res.status(401).json({ message: 'Invalid email', loggedIn: false, user:{}  });
         }
 
         const user = rows[0];
         const passwordMatch = await bcrypt.compare(password, user.pass);
         if (!passwordMatch) {
-            return res.status(401).json({ message: 'Invalid password' });
+            return res.status(401).json({ message: 'Invalid password', loggedIn: false, user:{} });
         }
         await generateToken(email, res);
         const data = {name:user.name, email:user.email, phone:user.phone};
