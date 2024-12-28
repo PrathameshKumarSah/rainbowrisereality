@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { apiStore } from "../store/apiHandler";
 
 const Profile = () => {
-  const { authUser, updateProfileDetails, checkAuth } = apiStore();
+   const { updateProfileDetails, checkAuth, userData } = apiStore();
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState({
-    name: authUser.name,
-    email: authUser.email,
-    phone: authUser.phone,
+    name: userData.name,
+    email: userData.email,
+    phone: userData.phone,
     profileImage: "https://cdn.tailgrids.com/2.2/assets/core-components/images/avatar/image-05.jpg",
   });
 
