@@ -47,7 +47,7 @@ export const handleLogin =  async (req, res) => {
             return res.status(401).json({ message: 'Invalid password' });
         }
         await generateToken(email, res);
-        res.status(200).json({ message: 'Login successful' });
+        res.status(200).json({ message: 'Login successful', loggedIn: true });
         
     } catch(err){
         console.log(err);
