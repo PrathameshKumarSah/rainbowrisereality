@@ -1,11 +1,12 @@
 import { KeyRoundIcon, LogOut, UserCircle } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { apiStore, BASE_URL } from "../store/apiHandler";
+import { apiStore} from "../store/apiHandler";
 import { Link } from "react-router-dom";
 import { ADMIN_BASE_URL } from "../App";
+import userIcon from "../assets/user.png"
 
 export default function ProfileDropDown() {
-    const { authUser} = apiStore();
+  const { userData} = apiStore();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const {logout} = apiStore();
 
@@ -50,14 +51,14 @@ export default function ProfileDropDown() {
             >
               <div className="relative md:mr-4 h-[42px] w-[42px] rounded-full">
                 <img
-                  src="https://cdn.tailgrids.com/2.2/assets/core-components/images/avatar/image-05.jpg"
+                  src={userIcon}
                   alt="avatar"
-                  className="h-full w-full rounded-full object-cover object-center"
+                  className="h-full w-full border rounded-full object-cover object-center"
                 />
                 <span className="absolute -right-0.5 -top-0.5 block h-[14px] w-[14px] rounded-full border-[2.3px] border-white bg-[#219653] dark:border-dark"></span>
               </div>
               <span className="text-base font-medium hidden text-dark dark:text-white md:block">
-                {authUser.name}
+                {userData.name}
               </span>
               <span className="pl-[10px] text-dark duration-100 dark:text-white">
                 <svg
