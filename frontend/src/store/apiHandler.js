@@ -12,10 +12,10 @@ export const apiStore = create((set, get) => ({
   isImgUpdating: false,
   isCheckingAuth: true,
   otpVerified:false,
-  // onlineUsers: [],
   totalProperties: null,
   totalenq: null,
   properties: [],
+  userData:null,
   initialFormState: {
       id: '',
       title: '',
@@ -69,7 +69,8 @@ export const apiStore = create((set, get) => ({
     try {
       let res = await axiosInstance.post("/login", data);
       toast.success("Logged in successfully");
-      console.log(res);
+      console.log(res.data);
+      set({ userData: res.data.user});
       set({ authUser: res.data.loggedIn });
     } catch (error) {
       toast.error(error.response.data.message);
