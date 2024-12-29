@@ -2,16 +2,31 @@ import React, {useState, useEffect} from 'react'
 import { apiStore, BASE_URL } from '../store/apiHandler';
 import { Link } from 'react-router-dom';
 import { ADMIN_BASE_URL } from '../App';
-import { ChevronRight, MoveRight } from 'lucide-react';
+import {  MoveRight } from 'lucide-react';
+import { PuffLoader } from 'react-spinners';
 
 const LatestProperty = () => {
     const [propertiesDetails, setPropertiesDetails] = useState([]);
     const [propertyData, setPropertyData] = useState([]);
-    const {properties, latestProperties} = apiStore();
+    const {properties, latestProperties, propertyLoading} = apiStore();
     
     useEffect(() => {
       latestProperties();
     }, [])
+
+    if(propertyLoading){
+      return (
+        <div className='h-72 flex items-center justify-center'>
+          <PuffLoader 
+          height="80"
+          width="80"
+          radius={1}
+          color="#555"
+          aria-label='puff-loading'
+          />
+        </div>
+      )
+    }
 
   return (
     <div className="rounded-lg bg-white-100 p-3">
