@@ -40,7 +40,7 @@ const ViewProperty = () => {
 
     useEffect(() => {
       setPropertiesDetails(properties);
-    })
+    }, [properties]);
   
     if(propertyLoading){
       return (
