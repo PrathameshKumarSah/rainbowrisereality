@@ -51,16 +51,18 @@ export const apiStore = create((set, get) => ({
   },
 
   getProperties: async () => {
+    set({propertyLoading:true})
     try{
       const res = await axiosInstance.get("/properties");
       // setPropertiesDetails(res.data);
       set({ properties: res.data });
       // console.log(res.data);
-      // setPropertyData(res.data);
     }catch{
       console.log(BASE_URL);
       console.log("Error in getting properties details.");
       toast.error(error.response.data.message);
+    } finally {
+      set({ propertyLoading: false });
     }
   },
 
@@ -110,7 +112,7 @@ export const apiStore = create((set, get) => ({
   },
 
   getPropertyForUpdate: async (id) => {
-    console.log("id:", id);
+    set({ propertyLoading: false })
     try {
       let res = await axiosInstance.get(`/get-property/${id}`);
       res = res.data[0];
@@ -133,7 +135,9 @@ export const apiStore = create((set, get) => ({
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error.response.data.message);
-    } 
+    } finally {
+      set({ propertyLoading: false });
+    }
   },
 
   updateImg: async (data) => {
@@ -182,6 +186,7 @@ export const apiStore = create((set, get) => ({
   },
 
   latestProperties: async () => {
+    set({propertyLoading:true})
     try{
       const res = await axiosInstance.get("/latest-property");
       set({ properties: res.data.properties });
@@ -190,6 +195,8 @@ export const apiStore = create((set, get) => ({
     }catch(error){
       console.log("Error in getting properties details.");
       toast.error(error.response.data.message);
+    } finally {
+      set({propertyLoading:false})
     }
   },
 
