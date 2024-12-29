@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '../constant/data'
 import log from '../assets/rw.png'
+import { Mail, PhoneIcon } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -30,13 +31,18 @@ const Footer = () => {
                 </ul>
               </FooterColumn>
             ))}
-            <div className="text-[#FFF8DE] flex flex-col gap-5">
+            <div className="text-[#FFF8DE] flex flex-col gap-5 text-sm">
               <FooterColumn title={FOOTER_CONTACT_INFO.title}>
-                {FOOTER_CONTACT_INFO.links.map((link)=> (
-                  <Link to={'/'} key={link.label} className="text-[#FFF8DE] flex gap-4 md:flex-col lg:flex-row">
-                    <p className='text-[#FFF8DE]'>{link.label} : &nbsp;{link.value}</p>
-                  </Link>
-                ))}
+                <div className="text-[#FFF8DE] flex gap-4 flex-col">
+                    <Link to='tel:8058517274' className='text-[#FFF8DE] flex'>
+                      <PhoneIcon className='w-5' />
+                      : +91-8058517274, +91-8077148435
+                    </Link>
+                    <Link to='mailto:info.rainbowriserealty@gmail.com' className='text-[#FFF8DE] flex'>
+                      <Mail className='w-5'/>
+                      : info.rainbowriserealty@gmail.com
+                    </Link>                    
+                </div>
               </FooterColumn>
             </div>
             <div className="text-[#FFF8DE] flex">
