@@ -7,54 +7,75 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import Item from './Item'
 import {apiStore} from "../store/apiHandler.js"
+import { EnquireModalBox } from './EnquireModalBox.jsx'
+import {PuffLoader} from "react-spinners"
 
 
 const Properties = () => {
-    const {properties, getProperties} = apiStore();
+    const {properties, getProperties, propertyLoading} = apiStore();
+    const [modalOpen, setModalOpen] = useState(false);
+
 
     useEffect(() => {
         getProperties();
       }, [])    
+      
+    if(propertyLoading){
+    return (
+        <div className='h-72 flex items-center justify-center'>
+        <PuffLoader 
+        height="80"
+        width="80"
+        radius={1}
+        color="#555"
+        aria-label='puff-loading'
+        />
+        </div>
+    )
+    }
     
   return (
-    <section className='max-padd-container '>
-        <div className='max-padd-container bg-[#03346E]  py-16 xl:py-28 rounded-3xl  overflow-y-hidden'>
-            <span className='medium-18 text-white'>Your Future Home Awaits! </span>
-            <h2 className='h2 text-white'>Find Your Dream Here</h2>
-            <div className='flexBetween mt-8 mb-6 text-white'>
-                <h5><span className='font-bold '>Showing 1-9</span>out of 3k properties</h5>
-                <Link to={'/'} className='color-white text-3xl rounded-md h-10 w-10'><VscSettings /></Link>
+    <>
+        <section className='max-padd-container '>
+            <div className='max-padd-container bg-[#03346E]  py-16 xl:py-28 rounded-3xl  overflow-y-hidden'>
+                <span className='medium-18 text-white'>Your Future Home Awaits! </span>
+                <h2 className='h2 text-white'>Find Your Dream Here</h2>
+                <div className='flexBetween mt-8 mb-6 text-white'>
+                    <h5><span className='font-bold '>Showing 1-9 </span>out of 3k properties</h5>
+                    <Link to={'/'} className='color-white text-3xl rounded-md h-10 w-10'><VscSettings /></Link>
+                </div>
+                {/* container */}
+                <Swiper autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }} breakpoints={{600: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1124: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1300: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+                }}
+                modules={[ Autoplay]}
+                className='h-[488px] md:h-[533px] xl:h-[422px] mt-5'
+                >
+                    {
+                        properties.map((property)=> (
+                            <SwiperSlide key={property.title}>
+                            <Item property={property} setModalOpen={setModalOpen} /> 
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
             </div>
-            {/* container */}
-            <Swiper autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-            }} breakpoints={{600: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1124: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-            1300: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-            },
-            }}
-            modules={[ Autoplay]}
-            className='h-[488px] md:h-[533px] xl:h-[422px] mt-5'
-            >
-                {
-                    properties.map((property)=> (
-                        <SwiperSlide key={property.title}>
-                         <Item property={property} /> 
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
-        </div>
-    </section>
+        </section>
+        <EnquireModalBox modalOpen={modalOpen} setModalOpen={setModalOpen} />
+    </>
   )
 }
 
