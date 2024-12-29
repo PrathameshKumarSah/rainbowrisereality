@@ -7,7 +7,6 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import Item from './Item'
 import {apiStore} from "../store/apiHandler.js"
-import { EnquireModalBox } from './EnquireModalBox.jsx'
 import {PuffLoader} from "react-spinners"
 
 
