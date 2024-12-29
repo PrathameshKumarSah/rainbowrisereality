@@ -10,6 +10,7 @@ export const apiStore = create((set, get) => ({
   isLoggingIn: false,
   isPropertyUploading: false,
   isImgUpdating: false,
+  propertyLoading:false,
   isCheckingAuth: true,
   otpVerified:false,
   totalProperties: null,
