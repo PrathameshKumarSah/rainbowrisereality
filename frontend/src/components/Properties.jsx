@@ -73,7 +73,6 @@ const Properties = () => {
                 </Swiper>
             </div>
         </section>
-        <EnquireModalBox modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </>
   )
 }
