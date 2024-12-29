@@ -1,21 +1,21 @@
 import React, {useState, useEffect} from 'react'
+import Axios from 'axios'
 import Item from  "./Item"
 import { ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
-import { apiStore } from '../store/apiHandler';
+import { BASE_URL } from '../store/apiHandler';
 import { PuffLoader } from 'react-spinners';
 
 const ViewProperty = () => {
-  const {properties, getProperties, propertyLoading} = apiStore();
-    const [propertiesDetails, setPropertiesDetails] = useState(properties);
-    // const [propertyData, setPropertyData] = useState([]);
+    const [propertiesDetails, setPropertiesDetails] = useState([]);
+    const [propertyLoading, setPropertyLoading] = useState(true);
 
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOrder, setSortOrder] = useState("asc");
-  
+
     const handleSearch = (e) => {
       setSearchTerm(e.target.value.toLowerCase());
     };
-  
+
     const handleSort = () => {
       const sortedProducts = [...propertiesDetails].sort((a, b) => {
         return sortOrder === "asc" ? Number(a.price) - Number(b.price) : Number(b.price) - Number(a.price);
@@ -34,14 +34,21 @@ const ViewProperty = () => {
         property.address.toLowerCase().includes(searchTerm)
     );
 
-   useEffect(() => {
-      getProperties();
-    }, []);
-
+    
+    const getData = async () =>{
+      try{
+        const res = await Axios.get(BASE_URL+'/api/properties');
+        setPropertiesDetails(res.data);
+        setPropertyLoading(false);
+      }catch{
+        console.log("Error in getting properties details.");
+      }
+    }
+    // getData();
     useEffect(() => {
-      setPropertiesDetails(properties);
-    }, [properties]);
-  
+      getData();
+    }, [])
+
     if(propertyLoading){
       return (
         <div className='h-72 flex items-center justify-center'>
