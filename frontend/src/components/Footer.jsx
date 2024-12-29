@@ -35,13 +35,13 @@ const Footer = () => {
               <FooterColumn title={FOOTER_CONTACT_INFO.title}>
                 <div className="text-[#FFF8DE] flex gap-4 flex-col">
                     <Link to='tel:8058517274' className='text-[#FFF8DE] flex'>
-                      <PhoneIcon className='w-5' />
-                      : +91-8058517274, +91-8077148435
+                      <PhoneIcon className='w-5 mr-2' />
+                       +91-8058517274, +91-8077148435
                     </Link>
                     <Link to='mailto:info.rainbowriserealty@gmail.com' className='text-[#FFF8DE] flex'>
-                      <Mail className='w-5'/>
-                      : info.rainbowriserealty@gmail.com
-                    </Link>                    
+                      <Mail className='w-5 mr-2'/>
+                       info.rainbowriserealty@gmail.com
+                    </Link>                     
                 </div>
               </FooterColumn>
             </div>
