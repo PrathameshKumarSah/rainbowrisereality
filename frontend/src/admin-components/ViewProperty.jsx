@@ -6,11 +6,6 @@ import { PuffLoader } from 'react-spinners';
 
 const ViewProperty = () => {
   const {properties, getProperties, propertyLoading} = apiStore();
-  
-  useEffect(() => {
-      getProperties();
-    }, []);
-
     const [propertiesDetails, setPropertiesDetails] = useState(properties);
     // const [propertyData, setPropertyData] = useState([]);
 
@@ -38,6 +33,14 @@ const ViewProperty = () => {
         property.category.toLowerCase().includes(searchTerm) ||
         property.address.toLowerCase().includes(searchTerm)
     );
+
+   useEffect(() => {
+      getProperties();
+    }, []);
+
+    useEffect(() => {
+      setPropertiesDetails(properties);
+    })
   
     if(propertyLoading){
       return (
