@@ -6,7 +6,12 @@ import { PuffLoader } from 'react-spinners';
 
 const ViewProperty = () => {
   const {properties, getProperties, propertyLoading} = apiStore();
-    const [propertiesDetails, setPropertiesDetails] = useState([]);
+  
+  useEffect(() => {
+      getProperties();
+    }, []);
+
+    const [propertiesDetails, setPropertiesDetails] = useState(properties);
     // const [propertyData, setPropertyData] = useState([]);
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -33,12 +38,7 @@ const ViewProperty = () => {
         property.category.toLowerCase().includes(searchTerm) ||
         property.address.toLowerCase().includes(searchTerm)
     );
-
-    useEffect(() => {
-      getProperties();
-      setPropertiesDetails(properties);
-    }, []);
-
+  
     if(propertyLoading){
       return (
         <div className='h-72 flex items-center justify-center'>
