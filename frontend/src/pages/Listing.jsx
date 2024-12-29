@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import Searchbar from '../components/Searchbar'
 import Item from '../components/Item'
 import {apiStore} from "../store/apiHandler.js"
+import {PuffLoader} from "react-spinners"
 
 
 const Listing = () => {
-  const {properties, getProperties} = apiStore();
+  const {properties, getProperties, propertyLoading} = apiStore();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
@@ -26,6 +27,20 @@ const Listing = () => {
       getProperties();
     }, []);
 
+    if(propertyLoading){
+      return (
+        <div className='h-72 flex items-center justify-center'>
+          <PuffLoader 
+          height="80"
+          width="80"
+          radius={1}
+          color="#555"
+          aria-label='puff-loading'
+          />
+        </div>
+      )
+    }
+
   return (
     <main className="max-padd-container my-[99px]">
       <div className="max-padd-container py-10 xl:py-22 bg-primary rounded-3xl">
@@ -38,7 +53,10 @@ const Listing = () => {
                  <Item  key={property.p_id} property={property} /> 
                 ))
             }
-            {filteredProducts.length === 0 && (
+            {(propertyLoading) && (
+            <p className="text-center text-xl text-gray-500 mt-4">Loading...</p>
+          )}
+            {(filteredProducts.length === 0 && !propertyLoading) && (
             <p className="text-center text-xl text-gray-500 mt-4">No properties found for the selected filters.</p>
           )}
           </div>
