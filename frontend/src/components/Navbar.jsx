@@ -20,11 +20,18 @@ const Navbar = ({ containerStyles }) => {
           <MdPermContactCalendar />
           <div>About Us</div>
         </NavLink>
-        <NavLink to={"/project"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
+         <NavLink to={"/project"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
           <MdHomeWork />
-          <div>Projects</div>
+          <div>Godrej</div>
         </NavLink>
-       
+        <NavLink to={"/project1"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
+          <MdHomeWork />
+          <div>SKA</div>
+        </NavLink>
+        <NavLink to={"/project2"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
+          <MdHomeWork />
+          <div>Three Page</div>
+        </NavLink>
     </nav>
   )
 }
