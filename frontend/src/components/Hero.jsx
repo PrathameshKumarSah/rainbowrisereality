@@ -34,8 +34,13 @@ const Hero = () => {
     <div className='bg-cover bg-center px-4 h-[685px] w-full transition-all duration-1000' style={{ backgroundImage: `url(${images[currentImage]})` }}>
         <div className='relative top-52 pl-5 sm:pl-10'>
             <span className='medium-18 text-white'>Welcome to Rainbow Rise Realty</span>
-            <h1 className='h1 capitalize max-w-[40rem] text-white'>Next Home with Rainbow Rise Realty</h1>
-            <p className='my-10 max-w-[33rem] text-white'>Explore a curated selection of homes for sale or rent, easily filter by your desired features, and connect with a trusted real estate agent.</p>
+            <div class=" items-center justify-center overflow-y-hidden overflow-x-hidden mt-4">
+             <div class="w-max">
+              <h1 class="animate-typing overflow-hidden whitespace-nowrap border-r-4 h1 capitalize  text-white pr-5 text-2xl  font-bold">Next Home with Rainbow <br /> Rise Realty</h1>
+              </div>
+</div>
+            
+            <p className='my-10 max-w-[33rem] text-white'>Luxury, comfort, and convenience—properties that match your lifestyle. Invest in your future with properties designed to inspire and grow.</p>
              {/* button */}
              <div className='inline-flex items-center justify-center gap-4 p-2 bg-white rounded-xl'>
                 <div className='text-center regular-14 leading-tight pl-5'>
