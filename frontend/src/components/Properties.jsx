@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {VscSettings} from "react-icons/vsc"
 import {Swiper, SwiperSlide} from 'swiper/react'
@@ -7,13 +7,11 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import Item from './Item'
 import {apiStore} from "../store/apiHandler.js"
-import {PuffLoader} from "react-spinners"
+import {HashLoader} from "react-spinners"
 
 
 const Properties = () => {
     const {properties, getProperties, propertyLoading} = apiStore();
-    const [modalOpen, setModalOpen] = useState(false);
-
 
     useEffect(() => {
         getProperties();
@@ -22,11 +20,11 @@ const Properties = () => {
     if(propertyLoading){
     return (
         <div className='h-72 flex items-center justify-center'>
-        <PuffLoader 
+        <HashLoader 
         height="80"
         width="80"
         radius={1}
-        color="#555"
+        color="#4A90E2"
         aria-label='puff-loading'
         />
         </div>
@@ -36,7 +34,7 @@ const Properties = () => {
   return (
     <>
         <section className='max-padd-container '>
-            <div className='max-padd-container bg-[#03346E]  py-16 xl:py-28 rounded-3xl  overflow-y-hidden'>
+            <div className='max-padd-container bg-[#03346E]  py-12 xl:py-20 rounded-3xl  overflow-y-hidden'>
                 <span className='medium-18 text-white'>Your Future Home Awaits! </span>
                 <h2 className='h2 text-white'>Find Your Dream Here</h2>
                 <div className='flexBetween mt-8 mb-6 text-white'>
@@ -61,12 +59,12 @@ const Properties = () => {
                 },
                 }}
                 modules={[ Autoplay]}
-                className='h-[488px] md:h-[533px] xl:h-[422px] mt-5'
+                className='h-[508px] md:h-[553px] xl:h-[442px] mt-5'
                 >
                     {
                         properties.map((property)=> (
                             <SwiperSlide key={property.title}>
-                            <Item property={property} setModalOpen={setModalOpen} /> 
+                            <Item property={property} /> 
                             </SwiperSlide>
                         ))
                     }
