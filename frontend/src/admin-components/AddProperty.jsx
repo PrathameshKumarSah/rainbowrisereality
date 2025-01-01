@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronDown, ImagePlus, Save } from "lucide-react";
+import React, { useState } from 'react';
+import { Bath, Bed, CarFront, ChevronDown, ImagePlus, PencilRuler, Save } from "lucide-react";
 import {apiStore} from "../store/apiHandler.js"
 import { Loader } from 'lucide-react';
+import toast from "react-hot-toast";
 
 export default function AddProperty() {
   const {isPropertyUploading, addPropertyHandler } = apiStore();
+  const [filePath, setFilePath] = useState("");
+
+  const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      setFormData({ ...formData, img: file })
+      if (file) {
+          setFilePath(file.name); // Display the file name
+      } else {
+          setFilePath(""); // Reset if no file is selected
+      }
+  };
+
 
   const initialForm= {
     title: '',
@@ -14,6 +27,10 @@ export default function AddProperty() {
     price: '',
     price_title: '',
     price_range: '',
+    bed: '',
+    bath: '',
+    parking: '',
+    area: '',
     description: '',
     address: '',
     city: '',
@@ -25,6 +42,10 @@ export default function AddProperty() {
 
   const validateForm = (e) => {
     e.preventDefault();
+    if(formData.postal_code.length>6){
+      toast.error('Pin Code must be equal to 6 digits!!!');
+      return ;
+    }
     // console.log(formData);
     addPropertyHandler(formData);
     setFormData(initialForm);
@@ -173,7 +194,88 @@ export default function AddProperty() {
               </div>
             </div>
 
-            
+            <div className="sm:col-span-3">
+              <label htmlFor="bed" className="block text-sm/6 font-medium text-gray-900">
+                Bed Rooms
+              </label>
+              <div className="mt-1">
+                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6 flex"><Bed /> | </div>
+                  <input
+                    id="bed"
+                    name="bed"
+                    type="text"
+                    placeholder="1 BHK, 2-3 BHK etc."
+                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                  value={formData.bed}
+                  onChange={(e) => setFormData({ ...formData, bed: e.target.value })}
+                  required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label htmlFor="bath" className="block text-sm/6 font-medium text-gray-900">
+                Bath Rooms
+              </label>
+              <div className="mt-2">
+                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6 flex"><Bath /> | </div>
+                  <input
+                    id="bath"
+                    name="bath"
+                    type="text"
+                    placeholder="Number of Bath Rooms"
+                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                  value={formData.bath}
+                  onChange={(e) => setFormData({ ...formData, bath: e.target.value })}
+                  required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label htmlFor="parking" className="block text-sm/6 font-medium text-gray-900">
+                Parking
+              </label>
+              <div className="mt-2">
+                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6 flex"><CarFront /> | </div>
+                  <input
+                    id="parking"
+                    name="parking"
+                    type="text"
+                    placeholder="Parking..."
+                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                  value={formData.parking}
+                  onChange={(e) => setFormData({ ...formData, parking: e.target.value })}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label htmlFor="area" className="block text-sm/6 font-medium text-gray-900">
+                Area
+              </label>
+              <div className="mt-2">
+                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6 flex"><PencilRuler /> | </div>
+                  <input
+                    id="area"
+                    name="area"
+                    type="text"
+                    placeholder="Area"
+                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                  value={formData.area}
+                  onChange={(e) => setFormData({ ...formData, area: e.target.value })}
+                  required
+                  />
+                </div>
+              </div>
+            </div>
 
 
             <div className="col-span-full">
@@ -211,7 +313,8 @@ export default function AddProperty() {
                       <span>Upload a file</span>
                       <input id="file-upload" name="file-upload" type="file" className="sr-only" accept=".png, .jpg, .jpeg" 
                       // value={formData.img}
-                      onChange={(e) => setFormData({ ...formData, img: e.target.files[0] })}
+                      onChange={handleFileChange}
+                      
                       required
                       />
                     </label>
@@ -221,6 +324,11 @@ export default function AddProperty() {
                 </div>
               </div>
               {/* <p>Img path: {formData.img}</p> */}
+              {filePath && (
+                <p className='mt-3'>
+                    Selected File: <span className='font-semibold text-indigo-600'>{filePath}</span> 
+                </p>
+            )}
             </div>
           </div>
         </div>
