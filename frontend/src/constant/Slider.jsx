@@ -2,10 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
-import Gym from '../assets/bow.png'
-import Room from '../assets/bow1.png'
-import Swims from '../assets/bow2.png'
-import Relax from '../assets/bow3.png'
+import Gym from '../assets/god3.jpg'
+import Room from '../assets/go2.jpg'
+import Swims from '../assets/ska3.jpg'
+import Relax from '../assets/ska1.jpg'
 
 const Slider = () => {
 
@@ -56,17 +56,17 @@ useEffect(() => {
 }, [currentIndex]);
 
   return (
-    <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group overflow-y-hidden'>
+    <div className=' max-w-[1200px] h-[500px] w-full m-auto py-16 px-4 relative group overflow-y-hidden'>
     <div
         className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
     ></div>
     {/* Left Arrow */}
-    <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 group-hover:bg-black/20 text-white cursor-pointer'>
+    <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-6 text-2xl rounded-full p-2 group-hover:bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
     </div>
     {/* Right Arrow */}
-    <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 group-hover:bg-black/20 text-white cursor-pointer'>
+    <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] right-6 text-2xl rounded-full p-2 group-hover:bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
     </div>
 
