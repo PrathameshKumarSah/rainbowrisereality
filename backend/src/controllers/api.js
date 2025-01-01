@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import {generateToken} from '../libs/utils.js'
 import sendEmail from "../middleware/mail.sender.js";
 import mysql2 from "mysql2/promise";
+import { contactTemplate } from "../libs/contactEmailTemplate.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,11 +45,11 @@ export const handleLogin =  async (req, res) => {
         const user = rows[0];
         const passwordMatch = await bcrypt.compare(password, user.pass);
         if (!passwordMatch) {
-            return res.status(401).json({ message: 'Invalid password', loggedIn: false, user:{} });
+            return res.status(401).json({ message: 'Invalid password', loggedIn: false, user:{}  });
         }
         await generateToken(email, res);
         const data = {name:user.name, email:user.email, phone:user.phone};
-        res.status(200).json({ message: 'Login Successfull', loggedIn: true, user:data });
+        res.status(200).json({ message: 'Login successful', loggedIn: true, user:data });
         
     } catch(err){
         console.log(err);
@@ -77,10 +78,10 @@ export const logout = (req, res) => {
 
 // Handle when Property add 
 export const addPropertyHandler =  async (req, res) => {
-    const data = [[req.body.title, req.body.category, req.body.location, req.file.filename, req.body.price, req.body.price_title, req.body.price_range, req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state]];
+    const data = [[req.body.title, req.body.category, req.body.location, req.file.filename, req.body.price, req.body.price_title, req.body.price_range, req.body.bed, req.body.bath, req.body.parking, req.body.area,  req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state]];
     const pool = await mysql2.createPool(config);
     try{
-        await pool.query('INSERT INTO properties (title, category, location, img, price, price_title, price_range, description, address, city, postal_code, state) VALUES ?', [data]);
+        await pool.query('INSERT INTO properties (title, category, location, img, price, price_title, price_range, bed, bath, parking, area, description, address, city, postal_code, state) VALUES ?', [data]);
 
         res.json({ message: 'Property Added Successfully' });
     } catch(err){
@@ -180,8 +181,8 @@ const deleteOldImg = async (id) => {
 // updatePropertyDetails
 export const updatePropertyDetails = async (req, res) => {
     const pool = await mysql2.createPool(config);
-    const sql = "UPDATE properties SET title=? ,category=?, location=?, price=?, price_title=?, price_range=?, description=?, address=?, city=?, postal_code=?, state=?, updated_at=? WHERE p_id = ?"
-    const values = [req.body.title, req.body.category, req.body.location, req.body.price, req.body.price_title, req.body.price_range, req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state, new Date(), req.body.id];
+    const sql = "UPDATE properties SET title=? ,category=?, location=?, price=?, price_title=?, price_range=?, bed=?, bath=?, parking=?, area=?, description=?, address=?, city=?, postal_code=?, state=?, updated_at=? WHERE p_id = ?"
+    const values = [req.body.title, req.body.category, req.body.location, req.body.price, req.body.price_title, req.body.price_range, req.body.bed, req.body.bath, req.body.parking, req.body.area, req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state, new Date(), req.body.id];
     try{
         await pool.query(sql, values);
         res.json({ message: 'Property Details Updated Successfully'});
@@ -388,43 +389,62 @@ export const createNewPass = async (req, res) => {
 
 // check auth
 export const protectRoute = async (req, res) => {
-    // const pool = await mysql2.createPool(config);
-    // console.log('pool is created');
-  // try {
-    // const token = req.cookies.jwt;
+    const pool = await mysql2.createPool(config);
+  try {
+    const token = req.cookies.jwt;
 
-    // if (!token) {
-    //   return res.status(401).json({ message: "Unauthorized - No Token Provided" });
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized - No Token Provided" });
+    }
+
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET);
+    } catch (error) {
+      return res.status(401).json({ message: "Unauthorized - Invalid Token" });
+    }
+
+    // const user = decoded.userId;
+
+    // if (!user) {
+    //   return res.status(404).json({ message: "User not found" });
     // }
 
-    // let decoded;
-    // try {
-    //   decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // } catch (error) {
-    //   return res.status(401).json({ message: "Unauthorized - Invalid Token" });
-    // }
+    const userId = decoded.userId;
 
-    // const userId = decoded.userId;
+    if (!userId) {
+      return res.status(400).json({ message: "Invalid token payload" });
+    }
 
-    // if (!userId) {
-    //   return res.status(400).json({ message: "Invalid token payload" });
-    // }
-
-    // const [row] = await pool.query('SELECT name, email, phone FROM admin WHERE email = ?', [userId]);
+    const [row] = await pool.query('SELECT name, email, phone FROM admin WHERE email = ?', [userId]);
     // console.log(decoded, row);
-    // if (row.length === 0) {
-    //     return res.status(404).json({ message: "User not found" });
-    // }
-    return res.status(200).json({ name: 'Admin', email: 'admin@gmail.com', phone: '9625136114' });
-  // } catch (error) {
-  //   console.log("Error in protectRoute middleware: ", error);
-  //   res.status(500).json({ message: "internal server error", errorMsg: error });
-  // } 
-  // finally {
-  //   try {
-  //       await pool.end();        
-  //   } catch (error) {
-  //       console.error('Error closing the database connection pool:', error);
-  //   }
-  // }
+    if (row.length === 0) {
+        return res.status(404).json({ message: "User not found" });
+    }
+    return res.status(200).json(row[0]);
+  } catch (error) {
+    console.log("Error in protectRoute middleware: ", error);
+    res.status(500).json({ message: "Internal server error "+error.message });
+  } 
+  finally {
+    try {
+        await pool.end();        
+    } catch (error) {
+        console.error('Error closing the database connection pool:', error);
+    }
+  }
 };
+
+// Enquire Form
+export const sendEnquire =  async (req, res) => {
+    const { name, phone, message } = req.body;
+    try{
+        const sub = `${name.split(" ")[0].toUpperCase()} wanted to connect - Rainbow Rise Reality`;
+        const msg = contactTemplate(name, phone, message);
+        await sendEmail(process.env.AUTH_EMAIL, sub, msg);
+        res.status(200).json({ message: 'Enquire Sended', status: true });
+        
+    } catch(err){
+        res.status(500).json({ message: 'Server Error' });
+    }
+}
