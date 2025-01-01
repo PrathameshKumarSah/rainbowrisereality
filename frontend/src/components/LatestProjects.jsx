@@ -1,52 +1,77 @@
 import React from 'react'
-import Build from '../assets/builds.png'
-import { Link } from 'react-router-dom'
+import Spa from '../assets/ska.jpg'
+import Sunshine from '../assets/god.jpg'
+import Three from '../assets/page.jpg'
 
 const LatestProjects = () => {
   return (
     <div>
-        <h2 className=" max-padd-container mt-10 text-center text-4xl md:text-5xl font-extrabold text-[#000000] overflow-y-hidden">
+        <h2 className=" max-padd-container mt-10 text-center text-4xl md:text-5xl font-extrabold text-[#000000] overflow-y-hidden mb-10">
         Our latest Projects
       </h2>
-    <div className=" max-padd-container w-full bg-white flex flex-col md:flex-row items-center justify-center px-6 py-10 md:py-20 gap-8">
-    {/* Left Section - Text Content */}
-    <div className="md:w-1/2 w-full text-left space-y-6">
-      <h3 className="text-3xl font-bold text-[#000000]">Godrej Properties</h3>
-      <p className="text-gray-600 leading-relaxed">
-        Godrej Noida is located at the very 1st sector on the
-        Expressway – adjacent to Delhi. Here, they guarantee new icons of
-        perfect life and lifestyle: a wonderful, luxurious, and comfortable
-        residence. Here, all of the amenities are set up to increase your
-        comfort & lifestyle. The Cullinan is where you may hear the greatest
-        notes of life that this opulent Mixed-Use Development has to offer.
-        The amount of flora around these homes contributes to the surroundings'
-        high quality. The Cullinan is a place where you get the best that life
-        can offer on a platter so beautiful that you can feast on it forever.
-        The assets provide the longest-lasting pattern of living. It extends
-        over sizable acres, has a charming aspect, and a luxurious trend of
-        living. The project is situated in Noida's Sector 94.
-      </p>
-      {/* Button */}
-      <Link
-        to="/project"
-        className="inline-flex items-center gap-2 text-[#000000] font-semibold text-lg"
-      >
-        More Details{" "}
-        <span className=" ">
-          ↗
-        </span>
-      </Link>
-    </div>
-
-    {/* Right Section - Image */}
-    <div className="md:w-1/2 w-full">
-      <img
-        src={Build}
-        alt="M3M Cullinan"
-        className="w-full h-auto rounded-lg shadow-lg"
-      />
-    </div>
-  </div>
+      <section className="max-padd-container container mx-auto p-6 mt-6">
+        {/* Property 1: Rise Resort Residences */}
+        <div className="flex flex-col md:flex-row items-center mb-12">
+          {/* Image */}
+          <div className="w-full md:w-1/2 mb-6 md:mb-0">
+            <img
+              src={Sunshine}
+              alt="Rise Resort Residences"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+          {/* Content */}
+          <div className="w-full md:w-1/2 md:pl-8 text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+              GODREJ
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+            Godrej Properties Noida is a prestigious real estate development offering modern homes with world-class amenities and sustainable designs. Located in prime areas of Noida, these properties blend luxury, comfort, and innovation. With a reputation for quality and timely delivery, Godrej Properties ensures an exceptional lifestyle in one of India's fastest-growing cities.
+            </p>
+            
+          </div>
+        </div>
+       
+        {/* Property 2: M3M The Cullinan */}
+        <div className="flex flex-col-reverse md:flex-row items-center mb-10">
+          {/* Content */}
+          <div className="w-full md:w-1/2 md:pr-8 text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+              SKA DESTINY ONE
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+            SKA Destiny One, developed by SKA Group, is a premium residential project located in Sector ZETA 1, Greater Noida. Spanning approximately 6 acres, it offers luxurious 3 and 4 BHK apartments designed to provide a lavish lifestyle. The project boasts world-class amenities, including a swimming pool, clubhouse, gym, and indoor games facilities, ensuring residents enjoy both comfort and convenience.
+            </p>
+          </div>
+          {/* Image */}
+          <div className="w-full md:w-1/2 mb-6 md:mb-0">
+            <img
+              src={Spa}
+              alt="M3M The Cullinan"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row items-center mb-12 mt-10">
+          {/* Image */}
+          <div className="w-full md:w-1/2 mb-6 md:mb-0">
+            <img
+              src={Three}
+              alt="Rise Resort Residences"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+          {/* Content */}
+          <div className="w-full md:w-1/2 md:pl-8 text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+              Three Page
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+            Page Three Residences by H&S is a luxury residential project located in Jaypee Greens, Greater Noida. Spanning approximately 1.28 acres, it offers 4 and 5 BHK apartments, presidential penthouses, and duplex villas, totaling around 46 units. The development boasts modern amenities, including a spa, restaurant, cycling and jogging tracks, gymnasium, and swimming pool.
+            </p>
+          </div>
+        </div>
+      </section>
   </div>
   )
 }
