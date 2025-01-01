@@ -13,8 +13,7 @@ const ReadyToMoveProjects = () => {
         Ready to move in projects
       </h2>
       <p className="text-gray-500 text-lg font-medium mt-2">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.
+      Explore. Imagine. Live. Your perfect property is waiting for you.
       </p>
     </div>
 
@@ -29,50 +28,50 @@ const ReadyToMoveProjects = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-8xl mx-auto ">
       {/* Card 1 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-        <img
+        <Link to="/project"><img
           src={villa}
           alt="Rise Resort Villas"
           className="w-full h-80 object-cover"
         />
         <div className="p-4">
-          <h3 className="font-bold text-lg">Rise Resort Villas</h3>
-          <p className="text-gray-500 mt-2">
+          <h3 className="bg-[#be9035] text-white px-1 py-1 rounded-sm font-semibold hover:bg-yellow-500 transition text-center">Godrej</h3>
+          {/* <p className="text-gray-500 mt-2">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
-          </p>
-        </div>
+          </p> */}
+        </div></Link>
       </div>
 
       {/* Card 2 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-        <img
+      <Link to="/project1"><img
           src={godrej}
           alt="Godrej Woods"
           className="w-full h-80 object-cover"
         />
         <div className="p-4">
-          <h3 className="font-bold text-lg">Godrej Woods</h3>
-          <p className="text-gray-500 mt-2">
+          <h3 className="bg-[#be9035] text-white px-1 py-1 rounded-sm font-semibold hover:bg-yellow-500 transition text-center">SKA Destiny One</h3>
+          {/* <p className="text-gray-500 mt-2">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
-          </p>
-        </div>
+          </p> */}
+        </div></Link>
       </div>
 
       {/* Card 3 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-        <img
+       <Link to="/project2"><img
           src={riseresort}
           alt="Rise Resort Villas"
           className="w-full h-80 object-cover"
         />
         <div className="p-4">
-          <h3 className="font-bold text-lg">Rise Resort Villas</h3>
-          <p className="text-gray-500 mt-2">
+          <h3 className="bg-[#be9035] text-white px-1 py-1 rounded-sm font-semibold hover:bg-yellow-500 transition text-center">Page Three</h3>
+          {/* <p className="text-gray-500 mt-2">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
-          </p>
-        </div>
+          </p> */}
+        </div></Link>
       </div>
     </div>
   </section>
