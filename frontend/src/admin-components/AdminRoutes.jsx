@@ -4,7 +4,7 @@ import Dashboard from "./Dashboard";
 import AdminLogin from "./AdminLogin";
 import Logout from "./Logout";
 import {ADMIN_BASE_URL} from "../App";
-import Enquires from "./Enquires";
+// import Enquires from "./Enquires";
 import ViewProperty from "./ViewProperty";
 import UpdatedProperty from "./UpdatedProperty";
 import AddProperty from "./AddProperty";
@@ -23,22 +23,21 @@ const AdminRoutes = () => {
   const { authUser, checkAuth, isCheckingAuth, otpVerified } = apiStore();
 
   useEffect(() => {
-    // checkAuth();
-    console.log("admin routes auth user check: ",authUser);
-  }, [authUser]);
+    checkAuth();
+  }, [checkAuth]);
 
-  // if (isCheckingAuth && !authUser)
-  //   return (
-  //     <div className="flex items-center justify-center h-screen">
-  //       <Loader className="size-10 animate-spin" />
-  //     </div>
-  //   );
+  if (isCheckingAuth && !authUser)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin" />
+      </div>
+    );
 
   return (
       <>
         <Routes>
             <Route path="/" element={authUser ? <Main><Dashboard /> Dashboard</Main> : <AdminLogin />} />
-            <Route path="/enquires" element={authUser ? <Main><Enquires /> Enquires</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
+            {/* <Route path="/enquires" element={authUser ? <Main><Enquires /> Enquires</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} /> */}
             <Route path="/view-properties" element={authUser ? <Main><ViewProperty /> All Properties</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/add-property" element={authUser ? <Main><AddProperty /> Add Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/update-property/:id" element={authUser ? <Main><UpdatedProperty /> Updated Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
