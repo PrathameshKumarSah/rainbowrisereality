@@ -6,10 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const EnquireModalBox = ({modalOpen}) => {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
-  const [submittedData, setSubmittedData] = useState(null);
   const {sendEnquire, enquireStatus, enquireLoading, setModalOpen} = apiStore();
   const navigate = useNavigate();
-  const [mobileNumber, setMobileNumber] = useState('');
   const [warning, setWarning] = useState('');
 
   const handleInputChange = (e) => {
@@ -21,7 +19,6 @@ const EnquireModalBox = ({modalOpen}) => {
       } else {
         setWarning('');
       }
-      // setMobileNumber(value.slice(0, 10)); // Limit to 10 digits
       setFormData((prevData) => ({ ...prevData, [name]: value.slice(0, 10) }));
     }
   };
@@ -34,7 +31,6 @@ const EnquireModalBox = ({modalOpen}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // setSubmittedData(formData);
     sendEnquire(formData);
   };
 
@@ -58,7 +54,7 @@ const EnquireModalBox = ({modalOpen}) => {
         >
           {/* Modal Content */}
           <div
-            className="bg-white rounded-lg p-6 shadow-lg w-2/3 lg:w-1/3 relative"
+            className="bg-white rounded-lg p-6 shadow-lg w-3/3 lg:w-1/3 relative"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the modal
           >
             {/* Close Button */}
