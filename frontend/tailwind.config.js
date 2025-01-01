@@ -3,9 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      
       colors: {
         primary: "#f5f6f2",
-        secondary: "#0A3981",
+        secondary: "#071B32",
         tertiary: "#222222",
         secondaryRed: "#f42c37",
         secondaryYellow: "#fdc62e",
@@ -28,6 +29,28 @@ export default {
       backgroundImage: {
         hero: "url(/src/assets/bgu.png)",
       },
+      keyframes: {
+        typing: {
+          "0%": {
+            width: "0%",
+            visibility: "hidden"
+          },
+          "100%": {
+            width: "100%"
+          }  
+        },
+        blink: {
+          "50%": {
+            borderColor: "transparent"
+          },
+          "100%": {
+            borderColor: "white"
+          }  
+        }
+      },
+      animation: {
+        typing: "typing 4s steps(40) infinite alternate, blink .3s infinite"
+      }
     },
   },
   plugins: [],
