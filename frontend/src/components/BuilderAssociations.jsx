@@ -12,7 +12,7 @@ const BuilderAssociations = () => {
    
 
     return (
-        <div className="text-center mt-[50px]">
+        <div className=" text-center mt-[50px]">
         <div className=" mb-[50px]">
              {/* Header Section */}
              <div className="text-center mb-8">
@@ -24,29 +24,28 @@ const BuilderAssociations = () => {
                 </p>
             </div>
         </div>
-  
         <div>
-          <Marquee direction="right" speed={100} delay={4}>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img1} alt="" />
+          <Marquee direction="right" speed={300} delay={4}>
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img1} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img2} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img2} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img3} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img3} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img4} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img4} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img5} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img5} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img6} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img6} alt="" />
             </div>
-            <div className="mx-[30px] my-0">
-              <img className='w-[30%]' src={img7} alt="" />
+            <div className="mx-[20px] my-0">
+              <img className='w-[40%]' src={img7} alt="" />
             </div>
           </Marquee>
         </div>
