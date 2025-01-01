@@ -110,13 +110,8 @@ export const apiStore = create((set, get) => ({
   getProperties: async () => {
     set({propertyLoading:true})
     try{
-      const res = await axiosInstance.get("/properties", {
-        timeout: 15*1000,
-      });
+      const res = await axiosInstance.get("/properties");
       // setPropertiesDetails(res.data);
-      if(res.status===400 || res.status===500){
-        throw res.data;
-      }
       set({ properties: res.data });
       // console.log(res.data);
       // setPropertyData(res.data);
