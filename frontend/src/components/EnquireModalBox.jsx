@@ -1,88 +1,156 @@
-import React, { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { apiStore } from "../store/apiHandler";
+import {SkewLoader} from "react-spinners"
+import { useNavigate } from "react-router-dom";
 
-export const EnquireModalBox = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+const EnquireModalBox = ({modalOpen}) => {
+  const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
+  const [submittedData, setSubmittedData] = useState(null);
+  const {sendEnquire, enquireStatus, enquireLoading, setModalOpen} = apiStore();
+  const navigate = useNavigate();
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [warning, setWarning] = useState('');
 
-  const trigger = useRef(null);
-  const modal = useRef(null);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    // Allow only numbers
+    if (/^\d*$/.test(value)) {
+      if (value.length > 10) {
+        setWarning('Phone number cannot exceed 10 digits');
+      } else {
+        setWarning('');
+      }
+      // setMobileNumber(value.slice(0, 10)); // Limit to 10 digits
+      setFormData((prevData) => ({ ...prevData, [name]: value.slice(0, 10) }));
+    }
+  };
 
-  // close on click outside
-  useEffect(() => {
-    const clickHandler = ({ target }) => {
-      if (!modal.current) return;
-      if (
-        !modalOpen ||
-        modal.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
-      setModalOpen(false);
-    };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
-  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-  // close if the esc key is pressed
-  useEffect(() => {
-    const keyHandler = ({ keyCode }) => {
-      if (!modalOpen || keyCode !== 27) return;
-      setModalOpen(false);
-    };
-    document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    // setSubmittedData(formData);
+    sendEnquire(formData);
+  };
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  useEffect(()=>{
+    if(enquireStatus){
+      closeModal();
+      navigate('/thankyou');
+    }
+  }, [enquireStatus]);
 
   return (
-    <>
-      <div className="container mx-auto py-4">
-        <button
-          ref={trigger}
-          onClick={() => setModalOpen(true)}
-          className={`rounded-full bg-primary px-6 py-3 text-base font-medium text-indigo-800`}
-        >
-          Contact Us
-        </button>
+    <div className="relative">
+      {/* Modal Overlay */}
+      {modalOpen && (
         <div
-          className={`fixed left-0 top-0 flex h-full min-h-screen w-full z-50 items-center justify-center bg-dark/90 px-4 py-5 ${
-            modalOpen ? "block" : "hidden"
-          }`}
+          className="fixed inset-0 shadow-md bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={closeModal}
         >
+          {/* Modal Content */}
           <div
-            ref={modal}
-            onFocus={() => setModalOpen(true)}
-            onBlur={() => setModalOpen(false)}
-            className="w-full max-w-[570px] rounded-[20px] bg-white px-8 py-12 text-center dark:bg-dark-2 md:px-[70px] md:py-[60px]"
+            className="bg-white rounded-lg p-6 shadow-lg w-2/3 lg:w-1/3 relative"
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the modal
           >
-            <h3 className="pb-[18px] text-xl font-semibold text-dark dark:text-white sm:text-2xl">
-              Your Message Sent Successfully
-            </h3>
-            <span
-              className={`mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary`}
-            ></span>
-            <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since
-            </p>
-            <div className="-mx-3 flex flex-wrap">
-              <div className="w-1/2 px-3">
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="block w-full rounded-md border border-stroke p-3 text-center text-base font-medium text-dark transition hover:border-red-600 hover:bg-red-600 hover:text-white dark:text-white"
+            {/* Close Button */}
+            <button
+              className="absolute top-2 right-2 rounded-full p-1 bg-primary text-gray-600 hover:text-gray-800"
+              onClick={closeModal}
+            >
+              <X size={20} />
+            </button>
+            <h2 className="text-xl font-semibold mb-4">CONNECT WITH US</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-700 font-medium mb-2"
                 >
-                  Cancel
-                </button>
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  placeholder="Your Full Name"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+                  autoComplete="off"
+                  required
+                />
               </div>
-              <div className="w-1/2 px-3">
-                <button className="block w-full rounded-md border border-primary bg-primary p-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
-                  <a href={`/#`}> View Details </a>
-                </button>
+              <div className="mb-4">
+                <label
+                  htmlFor="phone"
+                  className="block text-gray-700 font-medium mb-2"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  // value={mobileNumber}
+                  // onChange={handleInputChange}
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Your Phone Number"
+                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+                  autoComplete="off"
+                  maxLength={10}
+                  required
+                />
+                {warning && (
+                  <p className="text-red-500 text-sm mt-2">{warning}</p>
+                )}
               </div>
-            </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 font-medium mb-2"
+                >
+                  Message
+                </label>
+                <input
+                  type="text"
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  placeholder="Type Message"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+                ></input>
+              </div>
+              <button
+                type="submit"
+                className="w-full btn-secondary rounded-xl shadow mt-5 text-center hover:bg-blue-900"
+              >{!enquireLoading ? 
+                'Connect' :
+                <SkewLoader 
+                  height="10"
+                  width="10"
+                  radius={1}
+                  color="#fff"
+                  aria-label='puff-loading'
+                  />
+              }
+              </button>
+            </form>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
+export default EnquireModalBox
