@@ -10,13 +10,17 @@ export const apiStore = create((set, get) => ({
   isLoggingIn: false,
   isPropertyUploading: false,
   isImgUpdating: false,
-  propertyLoading:false,
   isCheckingAuth: true,
   otpVerified:false,
+  propertyLoading:false,
   totalProperties: null,
+  modalOpen:false,
   totalenq: null,
   properties: [],
   userData:null,
+  enquireLoading: false,
+  enquireStatus: false,
+  isError:false,
   initialFormState: {
       id: '',
       title: '',
@@ -26,6 +30,10 @@ export const apiStore = create((set, get) => ({
       price: '',
       price_title: '',
       price_range: '',
+      bed: '',
+      bath: '',
+      parking: '',
+      area: '',
       description: '',
       address: '',
       city: '',
@@ -45,25 +53,9 @@ export const apiStore = create((set, get) => ({
       // set({ authUser: res.data });
     } catch (error) {
       console.log("Error in checkAuth:", error);
-      // set({ authUser: null });
+      set({ authUser: null });
     } finally {
       set({ isCheckingAuth: false });
-    }
-  },
-
-  getProperties: async () => {
-    set({propertyLoading:true})
-    try{
-      const res = await axiosInstance.get("/properties");
-      // setPropertiesDetails(res.data);
-      set({ properties: res.data });
-      // console.log(res.data);
-    }catch{
-      console.log(BASE_URL);
-      console.log("Error in getting properties details.");
-      toast.error(error.response.data.message);
-    } finally {
-      set({ propertyLoading: false });
     }
   },
 
@@ -73,7 +65,7 @@ export const apiStore = create((set, get) => ({
       let res = await axiosInstance.post("/login", data);
       toast.success("Logged in successfully");
       console.log(res.data);
-      set({ userData: res.data.user});
+      set({ userData: res.data.user });
       set({ authUser: res.data.loggedIn });
     } catch (error) {
       toast.error(error.response.data.message);
@@ -93,6 +85,52 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  getProperty: async (id) => {
+    console.log("id:", id);
+    set({propertyLoading:true})
+    try {
+      let res = await axiosInstance.get(`/get-property/${id}`, {
+        timeout: 20*1000,
+      });
+      if(res.status===400 || res.status===500){
+        throw res.data;
+      }
+      console.log(res.data[0]);
+      return res.data[0];
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+      set({ isError: true });
+      throw error;
+    } finally {
+      set({ propertyLoading: false });
+    }
+  },
+
+  getProperties: async () => {
+    set({propertyLoading:true})
+    try{
+      const res = await axiosInstance.get("/properties", {
+        timeout: 15*1000,
+      });
+      // setPropertiesDetails(res.data);
+      if(res.status===400 || res.status===500){
+        throw res.data;
+      }
+      set({ properties: res.data });
+      // console.log(res.data);
+      // setPropertyData(res.data);
+    } catch (error) {
+      console.log(BASE_URL);
+      console.log(error.response);
+      set({ isError: true });
+      // toast.error("Error in getting Properties.");
+      throw error;
+    } finally{ 
+      set({propertyLoading:false})
+    }
+  },
+
   addPropertyHandler: async (data) => {
     set({ isPropertyUploading: true });
     try {
@@ -102,18 +140,18 @@ export const apiStore = create((set, get) => ({
         }
       );
       toast.success("Property Added successfully");
-      // console.log(res);
+      console.log(res);
       // set({ authUser: res.data });
     } catch (error) {
-      toast.error(error.response.data.message);
       console.log(error.response.data.message);
+      toast.error(error.response.data.message);
     } finally {
       set({ isPropertyUploading: false });
     }
   },
 
   getPropertyForUpdate: async (id) => {
-    set({ propertyLoading: false })
+    set({propertyLoading:true})
     try {
       let res = await axiosInstance.get(`/get-property/${id}`);
       res = res.data[0];
@@ -127,6 +165,10 @@ export const apiStore = create((set, get) => ({
         price: res.price,
         price_title: res.price_title,
         price_range: res.price_range,
+        bed: res.bed,
+        bath: res.bath,
+        parking: res.parking,
+        area: res.area,
         description: res.description,
         address: res.address,
         city: res.city,
@@ -257,5 +299,28 @@ export const apiStore = create((set, get) => ({
       toast.error(error.response.data.message);
     }
   },
+
+  setModalOpen: (val) => {
+    console.log('i ama set modal open')
+    set({modalOpen: val});
+  },
+
+  sendEnquire: async (body) => {
+    set({enquireLoading: true})
+    try{
+      const res = await axiosInstance.post(`/send-enquire`, body);
+      toast.success(res.data.message);
+      set({enquireStatus: true});
+      set({enquireLoading: false});
+    }catch(error){
+      console.log("Error in sending Enquiry");
+      toast.error(error.response.data.message);
+    } finally{
+      setTimeout(() => {
+        set({enquireStatus: false});
+      }, 3000)
+    }
+  },
+  
 
 }));
