@@ -38,7 +38,7 @@ const About = () => {
                 <img src={aboutImg} alt=""  className='rounded-3xl rounded-tr-[155px] w-[488px]'/>
                 <div className='bg-white absolute bottom-16 left-16 max-w-xs p-4 rounded-lg flexCenter flex-col'>
                     <span className='relative bottom-8 p-3 shadow-md bg-white h-12 w-12 flex items-center rounded-full'><RiDoubleQuotesL className='text-2xl'/></span>
-                    <p className='text-center relative bottom-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore vero quae enim! </p>
+                    <p className='text-center relative bottom-3'>Your dream home is just a click away! </p>
                 </div>
              </div>
              {/* right side */}
@@ -50,7 +50,7 @@ const About = () => {
                     Our Commitment Crafting Extraordinary RealEstate Experiences
                 </h2>
                 <p className='py-5'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas unde animi soluta veniam id illum, ullam corporis. Explicabo fuga quibusdam ea doloremque ab. Harum reprehenderit possimus nisi iste tempora veniam.
+                Your journey to the perfect home begins here. From cozy apartments to luxury villas, find the property that fits your vision. Trust us to guide you every step of the way, making your real estate dreams a reality.
                 </p>
                 {/* statistice container */}
                 <div className='flex flex-wrap gap-4'>
