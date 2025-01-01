@@ -19,7 +19,7 @@ const Home = () => {
       <LatestProjects />
       <Slider />
       <Blogs />
-      <div className='max-padd-container py-16 overflow-x-hidden'>
+      <div className='py-16 overflow-x-hidden'>
         <img src={bannerImg} alt="" />
       </div>
       <ReadyToMoveProjects />
