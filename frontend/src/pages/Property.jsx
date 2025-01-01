@@ -39,7 +39,7 @@ const Property = () => {
   if(isError){
     return (
       <div className=' h-80 flex items-center justify-center'>
-        Please check your Internet Connection.
+        Error while Fetching Data
       </div>
     )
   }
