@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import Searchbar from '../components/Searchbar'
 import Item from '../components/Item'
 import {apiStore} from "../store/apiHandler.js"
-import {PuffLoader} from "react-spinners"
+import {HashLoader} from "react-spinners"
 
 
 const Listing = () => {
-  const {properties, getProperties, propertyLoading} = apiStore();
+  const {properties, getProperties, propertyLoading, isError} = apiStore();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
@@ -27,19 +27,27 @@ const Listing = () => {
       getProperties();
     }, []);
 
+    if(isError){
+      return (
+        <div className=' h-80 flex items-center justify-center'>
+          Please check your Internet Connection.
+        </div>
+      )
+    }
+
     if(propertyLoading){
       return (
-        <div className='h-72 flex items-center justify-center'>
-          <PuffLoader 
+        <div className=' h-screen flex items-center justify-center'>
+          <HashLoader 
           height="80"
           width="80"
           radius={1}
-          color="#555"
+          color="#4A90E2"
           aria-label='puff-loading'
           />
         </div>
       )
-    }
+    }    
 
   return (
     <main className="max-padd-container my-[99px]">
