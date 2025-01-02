@@ -4,8 +4,9 @@ import { apiStore } from "../store/apiHandler";
 import {SkewLoader} from "react-spinners"
 import { useNavigate } from "react-router-dom";
 
-const EnquireModalBox = ({modalOpen}) => {
-  const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
+const EnquireModalBox = ({modalOpen, title}) => {
+  const initialData = { title:"", name: "", phone: "", message: "", date:"" };
+  const [formData, setFormData] = useState(initialData);
   const {sendEnquire, enquireStatus, enquireLoading, setModalOpen} = apiStore();
   const navigate = useNavigate();
   const [warning, setWarning] = useState('');
@@ -30,16 +31,28 @@ const EnquireModalBox = ({modalOpen}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(formData.phone.length<10){
+      setWarning('Phone number should be 10 digits');
+      return ;
+    }
+    const currentDate = new Date();
+    formData['date'] = `${currentDate.toDateString()}, ${currentDate.toLocaleTimeString()}`;
+    setFormData(formData);
+    if(title){
+      formData['title'] = title;
+      setFormData(formData);
+    }
     console.log(formData);
     sendEnquire(formData);
   };
 
-  const openModal = () => setModalOpen(true);
+  // const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
   useEffect(()=>{
     if(enquireStatus){
       closeModal();
+      setFormData(initialData);
       navigate('/thankyou');
     }
   }, [enquireStatus]);
@@ -50,11 +63,10 @@ const EnquireModalBox = ({modalOpen}) => {
       {modalOpen && (
         <div
           className="fixed inset-0 shadow-md bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
+          onClick={closeModal}>
           {/* Modal Content */}
           <div
-            className="bg-white rounded-lg p-6 shadow-lg w-5/6 lg:w-1/3 relative"
+            className="bg-white rounded-lg p-6 shadow-lg w-5/6 md:w-2/4 lg:w-1/3 relative"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the modal
           >
             {/* Close Button */}
@@ -96,8 +108,6 @@ const EnquireModalBox = ({modalOpen}) => {
                   type="text"
                   id="phone"
                   name="phone"
-                  // value={mobileNumber}
-                  // onChange={handleInputChange}
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Your Phone Number"
