@@ -1,6 +1,6 @@
-import { Edit, Trash2, MoveRight } from 'lucide-react';
+import { Edit, MoveRight} from 'lucide-react';
 import React from 'react'
-import { Link, useNavigate  } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ADMIN_BASE_URL } from '../App';
 import { BASE_URL } from '../store/apiHandler';
 import RemoveProperty from './RemoveProperty';
