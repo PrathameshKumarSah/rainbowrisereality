@@ -1,8 +1,7 @@
 import express from "express";
-import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass } from "../controllers/api.js";
+import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire } from "../controllers/api.js";
 import multer from 'multer';
 import path from 'path';
-import { protectRoute } from "../middleware/auth.middleware.js";
 
 
 const router = express.Router();
@@ -36,6 +35,7 @@ router.post("/logout", logout);
 router.get("/send-otp", sendOTP);
 router.post("/verify-otp", otpVerification);
 router.post("/create-new-password", createNewPass);
+router.post("/send-enquire", sendEnquire);
 
 
 export default router
