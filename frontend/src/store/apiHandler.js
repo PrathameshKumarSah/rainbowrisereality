@@ -20,6 +20,8 @@ export const apiStore = create((set, get) => ({
   userData:null,
   enquireLoading: false,
   enquireStatus: false,
+  contactLoading: false,
+  contactStatus: false,
   isError:false,
   initialFormState: {
       id: '',
