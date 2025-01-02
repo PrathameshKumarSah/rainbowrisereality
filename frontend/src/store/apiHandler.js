@@ -295,9 +295,9 @@ export const apiStore = create((set, get) => ({
     }
   },
 
-  setModalOpen: (val) => {
-    console.log('i ama set modal open')
-    set({modalOpen: val});
+  setModalOpen: (val, title) => {
+    console.log('I\'m a set modal open', title)
+    set({modalOpen: {val, title}});
   },
 
   sendEnquire: async (body) => {
