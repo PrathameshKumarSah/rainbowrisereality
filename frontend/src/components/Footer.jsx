@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className='bg-secondary'>
       <div className="rounded-t-lg pt-12 px-6 xl:pt-20 pb-8 pl-6">
         <h3 className='h3 text-white'>Explore RealEstate opportunities with Us?</h3>
-        <p className='text-[#FFF8DE]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa facilis deleniti repellendus.</p>
+        <p className='text-[#FFF8DE]'>Discover a place you'll love to live.</p>
         <hr className="text-[#FBFBFB] my-8 bg-slate-900/30 h-[2px]" />
         {/* container */}
         <div className=" text-white flex justify-between flex-wrap gap-x-2 gap-y-8">
