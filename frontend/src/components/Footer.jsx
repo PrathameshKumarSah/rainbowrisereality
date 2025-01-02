@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '../constant/data'
 import log from '../assets/rrr logo.png'
-import { Mail, PhoneIcon } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className='bg-[#03346E]'>
+    <footer className='bg-secondary'>
       <div className="rounded-t-lg pt-12 px-6 xl:pt-20 pb-8 pl-6">
         <h3 className='h3 text-white'>Explore RealEstate opportunities with Us?</h3>
         <p className='text-[#FFF8DE]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa facilis deleniti repellendus.</p>
@@ -31,18 +30,13 @@ const Footer = () => {
                 </ul>
               </FooterColumn>
             ))}
-            <div className="text-[#FFF8DE] flex flex-col gap-5 text-sm">
+            <div className="text-[#FFF8DE] flex flex-col gap-5">
               <FooterColumn title={FOOTER_CONTACT_INFO.title}>
-                <div className="text-[#FFF8DE] flex gap-4 flex-col">
-                    <Link to='tel:8058517274' className='text-[#FFF8DE] flex'>
-                      <PhoneIcon className='w-5 mr-2' />
-                       +91-8058517274, +91-8077148435
-                    </Link>
-                    <Link to='mailto:info.rainbowriserealty@gmail.com' className='text-[#FFF8DE] flex'>
-                      <Mail className='w-5 mr-2'/>
-                       info.rainbowriserealty@gmail.com
-                    </Link>                     
-                </div>
+                {FOOTER_CONTACT_INFO.links.map((link)=> (
+                  <Link to={'/'} key={link.label} className="text-[#FFF8DE] flex gap-4 md:flex-col lg:flex-row">
+                    <p className='text-[#FFF8DE]'>{link.label} : &nbsp;{link.value}</p>
+                  </Link>
+                ))}
               </FooterColumn>
             </div>
             <div className="text-[#FFF8DE] flex">
@@ -60,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
       {/* copyright */}
-      <p className="text-[#FFF8DE] text-white bg-[#000000] medium-14.4 py-2 px-8 flexBetween"><span>2024 Rainbow Rise Realty</span>All rights reserved</p>
+      <p className="text-[#FFF8DE]  bg-[#000000] medium-14.4 py-2 px-8 flexBetween"><span>2024 Rainbow Rise Realty</span>All rights reserved</p>
     </footer>
   );
 };
