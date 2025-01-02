@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
       </div>
       {/* copyright */}
-      <p className="text-[#FFF8DE]  bg-[#000000] medium-14.4 py-2 px-8 flexBetween"><span>2024 Rainbow Rise Realty</span>All rights reserved</p>
+      <p className="text-[#FFF8DE]  bg-[#000000] medium-14.4 py-2 px-8 flexBetween"><span>© 2025 Rainbow Rise Realty.</span>All rights reserved</p>
     </footer>
   );
 };
