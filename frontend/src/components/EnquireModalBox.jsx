@@ -54,7 +54,7 @@ const EnquireModalBox = ({modalOpen}) => {
         >
           {/* Modal Content */}
           <div
-            className="bg-white rounded-lg p-6 shadow-lg w-3/3 lg:w-1/3 relative"
+            className="bg-white rounded-lg p-6 shadow-lg w-5/6 lg:w-1/3 relative"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the modal
           >
             {/* Close Button */}
