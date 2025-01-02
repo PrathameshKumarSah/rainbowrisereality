@@ -21,7 +21,13 @@ import Dance from '../assets/dance.jpg'
 import Multi from '../assets/mukti.jpg'
 import Swimms from '../assets/swimms.jpg'
 import Sports from '../assets/sports.jpg'
+import School from '../assets/school.jpg'
+import University from '../assets/university.jpg'
+import Hospital from '../assets/hospital.jpg'
+import Road from '../assets/road.jpg'
+import Shop from '../assets/shop.jpg'
 import userIcon from '../assets/user.svg'
+
 
 
 const Project1 = () => {
@@ -399,11 +405,11 @@ const Project1 = () => {
          <div className='rounded-xl relative'>
         {/* Overlay */}
         <div className='absolute w-full h-full bg-black/20 rounded-xl text-white'>
-          <p className='font-bold text-2xl text-white px-2 pt-4'>Sports</p>
+          <p className='font-bold text-2xl text-white px-2 pt-4'>Yoga</p>
           
         </div>
         <img
-        className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
+        className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl '
           src={Yoga}
           alt='/'
         />
@@ -441,6 +447,100 @@ const Project1 = () => {
         </tbody>
       </table>
     </div>
+
+    <section className=" pb-[20px] md:pb-[50px]" id="resale">
+    <div className=" w-11/12 md:w-10/12 mx-auto">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
+        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <img class="rounded-t-lg" src={School} alt="" />
+    </div>
+    <div class="p-5">
+        <div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Schools 🏫</h5>
+        </div>
+        <p class="mb-3 font-normal text-white">Aster public school</p>
+        <p class="mb-3 font-normal text-white">Ryan international School</p>
+        <p class="mb-3 font-normal text-white">DPS World School</p>
+        <p class="mb-3 font-normal text-white">Cambridge School</p>
+        <p class="mb-3 font-normal text-white">Somerville School </p>
+        
+    </div>
+</div>
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <img class="rounded-t-lg" src={University} alt="" />
+    </div>
+    <div class="p-5">
+        <div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Universities 🎓
+            </h5>
+        </div>
+        <p class="mb-3 font-normal text-white">Sharda University </p>
+        <p class="mb-3 font-normal text-white">Bennet University</p>
+        <p class="mb-3 font-normal text-white">Shiv Nadar University</p>
+        <p class="mb-3 font-normal text-white">Noida international University </p>
+        <p class="mb-3 font-normal text-white">Galgotias University </p>
+        <p class="mb-3 font-normal text-white">Amity University</p>
+        
+    </div>
+</div>
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <img class="rounded-t-lg" src={Hospital} alt="" />
+    </div>
+    <div class="p-5">
+        <div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Hospitals 🏥 
+            </h5>
+        </div>
+        <p class="mb-3 font-normal text-white">Green City Hospital</p>
+        <p class="mb-3 font-normal text-white">Kailash Hospital </p>
+        <p class="mb-3 font-normal text-white">Fortis Hospital </p>
+        <p class="mb-3 font-normal text-white">Yatharth Super Speciality Hospital </p>
+        <p class="mb-3 font-normal text-white">Sharda Hospital</p>
+        <p class="mb-3 font-normal text-white">Apollo Cradle & Children Hospital</p>
+        
+    </div>
+</div>
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <img class="rounded-t-lg" src={Road} alt="" />
+    </div>
+    <div class="p-5">
+        <div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Connectivity 🛣
+            </h5>
+        </div>
+        <p class="mb-3 font-normal text-white">Delta 1 Metro station</p>
+        <p class="mb-3 font-normal text-white">Ryan international School</p>
+        <p class="mb-3 font-normal text-white">Noida-Greater Noida Expressway  </p>
+        <p class="mb-3 font-normal text-white">Yamuna Expressway  </p>
+        <p class="mb-3 font-normal text-white">Eastern Peripheral Expressway</p>
+        <p class="mb-3 font-normal text-white">Noida international Airport, Jewar </p>
+        
+    </div>
+</div>
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <img class="rounded-t-lg" src={Shop} alt="" />
+    </div>
+    <div class="p-5">
+        <div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Shopping 🛍 
+            </h5>
+        </div>
+        <p class="mb-3 font-normal text-white">Omaxe Connaught Place </p>
+        <p class="mb-3 font-normal text-white">Grand Venice Mall </p>
+        <p class="mb-3 font-normal text-white">Ansal Plaza </p>
+        <p class="mb-3 font-normal text-white">Cambridge School</p>
+        <p class="mb-3 font-normal text-white">Omaxe Tdi Center</p>
+        
+    </div>
+</div>
+        </div>
+    </div>
+</section>
 
           <div className="bg-white p-4 sm:p-8">
 
