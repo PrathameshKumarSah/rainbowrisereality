@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import { MdClose, MdMenu } from 'react-icons/md';
-import userIcon from '../assets/user.svg'
+import Icon from '../assets/contact.svg'
 import logos from '../assets/rrr logo.png'
 
 
@@ -66,8 +66,8 @@ const Header = () => {
             <div className="flexBetween gap-x-3 sm:gap-x-5 bold-16">
             {!menuOpened ? (<MdMenu onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl hover:text-secondary"/>) : (<MdClose onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl hover:text-secondary" />)}
             <button className=" flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                   <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
-                    <span className='hidden'>Whatsapp</span>
+                  <Link to={"/contactus"}><img src={Icon} alt="" height={30} width={30} /></Link>
+                    <span className='hidden'>Contact</span>
                 </button>
             </div>
         </div>
