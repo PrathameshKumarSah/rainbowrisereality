@@ -123,9 +123,9 @@ const [currentIndex, setCurrentIndex] = useState(0);
 
 
   return (
-    <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group overflow-y-hidden'>
+    <div className=' max-w-[1200px] h-[500px] w-full m-auto py-16 px-4 relative group overflow-hidden'>
     <div
-        className='w-full px-4 h-full object-contain rounded-2xl bg-center bg-cover duration-500 mb-20'
+        className='w-full px-4 h-full object-contain rounded-2xl bg-center bg-cover duration-500 mb-20 '
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
     ></div>
     {/* Left Arrow */}
