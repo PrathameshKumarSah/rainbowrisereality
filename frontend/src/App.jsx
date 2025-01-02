@@ -12,10 +12,10 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
+         {/* Admin Routes */}
+        <Route path={ADMIN_BASE_URL+"/*"} element={<AdminRoutes />} />
         {/* Website Routes */}
         <Route path="/*" element={<WebsiteRoutes />} />
-        {/* Admin Routes */}
-        <Route path={ADMIN_BASE_URL+"/*"} element={<AdminRoutes />} />
       </Routes>
     </BrowserRouter>
   )
