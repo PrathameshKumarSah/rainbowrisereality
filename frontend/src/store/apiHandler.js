@@ -318,6 +318,26 @@ export const apiStore = create((set, get) => ({
       }, 3000)
     }
   },
+
+  sendContactMsg: async (body) => {
+    set({contactLoading: true})
+    try{
+      const res = await axiosInstance.post(`/send-contactus`, body);
+      toast.success(res.data.message);
+      set({contactStatus: true});
+      set({contactLoading: false});
+      console.log(body);
+    }catch(error){
+      console.log("Error in sending Contact Us");
+      toast.error(error.response.data.message);
+      set({contactLoading: false});
+    } finally{
+      set({contactLoading: false})
+      setTimeout(() => {
+        set({contactStatus: false});
+      }, 3000)
+    }
+  },
   
 
 }));
