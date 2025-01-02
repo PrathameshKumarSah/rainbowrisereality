@@ -26,6 +26,21 @@ import userIcon from '../assets/user.svg'
 
 const Project1 = () => {
 
+  const paymentPlanData = [
+    { stage: "At the time of Booking", percentage: "10.00%" },
+    { stage: "On Start of Raft (within 45 Days)", percentage: "15.00%" },
+    { stage: "On Start of First Floor", percentage: "7.50%" },
+    { stage: "On Start of Fourth Floor", percentage: "7.50%" },
+    { stage: "On Start of Eighth Floor", percentage: "7.50%" },
+    { stage: "On Start of Twelve Floor", percentage: "7.50%" },
+    { stage: "On Start of Sixteen Floor", percentage: "7.50%" },
+    { stage: "On Start of Twenty Floor", percentage: "7.50%" },
+    { stage: "On Start of Twenty Four Floor", percentage: "7.50%" },
+    { stage: "On Start of Twenty Eight Floor", percentage: "7.50%" },
+    { stage: "On Start of Top Floor", percentage: "7.50%" },
+    { stage: "At the time of offer of possession", percentage: "7.50%" },
+  ];
+
     const images = [
        {
          src: [Buy], // Replace with your image paths
@@ -394,6 +409,53 @@ const Project1 = () => {
                                   <span className='hidden'>Whatsapp</span>
                </button>
           </div>
+   
+          <h1 className="text-4xl font-bold text-center mb-6">Payments Plan</h1>
+          <div className=" max-padd-container overflow-x-auto">
+      <table className="min-w-full border-collapse border border-gray-300">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="border border-gray-300 px-4 py-2 text-left">#</th>
+            <th className="border border-gray-300 px-4 py-2 text-left">
+              Payment Stage
+            </th>
+            <th className="border border-gray-300 px-4 py-2 text-left">
+              Percentage
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {paymentPlanData.map((item, index) => (
+            <tr key={index} className="even:bg-gray-100">
+              <td className="border border-gray-300 px-4 py-2">{index + 1}</td>
+              <td className="border border-gray-300 px-4 py-2">{item.stage}</td>
+              <td className="border border-gray-300 px-4 py-2">{item.percentage}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+          <div className="bg-white p-4 sm:p-8">
+
+{/* Property Rera Numbers Section */}
+<div className="text-center my-8">
+  <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
+  CONTACT ANY MORE INFO: 
+  </h2>
+  <h2 className="text-xl sm:text-3xl font-semibold mb-6">
+  Mr Manish Kumar 
+  </h2>
+
+  {/* Property Rera Buttons */}
+  <div className="flex flex-col sm:flex-row justify-center gap-4">
+    <div className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
+    📞+91 7827294771,
+      +91 7088631058 
+    </div>
+  </div>
+</div>
+</div> 
     </div>
   )
 }
