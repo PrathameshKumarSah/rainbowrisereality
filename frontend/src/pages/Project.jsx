@@ -27,6 +27,7 @@ import Godrej2 from '../assets/godrej2.jpg'
 import Godrej3 from '../assets/godrej3.jpg'
 import Godrej4 from '../assets/godrej4.jpg'
 import Godrej5 from '../assets/godrej5.webp'
+import userIcon from '../assets/user.svg'
 // import Sliders from '../constant/Sliders'
 
 const Project = () => {
@@ -46,6 +47,12 @@ const Project = () => {
 
   return (
     <div>
+      <div class="fixed bottom-4 right-4">
+     <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
+                       <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+                        <span className='hidden'>Whatsapp</span>
+                    </button>
+</div>
     <div className="relative h-[800px]">
     {/* Background Image */}
     <div
