@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom'
 import React from 'react'
 import Back from '../assets/back.png'
 import Club from '../assets/club.jpg'
@@ -28,7 +27,8 @@ import Godrej3 from '../assets/godrej3.jpg'
 import Godrej4 from '../assets/godrej4.jpg'
 import Godrej5 from '../assets/godrej5.webp'
 import userIcon from '../assets/user.svg'
-import Sliders from '../constant/Sliders'
+import { apiStore } from '../store/apiHandler'
+// import Sliders from '../constant/Sliders'
 
 const Project = () => {
   const images = [
@@ -45,13 +45,19 @@ const Project = () => {
     // Add more images here as needed
   ];
 
+  const { setModalOpen} = apiStore();
+
+  const handleOnClick = () => {
+    setModalOpen(true, 'GODREJ PROPERTIES');
+  }
+
   return (
     <div>
-      <div class="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4">
      <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                       <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
-                        <span className='hidden'>Whatsapp</span>
-                    </button>
+          <a href="https://wa.me/918058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+          <span className='hidden'>Whatsapp</span>
+      </button>
 </div>
     <div className="relative h-[800px]">
     {/* Background Image */}
@@ -100,7 +106,7 @@ const Project = () => {
   </div>
 
 
- {/* Enquire Now Button */}
+ {/* onClick={handleOnClick} Enquire Now Button */}
  {/* <Link to={'/contactus'}>
       <div className="text-center mt-6">
         <button className="bg-[#be9035] text-white px-6 py-2 rounded-sm font-semibold hover:bg-yellow-500 transition">
@@ -114,8 +120,8 @@ const Project = () => {
     <div
   className="">
             <div className="">
-                <h2 className="md:text-[40px] text-center md:leading-tight text-3xl mt-3 font-normal"><br />  <span className=" font-medium text-center text-[44px]">Godrej</span> South Estate</h2></div>
-                <h2 className='text-center font-medium text-2xl mt-3'>Size & Price </h2>
+                <h2 className="md:text-[40px] text-center md:leading-tight text-2xl mt-3 font-normal"><br />  <span className=" font-medium text-center text-[44px]">Godrej</span> South Estate</h2></div>
+                <h2 className='text-center font-medium text-xl mt-3'>Size & Price </h2>
         </div>
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
             <div className="col-span-1">
@@ -139,7 +145,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +171,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +197,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +287,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +311,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -349,6 +355,9 @@ const Project = () => {
           <img src={Windsor2} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" />
         </div>
       </div>
+      <div className="flex justify-center items-center">
+          <a href="#" className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition" onClick={handleOnClick}>ENQUIRE NOW</a>
+        </div>
     </div>
 
     <div className="bg-secondary py-8">
@@ -387,8 +396,8 @@ const Project = () => {
           </div>
           <div className="flex justify-center pb-5">
             <div className="border-b border-[#bd9035] hover:border-[#071B32] transition-all pb-1">
-              <button className="text-white text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all px-10 py-2">
-                ENQUIRE NOW
+              <button className="text-white text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all px-10 py-2" onClick={handleOnClick}>
+                 ENQUIRE NOW
               </button>
             </div>
           </div>
@@ -408,12 +417,23 @@ const Project = () => {
       {/* Maps Container */}
       <div className="flex flex-col sm:flex-row w-full gap-6">
         {/* First Map */}
-        <div className="w-full flex justify-center bg-white rounded-lg shadow-xl">
+        <div className="w-full sm:w-1/2 flex justify-center">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.723655937583!2d77.5119842465003!3d28.47295268432532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea853d1c9a8f%3A0x1279ef07f589fa5!2sGodrej%20Golf%20Links!5e0!3m2!1sen!2sin!4v1702920000000!5m2!1sen!2sin"
             alt="Location Overview Map"
-            className="w-full h-64 rounded-lg shadow-lg object-cover"
+            className="w-full h-auto rounded-lg shadow-lg"
           />
+        </div>
+
+        {/* Second Map */}
+        <div className="w-full sm:w-1/2 flex justify-center">
+          <iframe
+            title="Google Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.723655937583!2d77.5119842465003!3d28.47295268432532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea853d1c9a8f%3A0x1279ef07f589fa5!2sGodrej%20Golf%20Links!5e0!3m2!1sen!2sin!4v1702920000000!5m2!1sen!2sin"
+            className="w-full h-72 rounded-lg shadow-lg border-0"
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -481,9 +501,6 @@ const Project = () => {
         </div>
       </div>
     </div>
-
-    <Sliders />
-
     <div className="bg-white p-4 sm:p-8">
 
       {/* Property Rera Numbers Section */}
