@@ -185,13 +185,13 @@ const ContactUs = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b"
-                alt="Map"
-                className="w-full h-64 object-cover"
-              />
-            </div>
+            <div className="w-full flex justify-center bg-white rounded-lg shadow-xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.723655937583!2d77.5119842465003!3d28.47295268432532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea853d1c9a8f%3A0x1279ef07f589fa5!2sGodrej%20Golf%20Links!5e0!3m2!1sen!2sin!4v1702920000000!5m2!1sen!2sin"
+            alt="Location Overview Map"
+            className="w-full h-64 rounded-lg shadow-lg object-cover"
+          />
+        </div>
           </div>
         </div>
       </main>
