@@ -437,14 +437,15 @@ export const protectRoute = async (req, res) => {
 
 // Enquire Form
 export const sendEnquire =  async (req, res) => {
-    const { name, phone, message } = req.body;
+    const { name, phone, message, date, title } = req.body;
     try{
-        const sub = `${name.split(" ")[0].toUpperCase()} wanted to connect - Rainbow Rise Reality`;
-        const msg = contactTemplate(name, phone, message);
+        const sub = `${name.split(" ")[0].toUpperCase()} wanted to Connect - Rainbow Rise Reality`;
+        // console.log(date, title);
+        const msg = contactTemplate(name, phone, message, date, title);
         await sendEmail(process.env.AUTH_EMAIL, sub, msg);
-        res.status(200).json({ message: 'Enquire Sended', status: true });
-        
+        res.status(200).json({ message: 'Enquire Sended Successfully', status: true });        
     } catch(err){
+        console.log('error in sending enquiry', err.message);
         res.status(500).json({ message: 'Server Error' });
     }
 }
