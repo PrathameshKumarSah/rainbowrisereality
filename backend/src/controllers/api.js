@@ -7,7 +7,8 @@ import { fileURLToPath } from 'url';
 import {generateToken} from '../libs/utils.js'
 import sendEmail from "../middleware/mail.sender.js";
 import mysql2 from "mysql2/promise";
-import { contactTemplate } from "../libs/contactEmailTemplate.js";
+import { contactTemplate, contactUsMailTemplate } from "../libs/contactEmailTemplate.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
