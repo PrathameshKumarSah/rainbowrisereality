@@ -1,5 +1,5 @@
 
-const header = `<!DOCTYPE html>
+let header = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,12 +60,7 @@ const header = `<!DOCTYPE html>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>New Submission Received From Contact Form</h1>
-        </div>
-        <div class="content">
-            <div class="section">
-                <h2>Customer Information</h2>`;
+        <div class="header">`;
 
 const footer = `</div>
         </div>
@@ -77,7 +72,42 @@ const footer = `</div>
 </html>
 `;
 
+
+// Contact Us Mail Template
+export const contactUsMailTemplate = (name, phone, message, email, date) => {
+    header +=`<h1>New Submission Received From Contact Us</h1>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>Customer Information</h2>`;
+
+    let body = `<p>Name: <span>${name}</span></p>
+                <p>Phone: <a href="tel:${phone}" style="font-weight: 700;">${phone}</a></p>
+                <p>E-mail: <a href="mailto:${phone}" style="font-weight: 700;">${email}</a></p>
+            </div>`;
+    if(message){
+        body += `<div class="section">
+                <h2>Enquiry Details</h2>
+                <p>Message: <span>${message}</span></p>`;
+    }
+    if(date){
+        body += `</div>
+                <div class="section">
+                    <h2>Date & Time</h2>
+                    <p><span>${date}</span></p>`;
+    }
+            
+    return header+body+footer;
+}
+
+// Enquiry Mail Template
 export const contactTemplate = (name, phone, message, date, title) => {
+    header +=`<h1>New Submission Received From Enquiry Form</h1>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>Customer Information</h2>`;
+
     let body = `<p>Name: <span>${name}</span></p>
                 <p>Phone: <a href="tel:${phone}" style="font-weight: 700;">${phone}</a></p>
             </div>`;
