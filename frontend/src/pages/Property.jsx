@@ -11,9 +11,6 @@ const Property = () => {
   const {propertyLoading, getProperty, isError, setModalOpen} = apiStore();
   const [property, setProperty] = useState({});
 
-  const handleOnClick = () => {
-    setModalOpen(true);
-  }
 
   useEffect(() => {
     const getData = async () => {
@@ -21,6 +18,11 @@ const Property = () => {
     };
     getData();
   }, []);
+
+  const handleOnClick = () => {
+    console.log("handle one click ", property);
+    setModalOpen(true, property.title);
+  }
 
   if(propertyLoading){
     return (
@@ -73,11 +75,7 @@ const Property = () => {
             {property?.address}, {property?.city}, {property?.country}
             </div>
           </p>
-          {/* <div className='flexBetween'>
-              
-          </div> */}
-          {/* <div className="bold-18 mb-4">{property?.price_title}</div> */}
-          {/* <Link to={ADMIN_BASE_URL+'/view-properties'} className='btn-secondary rounded-xl shadow-sm mt-5'><button>Contact Us</button></Link> */}
+          
           <div 
             onClick={handleOnClick}
             className='btn-secondary rounded-xl shadow-sm mt-5 text-center inline hover:bg-indigo-800 cursor-pointer'>Contact Us</div>
