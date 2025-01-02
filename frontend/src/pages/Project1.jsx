@@ -21,7 +21,7 @@ import Dance from '../assets/dance.jpg'
 import Multi from '../assets/mukti.jpg'
 import Swimms from '../assets/swimms.jpg'
 import Sports from '../assets/sports.jpg'
-
+import userIcon from '../assets/user.svg'
 
 
 const Project1 = () => {
@@ -388,6 +388,12 @@ const Project1 = () => {
         />
       </div>
     </div>
+     <div class="fixed bottom-4 right-4">
+               <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
+                                 <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+                                  <span className='hidden'>Whatsapp</span>
+               </button>
+          </div>
     </div>
   )
 }
