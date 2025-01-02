@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '../constant/data'
 import log from '../assets/rrr logo.png'
+import { Mail, PhoneIcon } from 'lucide-react';
 
 const Footer = () => {
   return (
