@@ -1,4 +1,4 @@
-import { Edit, Trash2 } from 'lucide-react';
+import { Edit, Trash2, MoveRight } from 'lucide-react';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ADMIN_BASE_URL } from '../App';
@@ -18,11 +18,17 @@ const Item = ({ property }) => {
         {/* {property.price} */}
 
         <div className="bold-18 mb-4">{property.price_title}</div>
-        <div className='grid grid-cols-2 gap-4'>
+        <div className='flex flex-col'>
+          {/* view details */}
+          <div onClick={() => navigate(`../../properties/${property.p_id}`)} className='rounded-xl shadow-sm mt-2 bg-indigo-600 text-white py-2 flex justify-center items-center cursor-pointer hover:bg-indigo-800'>View Details&nbsp;<MoveRight size={20}/></div>
+          {/* remove and edir btn */}
+          <div className='grid grid-cols-2 gap-4'>
             <RemoveProperty id={property.p_id} />
             <Link to={ADMIN_BASE_URL + '/update-property/'+property.p_id} className='rounded-xl shadow-sm mt-2 bg-indigo-600 text-white flex justify-center items-center hover:bg-indigo-800'>
-            <Edit size={20} /> &nbsp;
-            <button>Edit</button></Link>
+              <Edit size={20} /> &nbsp;
+              <button>Edit</button>
+            </Link>
+          </div>
         </div>
     </div>
   );
