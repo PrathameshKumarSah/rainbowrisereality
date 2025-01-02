@@ -1,11 +1,12 @@
 import { Edit, Trash2, MoveRight } from 'lucide-react';
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
 import { ADMIN_BASE_URL } from '../App';
 import { BASE_URL } from '../store/apiHandler';
 import RemoveProperty from './RemoveProperty';
 
 const Item = ({ property }) => {
+  const navigate = useNavigate();
   return (
     <div className="rounded-2xl p-5 bg-primary">
         <div className="pb-2 relative overflow-hidden rounded-xl">
