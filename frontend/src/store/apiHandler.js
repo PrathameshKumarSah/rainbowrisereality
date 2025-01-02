@@ -307,10 +307,12 @@ export const apiStore = create((set, get) => ({
       toast.success(res.data.message);
       set({enquireStatus: true});
       set({enquireLoading: false});
+      console.log(res.data);
     }catch(error){
       console.log("Error in sending Enquiry");
       toast.error(error.response.data.message);
     } finally{
+      set({enquireLoading: false})
       setTimeout(() => {
         set({enquireStatus: false});
       }, 3000)
