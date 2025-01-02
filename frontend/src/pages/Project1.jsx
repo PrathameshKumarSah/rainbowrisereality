@@ -188,7 +188,7 @@ const Project1 = () => {
 
       <section>
   
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mb-10">
       <div className="grid grid-cols-1 ">
         {images.map((image, index) => (
           <div
@@ -237,8 +237,14 @@ const Project1 = () => {
              </div>
            </div>
 
+           <div className="flex justify-center pb-5 mb-5 mt-5">
+                                      <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
+                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                      </div>
+                                  </div>
+
       {/* Club facility */}
-      <h1 className="text-black text-4xl font-bold text-center mb-6 overflow-y-hidden">
+      <h1 className="text-black text-4xl font-bold text-center mb-4 mt-7 overflow-y-hidden">
     Club Facilities💫
   </h1>
            <div className='max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6'>
