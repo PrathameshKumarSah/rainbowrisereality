@@ -449,3 +449,18 @@ export const sendEnquire =  async (req, res) => {
         res.status(500).json({ message: 'Server Error' });
     }
 }
+
+// Handle Contact us Requests
+export const sendContactMsg =  async (req, res) => {
+    const { name, phone, message, email, date } = req.body;
+    try{
+        const sub = `${name.split(" ")[0].toUpperCase()} - Connect Us | Rainbow Rise Reality`;
+        // console.log(name, phone, message, email, date);
+        const msg = contactUsMailTemplate(name, phone, message, email, date);
+        await sendEmail(process.env.AUTH_EMAIL, sub, msg);
+        res.status(200).json({ message: 'Contact Details Sended Successfully', status: true });        
+    } catch(err){
+        console.log('error in sending enquiry', err.message);
+        res.status(500).json({ message: 'Server Error' });
+    }
+}
