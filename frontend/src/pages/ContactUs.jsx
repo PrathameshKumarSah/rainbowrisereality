@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { apiStore } from "../store/apiHandler";
+import { ClipLoader, SkewLoader } from "react-spinners";
 
 const ContactUs = () => {
+  const {sendContactMsg, contactStatus, contactLoading} = apiStore();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
+    date: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -27,9 +31,13 @@ const ContactUs = () => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      setErrors({});
-      setFormData({ name: "", email: "", phone: "", message: "" });
+
+      // here function call to submit
+      const currentDate = new Date();
+      formData['date'] = `${currentDate.toDateString()}, ${currentDate.toLocaleTimeString()}`;
+      setFormData(formData);
+      console.log(formData);
+      sendContactMsg(formData);
     } else {
       setErrors(newErrors);
     }
@@ -42,6 +50,14 @@ const ContactUs = () => {
       [name]: value,
     }));
   };
+
+  useEffect(()=>{
+      if(contactStatus){
+        setSubmitted(true);
+        setErrors({});
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }
+    }, [contactStatus]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -152,8 +168,17 @@ const ContactUs = () => {
                 type="submit"
                 className="w-full bg-secondary text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
               >
-                Send Message
-              </button>
+                {!contactLoading ? 
+                'Send Message' :
+                  <ClipLoader 
+                    height="20"
+                    width="20"
+                    radius={1}
+                    color="#fff"
+                    aria-label='puff-loading'
+                />
+                }   
+              </button>           
             </form>
           </div>
 
@@ -166,14 +191,14 @@ const ContactUs = () => {
                   <FaPhone className="text-blue-600 text-xl mr-4" />
                   <div>
                     <p className="font-semibold">Phone</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+91-8058517274, +91-8077148435</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <FaEnvelope className="text-blue-600 text-xl mr-4" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <p className="text-gray-600">contact@realestate.com</p>
+                    <p className="text-gray-600">info.rainbowriserealty@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">
