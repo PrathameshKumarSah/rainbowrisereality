@@ -349,9 +349,6 @@ const Project = () => {
           <img src={Windsor2} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" />
         </div>
       </div>
-      <div className="flex justify-center items-center">
-          <a href="#" className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition">ENQUIRE NOW</a>
-        </div>
     </div>
 
     <div className="bg-secondary py-8">
