@@ -12,7 +12,7 @@ const header = `<!DOCTYPE html>
             font-family: Arial, sans-serif;
         }
         .container {
-            max-width: 32rem;
+            max-width: 35rem;
             margin: 0 auto;
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -77,19 +77,29 @@ const footer = `</div>
 </html>
 `;
 
-export const contactTemplate = (name, phone, message) => {
+export const contactTemplate = (name, phone, message, date, title) => {
     let body = `<p>Name: <span>${name}</span></p>
                 <p>Phone: <a href="tel:${phone}" style="font-weight: 700;">${phone}</a></p>
-            </div> `;
-    if(message){
+            </div>`;
+    if(title){
         body += `<div class="section">
                 <h2>Enquiry Details</h2>
-                <p>Message: <span>${message}</span></p>
-            </div>`;
+                <p>From: <span>${title}</span></p>`;
     }
-    body += `<div class="section">
-                <h2>Date</h2>
-                <p>Date: <span>${new Date()}</span></p>`;
+    else if(message){
+        body += `<div class="section">
+                <h2>Enquiry Details</h2>
+                <p>Message: <span>${message}</span></p>`;
+    }
+    if(title && message){
+        body += `<p>Message: <span>${message}</span></p>`;
+    }
+    if(date){
+        body += `</div>
+                <div class="section">
+                    <h2>Date & Time</h2>
+                    <p><span>${date}</span></p>`;
+    }
             
     return header+body+footer;
 }
