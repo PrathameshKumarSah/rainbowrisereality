@@ -28,6 +28,7 @@ import Godrej3 from '../assets/godrej3.jpg'
 import Godrej4 from '../assets/godrej4.jpg'
 import Godrej5 from '../assets/godrej5.webp'
 import userIcon from '../assets/user.svg'
+import { apiStore } from '../store/apiHandler'
 // import Sliders from '../constant/Sliders'
 
 const Project = () => {
@@ -45,9 +46,16 @@ const Project = () => {
     // Add more images here as needed
   ];
 
+  const { setModalOpen} = apiStore();
+
+  const handleOnClick = () => {
+    setModalOpen(true);
+  }
+
+
   return (
     <div>
-      <div class="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4">
      <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
                        <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
                         <span className='hidden'>Whatsapp</span>
@@ -100,7 +108,7 @@ const Project = () => {
   </div>
 
 
- {/* Enquire Now Button */}
+ {/* onClick={handleOnClick} Enquire Now Button */}
  {/* <Link to={'/contactus'}>
       <div className="text-center mt-6">
         <button className="bg-[#be9035] text-white px-6 py-2 rounded-sm font-semibold hover:bg-yellow-500 transition">
@@ -139,7 +147,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +173,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +199,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +289,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +313,7 @@ const Project = () => {
                             </div>
                             <div className="flex justify-center pb-5">
                                 <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                    <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2" onClick={handleOnClick}>ENQUIRE NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -350,7 +358,7 @@ const Project = () => {
         </div>
       </div>
       <div className="flex justify-center items-center">
-          <a href="#" className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition">ENQUIRE NOW</a>
+          <a href="#" className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition" onClick={handleOnClick}>ENQUIRE NOW</a>
         </div>
     </div>
 
@@ -390,8 +398,8 @@ const Project = () => {
           </div>
           <div className="flex justify-center pb-5">
             <div className="border-b border-[#bd9035] hover:border-[#071B32] transition-all pb-1">
-              <button className="text-white text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all px-10 py-2">
-                ENQUIRE NOW
+              <button className="text-white text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all px-10 py-2" onClick={handleOnClick}>
+                 ENQUIRE NOW
               </button>
             </div>
           </div>
