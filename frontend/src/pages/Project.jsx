@@ -411,23 +411,12 @@ const Project = () => {
       {/* Maps Container */}
       <div className="flex flex-col sm:flex-row w-full gap-6">
         {/* First Map */}
-        <div className="w-full sm:w-1/2 flex justify-center">
+        <div className="w-full flex justify-center bg-white rounded-lg shadow-xl">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.723655937583!2d77.5119842465003!3d28.47295268432532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea853d1c9a8f%3A0x1279ef07f589fa5!2sGodrej%20Golf%20Links!5e0!3m2!1sen!2sin!4v1702920000000!5m2!1sen!2sin"
             alt="Location Overview Map"
-            className="w-full h-auto rounded-lg shadow-lg"
+            className="w-full h-64 rounded-lg shadow-lg object-cover"
           />
-        </div>
-
-        {/* Second Map */}
-        <div className="w-full sm:w-1/2 flex justify-center">
-          <iframe
-            title="Google Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.723655937583!2d77.5119842465003!3d28.47295268432532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea853d1c9a8f%3A0x1279ef07f589fa5!2sGodrej%20Golf%20Links!5e0!3m2!1sen!2sin!4v1702920000000!5m2!1sen!2sin"
-            className="w-full h-72 rounded-lg shadow-lg border-0"
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
         </div>
       </div>
     </div>
