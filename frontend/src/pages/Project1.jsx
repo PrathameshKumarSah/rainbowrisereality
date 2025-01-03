@@ -429,7 +429,7 @@ const Project1 = () => {
     </div>
      <div class="fixed bottom-4 right-4">
                <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                 <a href="https://wa.me/919319372513" target="_blank"><img  loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
+                                 <a href="https://wa.me/8058517274" target="_blank"><img  loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
                                   <span className='hidden'>Whatsapp</span>
                </button>
           </div>
@@ -460,12 +460,12 @@ const Project1 = () => {
       </table>
     </div>
 
-    <section className=" pb-[20px] md:pb-[50px]" id="resale">
+        <section className=" pb-[20px] md:pb-[50px]" id="resale">
     <div className=" w-11/12 md:w-10/12 mx-auto">
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
-        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg text-gray-900 shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img  loading="lazy"  class="rounded-t-lg" src={School} alt="" />
+        <img class="rounded-t-lg" src={School} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -479,9 +479,9 @@ const Project1 = () => {
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 text-gray-900 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img  loading="lazy"  class="rounded-t-lg" src={University} alt="" />
+        <img class="rounded-t-lg" src={University} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -497,9 +497,9 @@ const Project1 = () => {
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 text-gray-900 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img  loading="lazy"  class="rounded-t-lg" src={Hospital} alt="" />
+        <img class="rounded-t-lg" src={Hospital} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -515,9 +515,9 @@ const Project1 = () => {
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 text-gray-900 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img  loading="lazy"  class="rounded-t-lg" src={Road} alt="" />
+        <img class="rounded-t-lg" src={Road} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -533,9 +533,9 @@ const Project1 = () => {
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg text-gray-900 shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img  loading="lazy"  class="rounded-t-lg" src={Shop} alt="" />
+        <img class="rounded-t-lg" src={Shop} alt="" />
     </div>
     <div class="p-5">
         <div>
