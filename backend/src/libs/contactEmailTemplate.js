@@ -3,7 +3,7 @@ const headerForContact = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry Receipt</title>
+    <title>Contact Us</title>
     <style>
         body {
             background-color: #f3f4f6;
@@ -71,7 +71,7 @@ const headerForEnquiry = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry Receipt</title>
+    <title>Enquiry</title>
     <style>
         body {
             background-color: #f3f4f6;
@@ -127,7 +127,8 @@ const headerForEnquiry = `<!DOCTYPE html>
 </head>
 <body>
     <div class="container">
-        <h1>New Submission Received From Enquiry Form</h1>
+        <div class="header">
+            <h1>New Submission Received From Enquiry Form</h1>
         </div>
         <div class="content">
             <div class="section">
@@ -161,7 +162,7 @@ export const contactUsMailTemplate = (name, phone, message, email, date) => {
                     <h2>Date & Time</h2>
                     <p><span>${date}</span></p>`;
     }
-            
+    
     return headerForContact+body+footer;
 }
 
@@ -189,6 +190,6 @@ export const contactTemplate = (name, phone, message, date, title) => {
                     <h2>Date & Time</h2>
                     <p><span>${date}</span></p>`;
     }
-            
+
     return headerForEnquiry+body+footer;
 }
