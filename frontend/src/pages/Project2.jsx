@@ -48,7 +48,7 @@ const Project2 = () => {
     <div className="flex flex-col md:flex-row items-center ">
            {/* Image */}
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy"
                src={Sunshine}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
@@ -56,112 +56,113 @@ const Project2 = () => {
            </div>
            <div class="fixed bottom-4 right-4">
                             <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                              <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+                                              <a href="https://wa.me/919319372513" target="_blank"><img  loading="lazy"   loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
                                                <span className='hidden'>Whatsapp</span>
                                            </button>
                        </div>
            
          </div>
          <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three1}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <im
+             <img 
+              loading="lazy"
                src={Three2}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy"
                src={Three3}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three4}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three5}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three6}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three7}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three8}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three9}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three10}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three11}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three12}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three13}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three14}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three15}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
@@ -169,160 +170,160 @@ const Project2 = () => {
            </div>
 
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three16}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div> <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three17}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three18}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three19}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three20}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three21}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three22}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three23}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three24}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three25}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three26}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three27}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three28}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three29}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three30}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three31}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three32}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three33}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three34}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three35}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three36}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three37}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
              />
            </div>
            <div className="w-full mb-6 md:mb-6">
-             <img
+             <img  loading="lazy" 
                src={Three38}
                alt="Rise Resort Residences"
                className="w-full h-auto object-cover"
