@@ -33,11 +33,11 @@ const WebsiteRoutes = () => {
             </Route>
             <Route path="/about-us" element={<AboutPage />}/>
             <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
-            <Route path="/project" element={<Project />}/>
+            <Route path="/godrej" element={<Project />}/>
             <Route path="/contactus" element={<ContactUs />}/>
             <Route path="/thankyou" element={<ThankYou />}/>
-            <Route path="/project1" element={<Project1 />}/>
-            <Route path="/project2" element={<Project2 />}/>
+            <Route path="/ska" element={<Project1 />}/>
+            <Route path="/three-page" element={<Project2 />}/>
            <Route path="/alpha" element={<Alpha/>}/>
             <Route path="/alpha1" element={<Alpha1/>}/>
         </Routes>
