@@ -463,96 +463,97 @@ const Project1 = () => {
     <section className=" pb-[20px] md:pb-[50px]" id="resale">
     <div className=" w-11/12 md:w-10/12 mx-auto">
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
-        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg text-gray-900 shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class=" col-span-1 max-w-sm bg-white border border-black text-black rounded-lg shadow">
     <div>
         <img class="rounded-t-lg" src={School} alt="" />
     </div>
     <div class="p-5">
         <div>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white text">Schools 🏫</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Schools 🏫</h5>
         </div>
-        <p class="mb-3 font-normal text-black">Aster public school</p>
-        <p class="mb-3 font-normal text-black">Ryan international School</p>
-        <p class="mb-3 font-normal text-black">DPS World School</p>
-        <p class="mb-3 font-normal text-black">Cambridge School</p>
-        <p class="mb-3 font-normal text-black">Somerville School </p>
+        <p class="mb-3 font-bold text-black">Aster public school</p>
+        <p class="mb-3 font-bold text-black">Ryan international School</p>
+        <p class="mb-3 font-bold text-black">DPS World School</p>
+        <p class="mb-3 font-bold text-black">Cambridge School</p>
+        <p class="mb-3 font-bold text-black">Somerville School </p>
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-white text-black rounded-lg shadow dark:bg-white dark:border-white">
+<div class=" col-span-1 max-w-sm bg-white border border-black text-black rounded-lg shadow">
     <div>
         <img class="rounded-t-lg" src={University} alt="" />
     </div>
     <div class="p-5">
         <div>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white text">Universities 🎓
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black ">Universities 🎓
             </h5>
         </div>
-        <p class="mb-3 font-normal text-black">Sharda University </p>
-        <p class="mb-3 font-normal text-black">Bennet University</p>
-        <p class="mb-3 font-normal text-black">Shiv Nadar University</p>
-        <p class="mb-3 font-normal text-black">Noida international University </p>
-        <p class="mb-3 font-normal text-black">Galgotias University </p>
-        <p class="mb-3 font-normal text-black">Amity University</p>
+        <p class="mb-3 font-bold text-black">Sharda University </p>
+        <p class="mb-3 font-bold text-black">Bennet University</p>
+        <p class="mb-3 font-bold text-black">Shiv Nadar University</p>
+        <p class="mb-3 font-bold text-black">Noida international University </p>
+        <p class="mb-3 font-bold text-black">Galgotias University </p>
+        <p class="mb-3 font-bold text-black">Amity University</p>
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-white text-black rounded-lg shadow dark:bg-white dark:border-white">
+<div class=" col-span-1 max-w-sm bg-white border border-black text-black rounded-lg shadow">
     <div>
         <img class="rounded-t-lg" src={Hospital} alt="" />
     </div>
     <div class="p-5">
         <div>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white text">Hospitals 🏥 
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black ">Hospitals 🏥 
             </h5>
         </div>
-        <p class="mb-3 font-normal text-black">Green City Hospital</p>
-        <p class="mb-3 font-normal text-black">Kailash Hospital </p>
-        <p class="mb-3 font-normal text-black">Fortis Hospital </p>
-        <p class="mb-3 font-normal text-black">Yatharth Super Speciality Hospital </p>
-        <p class="mb-3 font-normal text-black">Sharda Hospital</p>
-        <p class="mb-3 font-normal text-black">Apollo Cradle & Children Hospital</p>
+        <p class="mb-3 font-bold text-black">Green City Hospital</p>
+        <p class="mb-3 font-bold text-black">Kailash Hospital </p>
+        <p class="mb-3 font-bold text-black">Fortis Hospital </p>
+        <p class="mb-3 font-bold text-black">Yatharth Super Speciality Hospital </p>
+        <p class="mb-3 font-bold text-black">Sharda Hospital</p>
+        <p class="mb-3 font-bold text-black">Apollo Cradle & Children Hospital</p>
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-white text-black rounded-lg shadow dark:bg-white dark:border-white">
+<div class=" col-span-1 max-w-sm bg-white border border-black text-black rounded-lg shadow">
     <div>
         <img class="rounded-t-lg" src={Road} alt="" />
     </div>
     <div class="p-5">
         <div>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text">Connectivity 🛣
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Connectivity 🛣
             </h5>
         </div>
-        <p class="mb-3 font-normal text-black">Delta 1 Metro station</p>
-        <p class="mb-3 font-normal text-black">Ryan international School</p>
-        <p class="mb-3 font-normal text-black">Noida-Greater Noida Expressway  </p>
-        <p class="mb-3 font-normal text-black">Yamuna Expressway  </p>
-        <p class="mb-3 font-normal text-black">Eastern Peripheral Expressway</p>
-        <p class="mb-3 font-normal text-black">Noida international Airport, Jewar </p>
+        <p class="mb-3 font-bold text-black">Delta 1 Metro station</p>
+        <p class="mb-3 font-bold text-black">Ryan international School</p>
+        <p class="mb-3 font-bold text-black">Noida-Greater Noida Expressway  </p>
+        <p class="mb-3 font-bold text-black">Yamuna Expressway  </p>
+        <p class="mb-3 font-bold text-black">Eastern Peripheral Expressway</p>
+        <p class="mb-3 font-bold text-black">Noida international Airport, Jewar </p>
         
     </div>
 </div>
-<div class=" col-span-1 max-w-sm bg-white border border-white text-black rounded-lg shadow dark:bg-white dark:border-white">
+<div class=" col-span-1 max-w-sm bg-white border border-black text-black rounded-lg shadow">
     <div>
         <img class="rounded-t-lg" src={Shop} alt="" />
     </div>
     <div class="p-5">
         <div>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white text">Shopping 🛍 
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Shopping 🛍 
             </h5>
         </div>
-        <p class="mb-3 font-normal text-black">Omaxe Connaught Place </p>
-        <p class="mb-3 font-normal text-black">Grand Venice Mall </p>
-        <p class="mb-3 font-normal text-black">Ansal Plaza </p>
-        <p class="mb-3 font-normal text-black">Cambridge School</p>
-        <p class="mb-3 font-normal text-black">Omaxe Tdi Center</p>
+        <p class="mb-3 font-bold text-black">Omaxe Connaught Place </p>
+        <p class="mb-3 font-bold text-black">Grand Venice Mall </p>
+        <p class="mb-3 font-bold text-black">Ansal Plaza </p>
+        <p class="mb-3 font-bold text-black">Cambridge School</p>
+        <p class="mb-3 font-bold text-black">Omaxe Tdi Center</p>
         
     </div>
 </div>
         </div>
     </div>
 </section>
+
 
           <div className="bg-white p-4 sm:p-8">
 
