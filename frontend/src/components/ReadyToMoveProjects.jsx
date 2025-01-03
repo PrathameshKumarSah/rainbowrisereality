@@ -20,7 +20,7 @@ const ReadyToMoveProjects = () => {
     {/* Filter Buttons */}
     <div className="flex justify-center space-x-4 mb-6">
       <button className="bg-secondary text-white px-6 py-4 rounded-md shadow-md">
-        <Link to={'/project'} > All Projects </Link>
+        <h2 > All Projects </h2>
       </button>
     </div>
 
@@ -28,7 +28,7 @@ const ReadyToMoveProjects = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-8xl mx-auto ">
       {/* Card 1 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-        <Link to="/project"><img
+        <Link to="/godrej"><img
           src={villa}
           alt="Rise Resort Villas"
           className="w-full h-80 object-cover"
@@ -44,7 +44,7 @@ const ReadyToMoveProjects = () => {
 
       {/* Card 2 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-      <Link to="/project1"><img
+      <Link to="/ska"><img
           src={godrej}
           alt="Godrej Woods"
           className="w-full h-80 object-cover"
@@ -60,7 +60,7 @@ const ReadyToMoveProjects = () => {
 
       {/* Card 3 */}
       <div className="shadow-lg rounded-lg overflow-hidden">
-       <Link to="/project2"><img
+       <Link to="/three-page"><img
           src={riseresort}
           alt="Rise Resort Villas"
           className="w-full h-80 object-cover"
