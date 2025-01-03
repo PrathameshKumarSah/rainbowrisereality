@@ -16,6 +16,8 @@ import ScrollToTop from "../components/ScrollToTop"
 import Project1 from '../pages/Project1'
 import Project2 from '../pages/Project2'
 import ContactUs from '../pages/ContactUs'
+import Alpha from '../pages/alphabeta'
+import Alpha1 from '../pages/alphabeta1'
 
 const WebsiteRoutes = () => {
   const {modalOpen, setModalOpen} = apiStore();
@@ -36,6 +38,8 @@ const WebsiteRoutes = () => {
             <Route path="/thankyou" element={<ThankYou />}/>
             <Route path="/project1" element={<Project1 />}/>
             <Route path="/project2" element={<Project2 />}/>
+           <Route path="/alpha" element={<Alpha/>}/>
+            <Route path="/alpha1" element={<Alpha1/>}/>
         </Routes>
         <Toaster />
         <EnquireModalBox modalOpen={modalOpen.val} title={modalOpen.title} setModalOpen={setModalOpen} />
