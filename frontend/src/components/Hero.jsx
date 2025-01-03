@@ -40,7 +40,7 @@ const Hero = () => {
               </div>
 </div>
             
-            <p className='my-10 max-w-[33rem] text-white'>Luxury, comfort, and convenience—properties that match your lifestyle. Invest in your future with properties designed to inspire and grow.</p>
+            <p className='my-10 max-w-[33rem] text-white'>Luxury, Comfort, and Convenience Properties that match your lifestyle. Invest in your future with properties designed to inspire and grow.</p>
              {/* button */}
              <div className='inline-flex items-center justify-center gap-4 p-2 bg-white rounded-xl'>
                 <div className='text-center regular-14 leading-tight pl-5'>
