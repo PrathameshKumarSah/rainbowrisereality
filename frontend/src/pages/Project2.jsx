@@ -56,7 +56,7 @@ const Project2 = () => {
            </div>
            <div class="fixed bottom-4 right-4">
                             <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                              <a href="https://wa.me/919319372513" target="_blank"><img  loading="lazy"   loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
+                                              <a href="https://wa.me/80585172274" target="_blank"><img  loading="lazy"   loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
                                                <span className='hidden'>Whatsapp</span>
                                            </button>
                        </div>
