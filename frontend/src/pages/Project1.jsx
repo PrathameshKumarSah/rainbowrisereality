@@ -202,7 +202,7 @@ const Project1 = () => {
             className="bg-gray-100 shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             
-            <img
+            <img  loading="lazy" 
               src={image.src}
               alt={image.alt}
               className="w-50% h-70 object-cover"
@@ -222,7 +222,7 @@ const Project1 = () => {
     </div>
     </section>
     <div className="flex justify-center items-center w-full mb-6 md:mb-6">
-                  <img
+                  <img  loading="lazy" 
                     src={Skaback1}
                     alt="Rise Resort Residences"
                     className="w-100 h-100 object-cover"
@@ -234,11 +234,11 @@ const Project1 = () => {
                {/* First Row with Crest V1 and Crest V2 */}
                <div className="bg-white shadow-lg rounded-lg overflow-hidden text-center">
                  <h2 className="text-xl font-semibold p-4">ALPHA & BETA TOWER</h2>
-                <Link to={'/alpha'}> <img src={Alpha} alt="Crest Floor Plan V1" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
+                <Link to={'/alpha'}> <img  loading="lazy" src={Alpha} alt="Crest Floor Plan V1" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
                </div>
                <div className="bg-white shadow-lg rounded-lg overflow-hidden text-center">
                  <h2 className="text-xl font-semibold p-4">GAMMA TOWER</h2>
-                <Link to={'/alpha1'}> <img src={Gamma} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
+                <Link to={'/alpha1'}> <img  loading="lazy" src={Gamma} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
                </div>
              </div>
            </div>
@@ -262,6 +262,7 @@ const Project1 = () => {
           
         </div>
         <img
+          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Lobby}
           alt='/'
@@ -276,6 +277,7 @@ const Project1 = () => {
           
         </div>
         <img
+          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Lounge}
           alt='/'
@@ -290,6 +292,7 @@ const Project1 = () => {
           
         </div>
         <img
+          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Hall}
           alt='/'
@@ -303,6 +306,7 @@ const Project1 = () => {
           
         </div>
         <img
+          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Golf}
           alt='/'
@@ -316,6 +320,7 @@ const Project1 = () => {
           
         </div>
         <img
+          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Indoor}
           alt='/'
@@ -333,6 +338,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Card}
           alt='/'
+          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -346,6 +352,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Center}
           alt='/'
+          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -360,6 +367,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Dance}
           alt='/'
+          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -373,6 +381,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Multi}
           alt='/'
+          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -386,6 +395,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Sports}
           alt='/'
+          loading="lazy" 
         />
       </div>
           {/* Card */}
@@ -399,6 +409,7 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Swimms}
           alt='/'
+          loading="lazy" 
         />
       </div>
          {/* Card */}
@@ -412,12 +423,13 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl '
           src={Yoga}
           alt='/'
+          loading="lazy" 
         />
       </div>
     </div>
      <div class="fixed bottom-4 right-4">
                <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                 <a href="https://wa.me/919319372513" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+                                 <a href="https://wa.me/919319372513" target="_blank"><img  loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
                                   <span className='hidden'>Whatsapp</span>
                </button>
           </div>
@@ -453,7 +465,7 @@ const Project1 = () => {
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
         <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img class="rounded-t-lg" src={School} alt="" />
+        <img  loading="lazy"  class="rounded-t-lg" src={School} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -469,7 +481,7 @@ const Project1 = () => {
 </div>
 <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img class="rounded-t-lg" src={University} alt="" />
+        <img  loading="lazy"  class="rounded-t-lg" src={University} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -487,7 +499,7 @@ const Project1 = () => {
 </div>
 <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img class="rounded-t-lg" src={Hospital} alt="" />
+        <img  loading="lazy"  class="rounded-t-lg" src={Hospital} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -505,7 +517,7 @@ const Project1 = () => {
 </div>
 <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img class="rounded-t-lg" src={Road} alt="" />
+        <img  loading="lazy"  class="rounded-t-lg" src={Road} alt="" />
     </div>
     <div class="p-5">
         <div>
@@ -523,7 +535,7 @@ const Project1 = () => {
 </div>
 <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
-        <img class="rounded-t-lg" src={Shop} alt="" />
+        <img  loading="lazy"  class="rounded-t-lg" src={Shop} alt="" />
     </div>
     <div class="p-5">
         <div>
