@@ -463,7 +463,7 @@ const Project1 = () => {
     <section className=" pb-[20px] md:pb-[50px]" id="resale">
     <div className=" w-11/12 md:w-10/12 mx-auto">
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 gap-x-3 md:gap-y-10 gap-y-5 md:gap-x-10 pt-[50px]">
-        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class=" col-span-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow text-gray-900 dark:bg-gray-800 dark:border-gray-700">
     <div>
         <img  loading="lazy"  class="rounded-t-lg" src={School} alt="" />
     </div>
