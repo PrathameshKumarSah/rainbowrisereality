@@ -28,6 +28,7 @@ import Godrej4 from '../assets/godrej4.jpg'
 import Godrej5 from '../assets/godrej5.webp'
 import userIcon from '../assets/user.svg'
 import { apiStore } from '../store/apiHandler'
+import {Link } from 'react-router-dom'
 // import Sliders from '../constant/Sliders'
 
 const Project = () => {
@@ -511,9 +512,9 @@ const Project = () => {
 
         {/* Property Rera Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <div className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
-          📞 +91- 8077148435
-          </div>
+         <Link to={"tel:8058517274"} className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
+          📞 +91-8058517274
+          </Link>
         </div>
       </div>
     </div> 
