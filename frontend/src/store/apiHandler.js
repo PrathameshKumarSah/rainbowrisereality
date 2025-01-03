@@ -280,6 +280,7 @@ export const apiStore = create((set, get) => ({
     try{
       const res = await axiosInstance.post(`/verify-otp`, body);
       toast.success(res.data.message);
+      set({otpVerified: true});
       // console.log(res.data);
     }catch(error){
       console.log("Error in getting properties details.");
