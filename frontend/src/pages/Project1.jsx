@@ -555,10 +555,12 @@ const Project1 = () => {
 
   {/* Property Rera Buttons */}
   <div className="flex flex-col sm:flex-row justify-center gap-4">
-    <div className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
-    📞+91 7827294771,
-      +91 7088631058 
-    </div>
+    <Link to='tel:7827294771' className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
+    📞+91 7827294771
+    </Link>
+    <Link to='tel:7088631058 ' className="bg-yellow-600 text-white px-6 py-2 rounded-sm font-semibold">
+    📞+91 7088631058  
+    </Link>
   </div>
 </div>
 </div> 
