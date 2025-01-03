@@ -27,10 +27,16 @@ import Hospital from '../assets/hospital.jpg'
 import Road from '../assets/road.jpg'
 import Shop from '../assets/shop.jpg'
 import userIcon from '../assets/user.svg'
+import { apiStore } from '../store/apiHandler'
 
 
 
 const Project1 = () => {
+  const { setModalOpen} = apiStore();
+
+  const handleOnClick = () => {
+    setModalOpen(true, 'SKA');
+  }
 
   const paymentPlanData = [
     { stage: "At the time of Booking", percentage: "10.00%" },
@@ -102,7 +108,7 @@ const Project1 = () => {
                                   </div>
                                   <div className="flex justify-center pb-5">
                                       <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                          <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                       </div>
                                   </div>
                               </div>
@@ -128,7 +134,7 @@ const Project1 = () => {
                                   </div>
                                   <div className="flex justify-center pb-5">
                                       <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                          <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                       </div>
                                   </div>
                               </div>
@@ -154,7 +160,7 @@ const Project1 = () => {
                                   </div>
                                   <div className="flex justify-center pb-5">
                                       <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                          <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                       </div>
                                   </div>
                               </div>
@@ -180,7 +186,7 @@ const Project1 = () => {
                                   </div>
                                   <div className="flex justify-center pb-5">
                                       <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                          <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                       </div>
                                   </div>
                               </div>
@@ -202,7 +208,7 @@ const Project1 = () => {
             className="bg-gray-100 shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             
-            <img  loading="lazy" 
+            <img
               src={image.src}
               alt={image.alt}
               className="w-50% h-70 object-cover"
@@ -222,7 +228,7 @@ const Project1 = () => {
     </div>
     </section>
     <div className="flex justify-center items-center w-full mb-6 md:mb-6">
-                  <img  loading="lazy" 
+                  <img
                     src={Skaback1}
                     alt="Rise Resort Residences"
                     className="w-100 h-100 object-cover"
@@ -234,18 +240,18 @@ const Project1 = () => {
                {/* First Row with Crest V1 and Crest V2 */}
                <div className="bg-white shadow-lg rounded-lg overflow-hidden text-center">
                  <h2 className="text-xl font-semibold p-4">ALPHA & BETA TOWER</h2>
-                <Link to={'/alpha'}> <img  loading="lazy" src={Alpha} alt="Crest Floor Plan V1" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
+                <Link to={'/alpha'}> <img src={Alpha} alt="Crest Floor Plan V1" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
                </div>
                <div className="bg-white shadow-lg rounded-lg overflow-hidden text-center">
                  <h2 className="text-xl font-semibold p-4">GAMMA TOWER</h2>
-                <Link to={'/alpha1'}> <img  loading="lazy" src={Gamma} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
+                <Link to={'/alpha1'}> <img src={Gamma} alt="Crest Floor Plan V2" className="w-full h-70 object-cover transform transition-transform duration-300 hover:scale-105" /></Link>
                </div>
              </div>
            </div>
 
            <div className="flex justify-center pb-5 mb-5 mt-5">
                                       <div className=" border-b border-[#bd9035] hover:border-[#071B32]  transition-all pb-1">
-                                          <button className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
+                                          <button onClick={handleOnClick} className=" text-white  text-sm hover:bg-[#071B32] bg-[#bd9035] transition-all  px-10 py-2">ENQUIRE NOW</button>
                                       </div>
                                   </div>
 
@@ -262,7 +268,6 @@ const Project1 = () => {
           
         </div>
         <img
-          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Lobby}
           alt='/'
@@ -277,7 +282,6 @@ const Project1 = () => {
           
         </div>
         <img
-          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Lounge}
           alt='/'
@@ -292,7 +296,6 @@ const Project1 = () => {
           
         </div>
         <img
-          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Hall}
           alt='/'
@@ -306,7 +309,6 @@ const Project1 = () => {
           
         </div>
         <img
-          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Golf}
           alt='/'
@@ -320,7 +322,6 @@ const Project1 = () => {
           
         </div>
         <img
-          loading="lazy" 
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Indoor}
           alt='/'
@@ -338,7 +339,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Card}
           alt='/'
-          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -352,7 +352,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Center}
           alt='/'
-          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -367,7 +366,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Dance}
           alt='/'
-          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -381,7 +379,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Multi}
           alt='/'
-          loading="lazy" 
         />
       </div>
         {/* Card */}
@@ -395,7 +392,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Sports}
           alt='/'
-          loading="lazy" 
         />
       </div>
           {/* Card */}
@@ -409,7 +405,6 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl'
           src={Swimms}
           alt='/'
-          loading="lazy" 
         />
       </div>
          {/* Card */}
@@ -423,13 +418,12 @@ const Project1 = () => {
         className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl '
           src={Yoga}
           alt='/'
-          loading="lazy" 
         />
       </div>
     </div>
      <div class="fixed bottom-4 right-4">
                <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                 <a href="https://wa.me/8058517274" target="_blank"><img  loading="lazy"  src={userIcon} alt="" height={40} width={40} /></a>
+                                 <a href="https://wa.me/+918058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
                                   <span className='hidden'>Whatsapp</span>
                </button>
           </div>
@@ -553,7 +547,6 @@ const Project1 = () => {
         </div>
     </div>
 </section>
-
 
           <div className="bg-white p-4 sm:p-8">
 
