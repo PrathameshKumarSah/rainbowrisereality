@@ -25,7 +25,7 @@ const Navbar = ({ containerStyles }) => {
           <MdHomeWork />
           <div className='font-bold text-lg'>Projects</div>
         </NavLink>
-         <NavLink to={"/godrej"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
+{/*          <NavLink to={"/godrej"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
           <MdHomeWork />
           <div className='font-bold text-lg'>Godrej</div>
         </NavLink>
@@ -36,7 +36,7 @@ const Navbar = ({ containerStyles }) => {
         <NavLink to={"/three-page"} className={({isActive})=> isActive ? "active-link flexCenter gap-x-1 rounded-full p-2" : "flexCenter gap-x-1 rounded-full px-2 py-1"}>
           <MdHomeWork />
           <div className='font-bold text-lg'>Three Page</div>
-        </NavLink>
+        </NavLink> */}
     </nav>
   )
 }
