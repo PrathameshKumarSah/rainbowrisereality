@@ -18,6 +18,7 @@ import Project2 from '../pages/Project2'
 import ContactUs from '../pages/ContactUs'
 import Alpha from '../pages/alphabeta'
 import Alpha1 from '../pages/alphabeta1'
+import Allproject from '../pages/Allproject'
 
 const WebsiteRoutes = () => {
   const {modalOpen, setModalOpen} = apiStore();
@@ -40,6 +41,7 @@ const WebsiteRoutes = () => {
             <Route path="/three-page" element={<Project2 />}/>
            <Route path="/alpha" element={<Alpha/>}/>
             <Route path="/alpha1" element={<Alpha1/>}/>
+          <Route path="/allproject" element={<Allproject />}/>
         </Routes>
         <Toaster />
         <EnquireModalBox modalOpen={modalOpen.val} title={modalOpen.title} setModalOpen={setModalOpen} />
