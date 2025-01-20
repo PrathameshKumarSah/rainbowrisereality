@@ -14,9 +14,9 @@ const Home = () => {
   return (
     <main>
       <Hero/>
+      <Properties />
       <BuilderAssociations />
       <About/>
-      <Properties />
       <LatestProjects />
       <Slider />
       <Blogs />
