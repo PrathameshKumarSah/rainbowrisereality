@@ -46,7 +46,7 @@ const Properties = () => {
     }
     
     return (
-        <div className="max-padd-container bg-[#03346E] my-12 py-6 xl:py-20 rounded-3xl  overflow-y-hidden">
+        <div className="max-padd-container bg-secondary my-12 py-6 xl:py-20 rounded-3xl  overflow-y-hidden">
             <h2 className='h2 text-white text-center'>OUR PROJECTS</h2>
             <div className="flex items-center justify-center space-x-4 mb-6">
                 {/* All Button */}
