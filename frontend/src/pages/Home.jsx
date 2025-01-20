@@ -17,7 +17,7 @@ const Home = () => {
       <BuilderAssociations />
       <Properties />
 {/*       <About/> */}
-      <LatestProjects />
+{/*       <LatestProjects /> */}
       <Slider />
 {/*       <div className=' py-16 overflow-x-hidden'>
         <img src={bannerImg} alt="" />
