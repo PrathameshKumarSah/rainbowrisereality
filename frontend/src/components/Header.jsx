@@ -46,7 +46,7 @@ const Header = () => {
       };
   }, [menuOpened]);
   return (
-   <header className="max-padd-container fixed top-2 w-full left-0 right-0 z-50 sm:w-full">
+   <header className="fixed top-2 w-full left-0 right-0 z-50 sm:w-full">
       {/* container */}
       <div className={`${active ? "py-0" : "py-1"}max-padd-container bg-white transition-all duration-200 rounded-full px-6  ring-slate-900/5`}>
         <div className="flexBetween py-3">
