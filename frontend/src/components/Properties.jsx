@@ -53,7 +53,7 @@ const Properties = () => {
                 <button
                     onClick={() => setActiveFilter('all')}
                     className={`px-4 py-2 rounded border hover:bg-gray-200 ${
-                    activeFilter === 'all' ? 'bg-blue-500 text-white' : 'bg-white'
+                    activeFilter === 'all' ? 'bg-gray-200' : 'bg-white'
                     }`}
                 >
                     All
@@ -70,7 +70,7 @@ const Properties = () => {
                     }
                     className={`px-4 py-2 rounded border flex items-center hover:bg-gray-200 ${
                         activeCategory === 'residential' && activeFilter !== 'all'
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-gray-200'
                         : 'bg-white'
                     }`}
                     >
@@ -109,7 +109,7 @@ const Properties = () => {
                     }
                     className={`px-4 py-2 rounded border flex items-center hover:bg-gray-200 ${
                         activeCategory === 'commercial' && activeFilter !== 'all'
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-gray-200'
                         : 'bg-white'
                     }`}
                     >
