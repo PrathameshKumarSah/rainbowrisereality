@@ -2,10 +2,19 @@ import React from 'react'
 import Reslog from '../assets/resl.png'
 import Comlog from '../assets/comlog.png'
 import { Link } from 'react-router-dom'
+import Allpro from '../assets/allp.png'
 
 const Allproject = () => {
   return (
-<div className="p-24 flex flex-wrap items-center justify-center">
+    <div>
+      <div className="relative h-[600px]">
+               {/* Background Image */}
+               <div
+                 className="absolute inset-0 bg-cover bg-center"
+                 style={{ backgroundImage: `url(${Allpro})` }}
+               ></div>
+             </div>
+<div className="flex flex-wrap items-center justify-center bg-image">
 <Link to={'/properties'}><div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
     <svg
       className="absolute bottom-0 left-0 mb-8"
@@ -49,7 +58,7 @@ const Allproject = () => {
     <div className="relative text-white px-6 pb-6 mt-6">
       <span className="block opacity-75 -mb-1">PROJECTS</span>
       <div className="flex justify-between">
-        <span className="block font-semibold text-2xl">Residential</span>
+        <span className="block font-semibold text-2xl">Residential Properties</span>
       </div>
     </div>
   </div>
@@ -98,11 +107,12 @@ const Allproject = () => {
     <div className="relative text-white px-6 pb-6 mt-6">
       <span className="block opacity-75 -mb-1">PROJECTS</span>
       <div className="flex justify-between">
-        <span className="block font-semibold text-xl">Commercial</span>
+        <span className="block font-semibold text-xl">Commercial Properties</span>
       </div>
     </div>
   </div>
   </Link>
+</div>
 </div>
 
 
