@@ -15,7 +15,7 @@ const HeroSearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(e.target[1].value===''){ return ;}
-    // alert("clicked search");
+    alert("clicked search");
     console.log(e.target[1].value);
     e.target[1].value = '';
   }
@@ -28,11 +28,11 @@ const HeroSearchBar = () => {
   }, []);
 
   return (
-      <form onSubmit={handleSubmit} className="flex gap-1 items-center w-full md:w-3/4 lg:w-1/2 shadow-md text-sm ">
+      <form onSubmit={handleSubmit} className="flex gap-1 items-center w-full md:w-3/4 lg:w-2/3 shadow-md text-sm ">
         {/* Dropdown */}
         <div className="relative w-1/3" ref={dropdownRef}>
           <button
-            className="w-full px-1 md:px-4 py-3 text-left bg-white rounded hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-800 flex justify-between items-center"
+            className="w-full px-1 md:px-4 py-3 md:py-4 text-left bg-white rounded hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-800 flex justify-between items-center"
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
             <span className="font-bold">{selectedOption}</span>
@@ -76,16 +76,16 @@ const HeroSearchBar = () => {
         {/* Search Input */}
         <input
           type="text"
-          className="w-full px-4 py-3 border-l placeholder-black border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="w-full px-4 py-3 md:py-4 border-l placeholder-black border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
           placeholder="Search projects or properties..."
         />
 
         {/* Search Button */}
         <button
-          className="flex gap-2 px-2 md:px-6 py-3 text-white font-medium rounded bg-blue-900 transition duration-300 hover:bg-blue-950 hover:-translate-y-1"
+          className="flex gap-2 px-2 md:px-6 py-3 md:py-4 text-white font-medium rounded bg-blue-900 transition duration-300 hover:bg-blue-950 hover:-translate-y-1"
         >
         <Search size={20} />
-          <span className="hidden md:inline">Search</span>
+          <span className="hidden font-bold md:inline">SEARCH</span>
         </button>
       </form>
   );
