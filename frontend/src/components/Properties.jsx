@@ -88,7 +88,7 @@ const Properties = () => {
             </div>
 
             {/* Show when no match property found */}
-            {filteredProperties.length==0 && !propertyLoading && <h3 className='h3 text-white text-center my-12'>Not Found</h3>}
+            {filteredProperties.length==0 && !propertyLoading && <h3 className='h3 text-gray-700 text-center my-12'>Not Found :(</h3>}
         </div>
 );
 }
