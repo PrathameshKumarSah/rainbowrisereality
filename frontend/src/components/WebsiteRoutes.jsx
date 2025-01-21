@@ -15,8 +15,6 @@ import ScrollToTop from "../components/ScrollToTop"
 import Residential from '../pages/Residential'
 import Commercial from '../pages/Commercial'
 import ContactUs from '../pages/ContactUs'
-import Alpha from '../pages/alphabeta'
-import Alpha1 from '../pages/alphabeta1'
 import Allproject from '../pages/Allproject'
 
 const WebsiteRoutes = () => {
@@ -37,8 +35,6 @@ const WebsiteRoutes = () => {
             <Route path="/thankyou" element={<ThankYou />}/>
             <Route path="/residential" element={<Residential />}/>
             <Route path="/commercial" element={<Commercial />}/>
-           <Route path="/alpha" element={<Alpha/>}/>
-            <Route path="/alpha1" element={<Alpha1/>}/>
           <Route path="/allproject" element={<Allproject />}/>
         </Routes>
         <Toaster />
