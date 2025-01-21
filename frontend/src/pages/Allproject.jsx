@@ -2,20 +2,23 @@ import React from 'react'
 import Reslog from '../assets/resl.png'
 import Comlog from '../assets/comlog.png'
 import { Link } from 'react-router-dom'
-import Allpro from '../assets/allp.png'
+import Prov from '../assets/prov.mp4'
 
 const Allproject = () => {
   return (
     <div>
-      <div className="relative h-[600px]">
-               {/* Background Image */}
-               <div
-                 className="absolute inset-0 bg-cover bg-center"
-                 style={{ backgroundImage: `url(${Allpro})` }}
-               ></div>
-             </div>
+       <div className="relative h-[600px]">
+                           {/* Background Image */}
+                            <video
+                                     className='absolute top-0 left-0 w-full h-full object-cover'
+                                     src={Prov}
+                                     autoPlay
+                                     loop
+                                     muted
+                                   />
+                         </div>
 <div className="flex flex-wrap items-center justify-center bg-image">
-<Link to={'/properties'}><div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
+<Link to={'/residential'}><div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
     <svg
       className="absolute bottom-0 left-0 mb-8"
       viewBox="0 0 375 283"
@@ -64,7 +67,7 @@ const Allproject = () => {
   </div>
   </Link>
 
-  <Link to={'/properties'}> <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
+  <Link to={'/commercial'}> <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
     <svg
       className="absolute bottom-0 left-0 mb-8"
       viewBox="0 0 375 283"
