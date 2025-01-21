@@ -15,7 +15,7 @@ const HeroSearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(e.target[1].value===''){ return ;}
-    alert("clicked search");
+    // alert("clicked search");
     console.log(e.target[1].value);
     e.target[1].value = '';
   }
