@@ -3,6 +3,7 @@ import Reslog from '../assets/resl.png'
 import Comlog from '../assets/comlog.png'
 import { Link } from 'react-router-dom'
 import Prov from '../assets/prov.mp4'
+import userIcon from '../assets/user.svg'
 
 const Allproject = () => {
   return (
@@ -116,6 +117,12 @@ const Allproject = () => {
   </div>
   </Link>
 </div>
+      <div class="fixed bottom-4 right-4">
+                 <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
+                                   <a href="https://wa.me/8058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
+                                    <span className='hidden'>Whatsapp</span>
+                                </button>
+            </div>
 </div>
 
 
