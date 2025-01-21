@@ -76,7 +76,7 @@ const HeroSearchBar = () => {
         {/* Search Input */}
         <input
           type="text"
-          className="w-full px-4 py-3 md:py-4 border-l placeholder-black border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="w-full px-2 md:px-4 py-3 md:py-4 border-l placeholder-black border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
           placeholder="Search projects or properties..."
         />
 
