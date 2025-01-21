@@ -18,7 +18,7 @@ const Hero = () => {
           muted
         />
         {/* Content overlay */}
-        <div className='relative top-52 sm:pl-10 z-10'>
+        <div className='relative top-52 px-4 sm:pl-10 z-10'>
           <span className='medium-18 text-white'>Welcome to Rainbow Rise Realty</span>
           <div className="items-center justify-center overflow-y-hidden overflow-x-hidden mt-4">
             <div className="w-max">
