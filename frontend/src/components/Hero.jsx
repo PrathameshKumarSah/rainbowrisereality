@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import Inquiry from '../components/InquiryBox'
 import { ArrowRight } from 'lucide-react'
-import VideoSource from '../assets/vack.mp4' // Import your video file
+import Homev from '../assets/vack.mp4' // Import your video file
 import HeroSearchBar from './HeroSearchBar'
 const Hero = () => {
   return (
@@ -12,7 +12,7 @@ const Hero = () => {
         {/* Background video */}
         <video
           className='absolute top-0 left-0 w-full h-full object-cover'
-          src={VideoSource}
+          src={Homev}
           autoPlay
           loop
           muted
