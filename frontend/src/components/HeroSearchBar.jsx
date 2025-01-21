@@ -28,7 +28,7 @@ const HeroSearchBar = () => {
   }, []);
 
   return (
-      <form onSubmit={handleSubmit} className="flex gap-1 items-center w-full md:w-3/4 lg:w-2/3 shadow-md text-sm ">
+      <form onSubmit={handleSubmit} className="flex gap-1 items-center w-full md:w-3/4 lg:w-2/3 shadow-md text-sm md:text-base">
         {/* Dropdown */}
         <div className="relative w-1/3" ref={dropdownRef}>
           <button
@@ -52,7 +52,7 @@ const HeroSearchBar = () => {
           {dropdownOpen && (
             <ul className="absolute z-10 mt-1 w-full border bg-white border-gray-200 rounded-md shadow-lg">
               <li
-                className="px-4 py-2 hover:bg-gray-500 hover:text-white cursor-pointer border-b"
+                className="px-2 md:px-4 py-2 hover:bg-gray-500 hover:text-white cursor-pointer border-b rounded-md border-2"
                 onClick={() => {
                   setSelectedOption("Residential");
                   setDropdownOpen(false);
@@ -61,7 +61,7 @@ const HeroSearchBar = () => {
                 Residential
               </li>
               <li
-                className="px-4 py-2 hover:bg-gray-500 hover:text-white cursor-pointer"
+                className="px-2 md:px-4 py-2 hover:bg-gray-500 hover:text-white cursor-pointer rounded-md border-2"
                 onClick={() => {
                   setSelectedOption("Commercial");
                   setDropdownOpen(false);
