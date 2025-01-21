@@ -77,7 +77,7 @@ const HeroSearchBar = () => {
         <input
           type="text"
           className="w-full px-4 py-3 border-l placeholder-black border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
-          placeholder="Search Porjects or Properties..."
+          placeholder="Search projects or properties..."
         />
 
         {/* Search Button */}
@@ -85,7 +85,7 @@ const HeroSearchBar = () => {
           className="flex gap-2 px-2 md:px-6 py-3 text-white font-medium rounded bg-blue-900 transition duration-300 hover:bg-blue-950 hover:-translate-y-1"
         >
         <Search size={20} />
-          <span className="hidden md:inline">Search</span>
+          <span className="hidden md:inline">SEARCH</span>
         </button>
       </form>
   );
