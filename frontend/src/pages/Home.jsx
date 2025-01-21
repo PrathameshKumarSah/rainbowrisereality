@@ -18,11 +18,11 @@ const Home = () => {
       <Properties />
 {/*       <About/> */}
 {/*       <LatestProjects /> */}
-      <Slider />
+      // <Slider />
 {/*       <div className=' py-16 overflow-x-hidden'>
         <img src={bannerImg} alt="" />
       </div> */}
-      // <ReadyToMoveProjects />
+{/*       <ReadyToMoveProjects /> */}
       <Blogs />
          <div class="fixed bottom-4 right-4">
            <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
