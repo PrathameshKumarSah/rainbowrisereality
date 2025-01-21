@@ -107,7 +107,7 @@ const Allproject = () => {
     <div className="relative text-white px-6 pb-6 mt-6">
       <span className="block opacity-75 -mb-1">PROJECTS</span>
       <div className="flex justify-between">
-        <span className="block font-semibold text-xl">Commercial Properties</span>
+        <span className="block font-semibold text-2xl">Commercial Properties</span>
       </div>
     </div>
   </div>
