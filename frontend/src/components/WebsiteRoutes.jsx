@@ -16,6 +16,7 @@ import Residential from '../pages/Residential'
 import Commercial from '../pages/Commercial'
 import ContactUs from '../pages/ContactUs'
 import Allproject from '../pages/Allproject'
+import ContactButtons from "./ContactButtons";
 
 const WebsiteRoutes = () => {
   const {modalOpen, setModalOpen} = apiStore();
@@ -39,6 +40,7 @@ const WebsiteRoutes = () => {
         </Routes>
         <Toaster />
         <EnquireModalBox modalOpen={modalOpen.val} title={modalOpen.title} setModalOpen={setModalOpen} />
+        <ContactButtons />
         <Footer />
     </>
   );
