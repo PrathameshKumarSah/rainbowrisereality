@@ -4,7 +4,6 @@ import Sunshine from '../assets/sunshine.png'
 import Spa from '../assets/spa.png'
 import Spa1 from '../assets/gig.png'
 import Heroback5 from '../assets/res.png'
-import userIcon from '../assets/user.svg'
 
 const AboutPage = () => {
 
@@ -169,12 +168,6 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-      <div class="fixed bottom-4 right-4">
-                 <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                   <a href="https://wa.me/+918058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
-                                    <span className='hidden'>Whatsapp</span>
-                                </button>
-            </div>
     </section>
   </div>
   )
