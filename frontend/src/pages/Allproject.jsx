@@ -22,7 +22,7 @@ const Allproject = () => {
 
     <h1 className='text-4xl font-bold text-center mt-10 mb-10'> PROJECTS </h1>
 
-      <HeroSearchBar />
+     <div className='max-padd-container items-center justify-center'> <HeroSearchBar /> </div>
 
       {/* Cards */}
       <Link to={'/projectpage'}><div className=" mx-auto p-4 mt-20">
