@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { apiStore } from "../store/apiHandler";
 import { ClipLoader, SkewLoader } from "react-spinners";
-import userIcon from '../assets/user.svg'
 
 const ContactUs = () => {
   const {sendContactMsg, contactStatus, contactLoading} = apiStore();
@@ -221,12 +220,6 @@ const ContactUs = () => {
           </div>
         </div>
       </main>
-         <div class="fixed bottom-4 right-4">
-           <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                             <a href="https://wa.me/+918058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
-                              <span className='hidden'>Whatsapp</span>
-                          </button>
-      </div>
 
     </div>
   );
