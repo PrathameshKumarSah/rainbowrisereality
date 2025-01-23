@@ -17,6 +17,7 @@ import Commercial from '../pages/Commercial'
 import ContactUs from '../pages/ContactUs'
 import Allproject from '../pages/Allproject'
 import ContactButtons from "./ContactButtons";
+import ProjectPage from '../pages/Projectpage'
 
 const WebsiteRoutes = () => {
   const {modalOpen, setModalOpen} = apiStore();
@@ -36,6 +37,7 @@ const WebsiteRoutes = () => {
             <Route path="/thankyou" element={<ThankYou />}/>
             <Route path="/residential" element={<Residential />}/>
             <Route path="/commercial" element={<Commercial />}/>
+            <Route path="/projectpage" element={<ProjectPage />}/>
           <Route path="/allproject" element={<Allproject />}/>
         </Routes>
         <Toaster />
