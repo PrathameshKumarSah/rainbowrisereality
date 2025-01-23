@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <main>
       <Hero/>
-      <BuilderAssociations />
       <Properties />
+      <BuilderAssociations />
 {/*       <About/> */}
 {/*       <LatestProjects /> */}
 {/*       <div className=' py-16 overflow-x-hidden'>
