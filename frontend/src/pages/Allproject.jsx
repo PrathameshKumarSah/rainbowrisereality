@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Prov from '../assets/prov.mp4'
 import Imag from '../assets/img3.png'
 import Imag1 from '../assets/img2.png'
-import HeroSearchBar from './HeroSearchBar'
+import HeroSearchBar from '../components/HeroSearchBar'
 
 
 const Allproject = () => {
