@@ -1,13 +1,13 @@
 import React from 'react'
-import Reslog from '../assets/resl.png'
-import Comlog from '../assets/comlog.png'
 import { Link } from 'react-router-dom'
 import Prov from '../assets/prov.mp4'
+import Imag from '../assets/img3.png'
+import Imag1 from '../assets/img2.png'
 
 const Allproject = () => {
   return (
     <div>
-       <div className="relative h-[600px]">
+       <div className="relative h-[400px]">
                            {/* Background Image */}
                             <video
                                      className='absolute top-0 left-0 w-full h-full object-cover'
@@ -17,106 +17,122 @@ const Allproject = () => {
                                      muted
                                    />
                          </div>
-<div className="flex flex-wrap items-center justify-center bg-image">
-<Link to={'/residential'}><div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
-    <svg
-      className="absolute bottom-0 left-0 mb-8"
-      viewBox="0 0 375 283"
-      fill="none"
-      style={{ transform: "scale(1.5)", opacity: "0.1" }}
-    >
-      <rect
-        x="159.52"
-        y={175}
-        width={152}
-        height={152}
-        rx={8}
-        transform="rotate(-45 159.52 175)"
-        fill="white"
-      />
-      <rect
-        y="107.48"
-        width={152}
-        height={152}
-        rx={8}
-        transform="rotate(-45 0 107.48)"
-        fill="white"
-      />
-    </svg>
-    <div className="relative pt-10 px-10 flex items-center justify-center">
-      <div
-        className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-        style={{
-          background: "radial-gradient(black, transparent 60%)",
-          transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-          opacity: "0.2"
-        }}
-      />
-      <img
-        className="relative w-60"
-        src={Reslog}
-        alt="Residential "
-      />
-    </div>
-    <div className="relative text-white px-6 pb-6 mt-6">
-      <span className="block opacity-75 -mb-1">PROJECTS</span>
-      <div className="flex justify-between">
-        <span className="block font-semibold text-2xl">Residential Properties</span>
-      </div>
-    </div>
-  </div>
-  </Link>
 
-  <Link to={'/commercial'}> <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
-    <svg
-      className="absolute bottom-0 left-0 mb-8"
-      viewBox="0 0 375 283"
-      fill="none"
-      style={{ transform: "scale(1.5)", opacity: "0.1" }}
-    >
-      <rect
-        x="159.52"
-        y={175}
-        width={152}
-        height={152}
-        rx={8}
-        transform="rotate(-45 159.52 175)"
-        fill="white"
-      />
-      <rect
-        y="107.48"
-        width={152}
-        height={152}
-        rx={8}
-        transform="rotate(-45 0 107.48)"
-        fill="white"
-      />
-    </svg>
-    <div className="relative pt-10 px-10 flex items-center justify-center">
-      <div
-        className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-        style={{
-          background: "radial-gradient(black, transparent 60%)",
-          transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-          opacity: "0.2"
-        }}
-      />
-      <img
-        className="relative w-30"
-        src={Comlog}
-        alt="Commercial "
-      />
-    </div>
-    <div className="relative text-white px-6 pb-6 mt-6">
-      <span className="block opacity-75 -mb-1">PROJECTS</span>
-      <div className="flex justify-between">
-        <span className="block font-semibold text-2xl">Commercial Properties</span>
+    <h1 className='text-4xl font-bold text-center mt-10 mb-10'> PROJECTS </h1>
+      {/* Cards */}
+      <Link to={'/projectpage'}><div className=" mx-auto p-4 mt-20">
+                  <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-md rounded-lg overflow-hidden">
+                      {/* Left Section */}
+                      <div className="lg:w-1/2 flex flex-col">
+                          <img
+                              src={Imag}
+                              alt="Building"
+                              className="h-max lg:h-auto w-full object-cover" />
+                      </div>
+                      {/* Right Section */}
+                      <div className="lg:w-2/3 p-6">
+      
+                      <div className="p-4">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-semibold bg-yellow-300 px-2 py-1 rounded">
+                New Launch
+              </span>
+            </div>
+            <h3 className="text-3xl font-bold mt-2">Godrej Properties</h3>
+            <p className="text-gray-500">NH-24, Ghaziabad</p>
+            <p className="text-sm text-gray-500 mt-2">Possession On 2025-12-24</p>
+            <span className="text-[#F93827] text-3xl font-bold">₹1.55 Cr</span> 
+
+            <div className="overflow-x-auto mt-4">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr>
+                    <th className="border-b py-2">UNIT</th>
+                    <th className="border-b py-2">SIZE</th>
+                    <th className="border-b py-2">PRICE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="py-2">3 BHK</td>
+                    <td className="py-2">1720 Sq.Ft.</td>
+                    <td className="py-2">1.55 Cr</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-4 flex justify-between items-center">
+              <button className="bg-[#F93827] text-white px-4 py-2 rounded">
+                Instant Callback
+              </button>
+              <button className="text-gray-500 hover:text-gray-700">
+                <span>❤️</span>
+              </button>
+            </div>
+          </div>
       </div>
+                  </div>
+              </div>
+        </Link>
+
+        {/* Cards */}
+      <Link to={'/projectpage'}><div className=" mx-auto p-4 mt-20">
+                  <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-md rounded-lg overflow-hidden">
+                      {/* Left Section */}
+                      <div className="lg:w-1/2 flex flex-col">
+                          <img
+                              src={Imag1}
+                              alt="Building"
+                              className="h-max lg:h-auto w-full object-cover" />
+                      </div>
+                      {/* Right Section */}
+                      <div className="lg:w-2/3 p-6">
+      
+                      <div className="p-4">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-semibold bg-yellow-300 px-2 py-1 rounded">
+                New Launch
+              </span>
+            </div>
+            <h3 className="font-bold text-3xl mt-2">ATS Floral Pathways</h3>
+            <p className="text-gray-500">NH-24, Ghaziabad</p>
+            <p className="text-sm text-gray-500 mt-2">Possession On 2025-12-24</p>
+            <span className="text-[#F93827] text-3xl font-bold">₹1.55 Cr</span>
+
+            <div className="overflow-x-auto mt-4">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr>
+                    <th className="border-b py-2">UNIT</th>
+                    <th className="border-b py-2">SIZE</th>
+                    <th className="border-b py-2">PRICE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="py-2">3 BHK</td>
+                    <td className="py-2">1720 Sq.Ft.</td>
+                    <td className="py-2">1.55 Cr</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-4 flex justify-between items-center">
+              <button className="bg-[#F93827] text-white px-4 py-2 rounded">
+                Instant Callback
+              </button>
+              <button className="text-gray-500 hover:text-gray-700">
+                <span>❤️</span>
+              </button>
+            </div>
+          </div>
+      </div>
+                  </div>
+              </div>
+        </Link>
     </div>
-  </div>
-  </Link>
-</div>
-</div>
 
 
   )
