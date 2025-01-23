@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Prov from '../assets/prov.mp4'
 import Imag from '../assets/img3.png'
 import Imag1 from '../assets/img2.png'
+import HeroSearchBar from './HeroSearchBar'
+
 
 const Allproject = () => {
   return (
@@ -19,6 +21,9 @@ const Allproject = () => {
                          </div>
 
     <h1 className='text-4xl font-bold text-center mt-10 mb-10'> PROJECTS </h1>
+
+      <HeroSearchBar />
+
       {/* Cards */}
       <Link to={'/projectpage'}><div className=" mx-auto p-4 mt-20">
                   <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-md rounded-lg overflow-hidden">
