@@ -4,7 +4,6 @@ import { apiStore, BASE_URL } from '../store/apiHandler';
 import Map from '../components/Map';
 import { HashLoader } from 'react-spinners';
 import { Bath, Bed, CarFront, MapPin, Ruler } from 'lucide-react';
-import userIcon from '../assets/user.svg'
 
 const Property = () => {
   const {pathname} = useLocation();
@@ -86,12 +85,6 @@ const Property = () => {
           <Map address={property?.address} city={property?.city} country={property.country ? property.country : 'India'} />
         </div>
       </div>
-        <div class="fixed bottom-4 right-4">
-               <button className="flexCenter gap-x-6 medium-10 rounded-full pr-3">
-                                 <a href="https://wa.me/+918058517274" target="_blank"><img src={userIcon} alt="" height={40} width={40} /></a>
-                                  <span className='hidden'>Whatsapp</span>
-               </button>
-          </div>
     </main>
   )
 }
