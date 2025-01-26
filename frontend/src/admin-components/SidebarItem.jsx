@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IoIosArrowUp, IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 const SidebarItem = ({
   icon,
