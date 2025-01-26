@@ -5,7 +5,7 @@ import { Loader } from 'lucide-react';
 import toast from "react-hot-toast";
 
 export default function AddProperty() {
-  const {isPropertyUploading, addPropertyHandler } = apiStore();
+  const {isUploading, addPropertyHandler } = apiStore();
   const [filePath, setFilePath] = useState("");
 
   const handleFileChange = (event) => {
@@ -421,8 +421,8 @@ export default function AddProperty() {
         </button>
         <button
           type="submit"
-          className="flex justify-center items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={isPropertyUploading}>
-          {isPropertyUploading ? (
+          className="flex justify-center items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={isUploading}>
+          {isUploading ? (
             <>
               <Loader className="h-5 w-5 animate-spin" /> &nbsp;
               Uploading...
