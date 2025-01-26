@@ -37,11 +37,6 @@ const storage = multer.diskStorage({
 // Multer Middleware
 export const upload = multer({ storage });
 
-// const uploadHandler = upload.fields([
-//   { name: "images", maxCount: 6 }, // Multiple files from 'multipleFiles' field
-//   { name: "brochure", maxCount: 1 }, // Single file from 'singleFile' field
-// ]);
-
 // Define file upload fields
 const uploadFields = upload.fields([
   { name: "images", maxCount: 10 },
