@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { axiosInstance } from "../libs/axios.js";
 import toast from "react-hot-toast";
+import objectToFormData from "./ObjToFD.js";
 
 export const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
 
@@ -8,7 +9,7 @@ export const apiStore = create((set, get) => ({
   authUser: null,
   isSigningUp: false,
   isLoggingIn: false,
-  isPropertyUploading: false,
+  isUploading: false,
   isImgUpdating: false,
   isCheckingAuth: true,
   otpVerified:false,
@@ -88,7 +89,6 @@ export const apiStore = create((set, get) => ({
   },
 
   getProperty: async (id) => {
-    console.log("id:", id);
     set({propertyLoading:true})
     try {
       let res = await axiosInstance.get(`/get-property/${id}`, {
@@ -129,7 +129,9 @@ export const apiStore = create((set, get) => ({
   },
 
   addPropertyHandler: async (data) => {
-    set({ isPropertyUploading: true });
+    set({ isUploading: true });
+    console.log(data);
+
     try {
       const res = await axiosInstance.post("/add-property", data, 
         {
@@ -137,13 +139,34 @@ export const apiStore = create((set, get) => ({
         }
       );
       toast.success("Property Added successfully");
-      console.log(res);
+      // console.log(res);
       // set({ authUser: res.data });
     } catch (error) {
       console.log(error.response.data.message);
       toast.error(error.response.data.message);
     } finally {
-      set({ isPropertyUploading: false });
+      set({ isUploading: false });
+    }
+  },
+
+  addProjectHandler: async (data) => {
+    set({ isUploading: true });
+    try {
+      const res = await axiosInstance.post("/add-project", data, 
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(res);
+      toast.success("Project Added successfully");
+    } catch (error) {
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
+    } finally {
+      set({ isUploading: false });
     }
   },
 
@@ -154,7 +177,7 @@ export const apiStore = create((set, get) => ({
       res = res.data[0];
       console.log(res);
       set({ initialFormState: {
-        id: id,
+        // id: id,
         title: res.title,
         category: res.category,
         location: res.location,
@@ -200,7 +223,7 @@ export const apiStore = create((set, get) => ({
   },
 
   updatePropertyDetails: async (data) => {
-    set({ isPropertyUploading: true });
+    set({ isUploading: true });
     try {
       const res = await axiosInstance.post("/update-details", data);
       toast.success(res.data.message);
@@ -208,12 +231,12 @@ export const apiStore = create((set, get) => ({
       toast.error(error.response.data.message);
       console.log(error.response.data.message);
     } finally {
-      set({ isPropertyUploading: false });
+      set({ isUploading: false });
     }
   },
 
   updateProfileDetails: async (data) => {
-    set({ isPropertyUploading: true });
+    set({ isUploading: true });
     try {
       const res = await axiosInstance.post("/update-profile", data);
       toast.success(res.data.message);
@@ -221,7 +244,7 @@ export const apiStore = create((set, get) => ({
       toast.error(error.response.data.message);
       console.log(error.response.data.message);
     } finally {
-      set({ isPropertyUploading: false });
+      set({ isUploading: false });
     }
   },
 
@@ -253,7 +276,7 @@ export const apiStore = create((set, get) => ({
 
   
   changePassword: async (data) => {
-    set({ isPropertyUploading: true });
+    set({ isUploading: true });
     try {
       const res = await axiosInstance.post("/change-password", data);
       toast.success(res.data.message);
@@ -261,7 +284,7 @@ export const apiStore = create((set, get) => ({
       toast.error(error.response.data.message);
       console.log(error.response.data.message);
     } finally {
-      set({ isPropertyUploading: false });
+      set({ isUploading: false });
     }
   },
 
@@ -299,7 +322,7 @@ export const apiStore = create((set, get) => ({
   },
 
   setModalOpen: (val, title) => {
-    console.log('I\'m a set modal open', title)
+    // console.log('I\'m a set modal open', title)
     set({modalOpen: {val, title}});
   },
 
@@ -310,10 +333,11 @@ export const apiStore = create((set, get) => ({
       toast.success(res.data.message);
       set({enquireStatus: true});
       set({enquireLoading: false});
-      console.log(res.data);
+      console.log(body);
     }catch(error){
       console.log("Error in sending Enquiry");
       toast.error(error.response.data.message);
+      set({enquireLoading: false});
     } finally{
       set({enquireLoading: false})
       setTimeout(() => {
