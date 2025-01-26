@@ -98,6 +98,38 @@ export const addPropertyHandler =  async (req, res) => {
       }
 } 
 
+// Handle when Project add 
+export const addProjectHandler =  async (req, res) => {
+    const { developer, title, category, status, area_size, rooms, location, features, about, area, city, state } = req.body;
+
+    // Get file paths
+    const imagePaths = req.files.images
+    ? req.files.images.map((file) => `/uploads/images/${file.filename}`)
+    : [];
+    const brochurePath = req.files.brochure
+    ? `/uploads/brochure/${req.files.brochure[0].filename}`
+    : null;
+    
+    const data = [[developer, title, category, status, area_size, rooms, location, features, about, imagePaths.join(","), brochurePath, area, city, state]];
+    console.log(data);
+    
+    const pool = await mysql2.createPool(config);
+    try{
+         await pool.query('INSERT INTO projects (developer, title, category, status, area_size, rooms, location, features, about, imgs, brochure, area, city, state) VALUES ?', [data]);
+        res.json({ message: 'Property Added Successfully', data: data  });
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Internal Server error' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
 // Update Property
 export const getProperty = async (req, res) => {
     const {id} = req.params;
