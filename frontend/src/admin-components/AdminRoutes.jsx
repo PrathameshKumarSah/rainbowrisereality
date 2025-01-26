@@ -4,7 +4,6 @@ import Dashboard from "./Dashboard";
 import AdminLogin from "./AdminLogin";
 import Logout from "./Logout";
 import {ADMIN_BASE_URL} from "../App";
-// import Enquires from "./Enquires";
 import ViewProperty from "./ViewProperty";
 import UpdatedProperty from "./UpdatedProperty";
 import AddProperty from "./AddProperty";
@@ -17,6 +16,7 @@ import {apiStore} from "../store/apiHandler.js"
 import { Toaster } from 'react-hot-toast';
 import { Loader } from "lucide-react";
 import ChangePassword from "./ChangePassword.jsx";
+import AddProjects from "./AddProjects.jsx";
 
 
 const AdminRoutes = () => {
@@ -37,9 +37,9 @@ const AdminRoutes = () => {
       <>
         <Routes>
             <Route path="/" element={authUser ? <Main><Dashboard /> Dashboard</Main> : <AdminLogin />} />
-            {/* <Route path="/enquires" element={authUser ? <Main><Enquires /> Enquires</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} /> */}
             <Route path="/view-properties" element={authUser ? <Main><ViewProperty /> All Properties</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/add-property" element={authUser ? <Main><AddProperty /> Add Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
+            <Route path="/add-project" element={authUser ? <Main><AddProjects /> Add Project</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/update-property/:id" element={authUser ? <Main><UpdatedProperty /> Updated Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/remove-property" element={authUser ? <Main><RemoveProperty /> Remove Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/profile" element={authUser ? <Main><Profile />Profile</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} /> 
