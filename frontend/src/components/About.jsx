@@ -1,79 +1,107 @@
-import React, {useEffect, useState} from 'react'
-import aboutImg from '../assets/about.jpg'
-import { RiDoubleQuotesL } from 'react-icons/ri'
-import CountUp from "react-countup"
+import React from 'react';
 
 const About = () => {
     
-    const statistics = [
-        {label: "Happy clients", value: 12},
-        {label: "Different cities", value: 3},
-        {label: "Projects completed", value: 45},
-    ]
- 
-    const [isVisible, setIsVisible] = useState(false)
-
-    useEffect(()=> {
-        const handleScroll = () => {
-            const aboutSection = document.getElementById('about');
-            if(aboutSection){
-                const top = aboutSection.getBoundingClientRect().
-                top;
-                const isVisible = top < window.innerHeight - 100;
-                setIsVisible(isVisible);
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-        // cleanup function to remove the event listener
-        return()=> {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, [])
+   const steps = [
+    { icon: <MagnifyingGlassIcon />, text: "SELECT PROPERTY" },
+    { icon: <ExpertIcon />, text: "MEET OUR EXPERT" },
+    { icon: <LocationIcon />, text: "VISIT PROPERTY" },
+    { icon: <HouseIcon />, text: "BUY PROPERTY" },
+    { icon: <SupportIcon />, text: "CUSTOMER SUPPORT" },
+  ];
+       
   return (
-    <section id='about' className='max-padd-container py-16 xl:py-28'>
-        {/* container */}
-        <div className='flex flex-col xl:flex-row gap-10'>
-            {/* left side */}
-             <div className='flex-1 relative'>
-                <img src={aboutImg} alt=""  className='rounded-3xl rounded-tr-[155px] w-[488px]'/>
-                <div className='bg-white absolute bottom-16 left-16 max-w-xs p-4 rounded-lg flexCenter flex-col'>
-                    <span className='relative bottom-8 p-3 shadow-md bg-white h-12 w-12 flex items-center rounded-full'><RiDoubleQuotesL className='text-2xl'/></span>
-                    <p className='text-center relative bottom-3'>Your dream home is just a click away! </p>
-                </div>
-             </div>
-             {/* right side */}
-             <div className='flex-1 flex justify-center flex-col'>
-                <span className='medium-18'>
-                   Unveiling Our Journey 
-                </span>
-                <h2 className='h2'>
-                    Our Commitment Crafting Extraordinary RealEstate Experiences
-                </h2>
-                <p className='py-5'>
-                Your journey to the perfect home begins here. From cozy apartments to luxury villas, find the property that fits your vision. Trust us to guide you every step of the way, making your real estate dreams a reality.
-                </p>
-                {/* statistice container */}
-                <div className='flex flex-wrap gap-4'>
-                    {statistics.map((statistic, index)=>(
-                        <div key={index} className='bg-primary p-4 rounded-lg'>
-                            <div className='flex items-center gap-1'>
-                               <CountUp start={isVisible ? 0:
-                                null} end={statistic.value}
-                                duration={7} delay={1.5}>
-                                    {({countUpRef})=> (
-                                       <h3 ref={countUpRef} className='text-2xl font-semibold'></h3>
-                                    )}
-                                </CountUp> 
-                                <h4 className='bold-22'>k+</h4>
-                            </div>
-                            <p>{statistic.label}</p>
-                        </div>
-                    ))}
-                </div>
-             </div>
+   <div className="bg-white py-12 px-4">
+      {/* Header Section */}
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold text-black mt-2">
+          End to End Assistance
+        </h1>
+      </div>
+
+      {/* Steps Section */}
+      <div className="mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5 gap-7 items-center justify-center">
+          {steps.map((step, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-md border-2 border-gray-200 text-red-600">
+                {step.icon}
+              </div>
+              <p className="text-center text-lg font-medium text-gray-700 mt-4">
+                {step.text}
+              </p>
+            </div>
+          ))}
         </div>
-    </section>
+        <div className="mt-10 flex justify-center">
+          <div className="h-1 w-full lg:w-10/12 bg-[#F72C5B] relative">
+            {steps.map((_, index) => (
+              <div
+                key={index}
+                className="absolute bg-[#F72C5B] w-5 h-5 rounded-full -top-2 left-[calc((100%/5)*index)] transform translate-x-[-50%]"
+                style={{ left: `${(index / (steps.length - 1)) * 100}%` }}
+              ></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Icon Components
+const MagnifyingGlassIcon = () => (
+<svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" id="Search">
+  <g fill="#f72c5b" class="color000000 svgShape">
+    <path d="m20.71 19.29-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z" fill="#f72c5b" class="color000000 svgShape"></path>
+  </g>
+</svg>
+);
+
+const ExpertIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 64 64" id="Expert">
+  <path d="M47.0165,5.09429c-2.77576,0-5.36877,.77136-7.60114,2.091C22.13173-.39247,1.71028,13.15453,2.0168,32.09459c1.48193,35.81702,52.52124,35.81006,53.99969-.00031,11.3797-8.6134,5.44879-26.89911-9-27ZM29.0165,57.09429c-13.78516,0-25-11.21484-25-25C3.68813,15.1483,21.65016,2.56371,37.42891,8.57066c-1.26624,1.05524-2.34418,2.32233-3.20746,3.73505-7.70532-3.94086-17.36127,2.10785-17.20483,10.78876-.00012,5.58978,3.8299,10.28979,8.99988,11.61981v.70001c-6.27997,1.38-11,6.98999-11,13.67999,0,.54999,.45001,1,1,1h26c.54999,0,1-.45001,1-1,0-6.69-4.71997-12.29999-11-13.67999v-.70001c2.08093-.53534,3.94019-1.62024,5.42303-3.08673,4.28796,3.77747,11.48279,4.58398,16.54468,1.73877-.66455,13.19641-11.60913,23.72797-24.96771,23.72797Zm0-24c-5.51001,0-10-4.48999-10-10-.17279-7.16425,7.91217-12.2597,14.26929-9.01703-2.44434,5.20068-1.20386,12.12329,2.69745,16.14404-1.80261,1.76605-4.25195,2.87299-6.96674,2.87299Zm1,2v1c0,.54999-.45001,1-1,1s-1-.45001-1-1v-1h2Zm27.12109-15.87891l-9,9c-1.11646,1.1637-3.12573,1.16412-4.24219-.00006,0,.00006-5-4.99994-5-4.99994-2.72296-2.86761,1.37146-6.96729,4.24225-4.24213-.00006-.00006,2.87885,2.87885,2.87885,2.87885l6.87891-6.87891c2.86926-2.72418,6.96643,1.37323,4.24219,4.24219Z" fill="#f72c5b" class="color000000 svgShape"></path>
+</svg>
+);
+
+const LocationIcon = () => (
+<svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 64 64" id="Location">
+  <path fill="#e3e1e1" d="M54.01 58.74C54.01 61.65 44.15 64 32 64c-12.15 0-22.01-2.35-22.01-5.26 0-2.6 7.9-4.74 18.26-5.18h7.5c10.37.44 18.26 2.58 18.26 5.18z" class="colore3e2e1 svgShape"></path>
+  <path fill="#f72c5b" d="M32 0C20.7 0 11.54 9.15 11.54 20.45 11.54 31.75 32 58.74 32 58.74s20.45-26.99 20.45-38.29S43.3 0 32 0zm0 33.99c-7.48 0-13.54-6.06-13.54-13.54S24.52 6.91 32 6.91c7.48 0 13.54 6.06 13.54 13.54S39.48 33.99 32 33.99z" class="colore82327 svgShape"></path>
+</svg>
+);
+
+const HouseIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 103.19 98.08" id="House">
+  <g fill="#f72c5b" class="color000000 svgShape">
+    <path d="M101.46 43.58 55.16 1.39a5.27 5.27 0 0 0-7.13 0L1.73 43.58a5.29 5.29 0 0 0 3.56 9.2h7.39V95a3 3 0 0 0 3 3H41.1a3 3 0 0 0 3-3V69.38h14.95V95a3 3 0 0 0 3 3h25.42a3 3 0 0 0 3-3V52.78h7.4a5.29 5.29 0 0 0 3.56-9.2zM89.71 6.06H69.33l23.41 21.29V9.09a3 3 0 0 0-3.03-3.03z" fill="#f72c5b" class="color000000 svgShape"></path>
+  </g>
+</svg>
+);
+
+const SupportIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 512 512" id="customersupport">
+  <path fill="#604a4f" d="M401.363 296.251a29.346 29.346 0 0 1-19.338 31.911 382.796 382.796 0 0 1-132.866 21.69 382.496 382.496 0 0 1-121.634-21.895 29.296 29.296 0 0 1-19.268-31.277l23.138-184.445A119.646 119.646 0 0 1 250.125 7.5h5.642a119.647 119.647 0 0 1 118.407 102.359Z" class="color4a4f60 svgShape"></path>
+  <path fill="#4d3b3f" d="M401.363 296.251 374.174 109.86A119.647 119.647 0 0 0 255.767 7.5h-5.642a120.184 120.184 0 0 0-19.688 1.62 119.66 119.66 0 0 1 98.737 100.739l27.19 186.392a29.346 29.346 0 0 1-19.339 31.911 383.62 383.62 0 0 1-104.487 21.063q8.146.483 16.621.627a382.798 382.798 0 0 0 132.866-21.69 29.346 29.346 0 0 0 19.338-31.91Z" class="color3b3f4d svgShape"></path>
+  <path fill="#ff6689" d="M441.33 504.5H70.67a25.58 25.58 0 0 1-24.9-31.45l10.73-59.8A50.87 50.87 0 0 1 96.2 375l70.82-13.93 86.7-17.05a4.837 4.837 0 0 1 1.82-.01l91.54 17.22 71.65 13.48a50.91 50.91 0 0 1 40.84 41.96l7.03 58.2a25.59 25.59 0 0 1-25.27 29.63Z" class="color66c1ff svgShape"></path>
+  <path fill="#ff4e77" d="m466.6 474.87-7.03-58.2a50.91 50.91 0 0 0-40.84-41.96l-71.65-13.48-91.54-17.22a4.837 4.837 0 0 0-1.82.01l-86.7 17.05L96.2 375a50.837 50.837 0 0 0-22.403 10.555l48.223-9.485 86.7-17.05a4.837 4.837 0 0 1 1.82-.01l91.54 17.22 71.65 13.48a50.91 50.91 0 0 1 40.84 41.96l7.03 58.2a25.396 25.396 0 0 1-1.972 14.63h21.702a25.59 25.59 0 0 0 25.27-29.63Z" class="color4eb7ff svgShape"></path>
+  <path fill="#ff4e77" d="M347.08 361.23v1.21a23.137 23.137 0 0 1-8.9 18.22l-2.44 1.9-33.66-6.33-91.54-17.22a4.837 4.837 0 0 0-1.82.01l-41.27 8.12-45.43 8.93-48.22 9.49A50.741 50.741 0 0 1 96.2 375l70.82-13.93 86.7-17.05a4.837 4.837 0 0 1 1.82-.01Z" class="color4eb7ff svgShape"></path>
+  <path fill="#f3a6b8" d="M347.08 361.23v1.21a23.137 23.137 0 0 1-8.9 18.22l-77.16 60.05a9.274 9.274 0 0 1-11.54-.12l-73.92-59.94a23.059 23.059 0 0 1-8.54-17.93v-1.65l86.7-17.05a4.837 4.837 0 0 1 1.82-.01Z" class="colora6f3ba svgShape"></path>
+  <path fill="#f090a6" d="M347.08 361.23v1.21a23.137 23.137 0 0 1-8.9 18.22l-2.44 1.9-33.66-6.33-91.54-17.22a4.837 4.837 0 0 0-1.82.01l-41.27 8.12a22.378 22.378 0 0 1-.43-4.42v-1.65l86.7-17.05a4.837 4.837 0 0 1 1.82-.01Z" class="color90f0a9 svgShape"></path>
+  <path fill="#ff85a1" d="m303.065 362.398-43.303 33.705a6 6 0 0 1-7.464-.074l-41.472-33.632a13.095 13.095 0 0 1-4.847-10.171v-72.852h102.138v72.69a13.095 13.095 0 0 1-5.052 10.334Z" class="colorffcd85 svgShape"></path>
+  <path fill="#ff85a1" d="M342.196 144.939v108.494a53.464 53.464 0 0 1-25.127 45.34l-29.125 18.222a62.423 62.423 0 0 1-66.189 0l-29.125-18.222a53.464 53.464 0 0 1-25.127-45.34V144.947a43.093 43.093 0 0 0 41.51-29.838 107.284 107.284 0 0 0 21.7 19.94s.718.492 1.43.974c34.328 23.265 71.93 15.418 110.053 8.916Z" class="colorffcd85 svgShape"></path>
+  <path fill="#f72c5b" d="M232.142 136.023c-.71-.482-1.429-.974-1.429-.974a107.284 107.284 0 0 1-21.7-19.94 43.093 43.093 0 0 1-41.51 29.839v15a43.093 43.093 0 0 0 41.51-29.839 107.284 107.284 0 0 0 21.7 19.94s.718.492 1.43.974c34.328 23.265 71.93 15.418 110.053 8.916v-15c-38.122 6.502-75.725 14.349-110.054-8.916Z" class="colorffc570 svgShape"></path>
+  <path fill="#f72c5b" d="M312.196 149.763v103.67a53.464 53.464 0 0 1-25.127 45.34l-29.125 18.222a62.367 62.367 0 0 1-18.094 7.667 62.423 62.423 0 0 0 48.094-7.667l29.125-18.223a53.464 53.464 0 0 0 25.127-45.339V144.94c-10.053 1.715-20.07 3.518-30 4.824Z" class="colorffc570 svgShape"></path>
+  <path fill="#87676e" d="M105.848 165.49h32.316v45.67h-32.316a7.554 7.554 0 0 1-7.553-7.553v-30.563a7.554 7.554 0 0 1 7.553-7.554Z" class="color676e87 svgShape"></path>
+  <path fill="#87676e" d="M167.504 231.704h-18.477a25.862 25.862 0 0 1-25.862-25.862v-35.031a25.862 25.862 0 0 1 25.862-25.863h18.477v86.756Z" class="color676e87 svgShape"></path>
+  <path fill="#74595f" d="M138.164 205.841V170.81a25.862 25.862 0 0 1 25.862-25.862h-15a25.862 25.862 0 0 0-25.862 25.862v35.031a25.862 25.862 0 0 0 25.862 25.863h15a25.862 25.862 0 0 1-25.862-25.863Z" class="color595f74 svgShape"></path>
+  <rect width="42.058" height="29.601" x="232.805" y="263.333" fill="#403134" rx="14.66" class="color313440 svgShape"></rect>
+  <path fill="#87676e" d="M403.851 211.162h-32.315v-45.67h32.315a7.554 7.554 0 0 1 7.554 7.553v30.563a7.554 7.554 0 0 1-7.554 7.554Z" class="color676e87 svgShape"></path>
+  <path fill="#74595f" d="M403.85 165.49h-15a7.554 7.554 0 0 1 7.554 7.554v30.563a7.554 7.554 0 0 1-7.553 7.554h15a7.554 7.554 0 0 0 7.553-7.554v-30.563a7.554 7.554 0 0 0-7.553-7.554Z" class="color595f74 svgShape"></path>
+  <path fill="#87676e" d="M342.196 144.948h18.477a25.862 25.862 0 0 1 25.862 25.862v35.031a25.862 25.862 0 0 1-25.862 25.863h-18.477v-86.756Z" class="color676e87 svgShape"></path>
+  <path fill="#74595f" d="M360.673 144.948h-15a25.862 25.862 0 0 1 25.862 25.862v35.031a25.862 25.862 0 0 1-25.862 25.863h15a25.862 25.862 0 0 0 25.862-25.863V170.81a25.862 25.862 0 0 0-25.862-25.862Z" class="color595f74 svgShape"></path>
+  <path fill="#33272a" d="m474.03 473.836-7.014-58.066a7.076 7.076 0 0 0-.04-.288 58.562 58.562 0 0 0-46.859-48.144l-71.52-13.452-.006-.001-19.37-3.644a392.655 392.655 0 0 0 55.294-15.004 36.93 36.93 0 0 0 24.27-40.07l-11.16-76.507h6.225a15.07 15.07 0 0 0 15.054-15.053v-30.564a15.07 15.07 0 0 0-15.054-15.053h-12.38a33.365 33.365 0 0 0-3.648-6.534l-6.225-42.68A127.149 127.149 0 0 0 255.767 0h-5.642A127.356 127.356 0 0 0 123.953 111.3l-5.857 46.689H105.85a15.07 15.07 0 0 0-15.054 15.053v30.564a15.07 15.07 0 0 0 15.054 15.053h4.636l-9.67 77.086a37.011 37.011 0 0 0 24.208 39.28 391.678 391.678 0 0 0 57.05 15.443l-16.502 3.245-.111.022-70.71 13.905A58.498 58.498 0 0 0 49.2 411.53q-.047.196-.082.395l-10.697 59.613A33.08 33.08 0 0 0 70.67 512h370.66a33.09 33.09 0 0 0 32.7-38.163Zm-79.995-300.823 9.87.03-.055 30.617h-9.815Zm-9.977 56.566 9.883 67.755a21.898 21.898 0 0 1-14.405 23.752 377.476 377.476 0 0 1-63.916 16.359v-28.92l5.425-3.394a60.96 60.96 0 0 0 19.503-19.498h1.224a32.7 32.7 0 0 0 32.667-32.657v-16.77a33.466 33.466 0 0 0 9.62-6.627Zm-100.09 81.056a55.259 55.259 0 0 1-58.235.001l-15.549-9.728c-.026-.017-.053-.032-.079-.05l-13.5-8.445a45.706 45.706 0 0 1-21.602-38.98V151.94a50.302 50.302 0 0 0 36.03-23.519 115.656 115.656 0 0 0 15.445 12.819l1.456.992c34.13 23.13 70.972 17.74 106.761 11.606v99.596a46.092 46.092 0 0 1-3.306 17.2H281.1a22.195 22.195 0 0 0-20.898-14.8h-12.737a22.186 22.186 0 0 0-22.16 22.16v.28a22.186 22.186 0 0 0 22.16 22.161h12.737a22.196 22.196 0 0 0 20.899-14.8h40.432a46.39 46.39 0 0 1-8.442 6.78Zm16.652 7.276v34.148a5.638 5.638 0 0 1-2.167 4.422l-42.36 32.969-40.538-32.875a5.57 5.57 0 0 1-2.04-3.719c-.004-.054-.004-.109-.009-.163-.012-.154-.026-.307-.026-.463v-31.565l4.3 2.689a70.351 70.351 0 0 0 74.143-.001Zm-33.258-39.917v.28a7.168 7.168 0 0 1-7.16 7.16h-12.737a7.168 7.168 0 0 1-7.16-7.16v-.28a7.169 7.169 0 0 1 7.16-7.161h12.737a7.169 7.169 0 0 1 7.16 7.16Zm80.16-8.34a61.453 61.453 0 0 0 2.173-16.22v-14.23h9.744v13.772a17.675 17.675 0 0 1-11.917 16.678Zm31.513-98.845v35.032a18.383 18.383 0 0 1-18.362 18.362h-10.978v-71.756h10.978a18.383 18.383 0 0 1 18.362 18.362Zm-240.2-57.64a112.332 112.332 0 0 1 111.29-98.17h5.641a112.147 112.147 0 0 1 110.987 95.942l4.099 28.102a33.215 33.215 0 0 0-10.18-1.596h-18.1c-.036-.002-.073.002-.11 0h-.267l-.03.002a7.402 7.402 0 0 0-.7.035c-.034.003-.067.008-.1.012-.144.016-.287.025-.43.05l-5.134.88c-35.567 6.128-69.162 11.914-99.45-8.612l-1.365-.929a100.174 100.174 0 0 1-20.188-18.55 7.5 7.5 0 0 0-12.918 2.459 35.594 35.594 0 0 1-34.301 24.654l-.032.001-.044-.002h-18.477a33.128 33.128 0 0 0-13.603 2.925Zm-8.171 57.64a18.383 18.383 0 0 1 18.362-18.362h10.977v71.756h-10.977a18.383 18.383 0 0 1-18.362-18.362Zm-24.87 32.798.055-30.617h9.815v30.647Zm24.233 117.28a21.924 21.924 0 0 1-14.329-23.274l8.696-69.322a33.258 33.258 0 0 0 24.632 10.912h10.977v14.23a60.621 60.621 0 0 0 28.648 51.697l9.83 6.15v26.8a376.573 376.573 0 0 1-68.454-17.194Zm70.935 41.155a20.613 20.613 0 0 0 5.144 6.183l41.47 33.63a13.417 13.417 0 0 0 16.79.163l43.297-33.697a20.547 20.547 0 0 0 5.138-5.905l25.975 4.886a15.708 15.708 0 0 1-5.206 7.436l-77.163 60.055a1.768 1.768 0 0 1-2.206-.024l-73.92-59.951a15.458 15.458 0 0 1-5.112-7.704Zm254.137 128.602A18.067 18.067 0 0 1 441.33 497H70.67a18.08 18.08 0 0 1-17.6-22.228q.046-.198.081-.398l10.694-59.592a43.468 43.468 0 0 1 33.802-32.423l62.755-12.34a30.394 30.394 0 0 0 10.436 16.453l73.919 59.95a16.7 16.7 0 0 0 20.87.203l77.164-60.055a30.44 30.44 0 0 0 10.82-16.478l63.729 11.988a43.525 43.525 0 0 1 34.802 35.64l7.011 58.05c.012.095.026.19.041.285a18.055 18.055 0 0 1-4.095 14.59Z" class="color272a33 svgShape"></path>
+</svg>
   )
-}
 
 export default About
