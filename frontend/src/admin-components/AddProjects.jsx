@@ -57,11 +57,11 @@ const AddProjects = () => {
         if (formData.brochure) {
           data.append("brochure", formData.brochure);
         }
-        console.log('data\n'+data);
-        console.log('formdata\n'+formData);
+        // console.log('data\n'+data);
+        // console.log('formdata\n'+formData);
 
         addProjectHandler(data);
-        // setFormData(initialForm);
+        setFormData(initialForm);
     }
 
     // handling changes of developer dropdown and input
@@ -73,7 +73,6 @@ const AddProjects = () => {
         } else {
             setFormData({ ...formData, developer: e.target.value });  
             setShowCustomInput(false);
-            // setFormData({ ...formData, customInput: '' }); // Reset custom input
         }
     };
 
