@@ -1,4 +1,4 @@
-import { ChevronLast, ChevronFirst, LayoutDashboard, House, HousePlus} from "lucide-react"
+import { ChevronLast, ChevronFirst, LayoutDashboard, House, HousePlus, Building2} from "lucide-react"
 import { useContext, createContext, useState, useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { ADMIN_BASE_URL } from "../App"
@@ -63,19 +63,13 @@ export default function Sidebar() {
     <aside className="h-screen">
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center">
-          <Link to={'../../'} >
-            <img src={logos} 
-              className={`overflow-hidden transition-all ${
-                expanded ? "w-12" : "w-0"
-              }`} />        
-        </Link>  
-          {/* <img
-            src="https://img.logoipsum.com/243.svg"
+        <Link to={'../../'} >
+          <img src={logos} 
             className={`overflow-hidden transition-all ${
-              expanded ? "w-32" : "w-0"
-            }`}
-            alt=""
-          /> */}
+              expanded ? "w-12" : "w-0"
+            }`} />        
+        </Link> 
+          
           <button
             onClick={() => setExpanded((curr) => !curr)}
             className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-300"
@@ -88,7 +82,8 @@ export default function Sidebar() {
           <ul className="flex-1 px-3">
             <SidebarItem icon={<LayoutDashboard size={20} />} text="Dashboard" link={ADMIN_BASE_URL+"/"} active />
             <SidebarItem icon={<House size={20} />} text="Properties" link={ADMIN_BASE_URL+"/view-properties"} />
-            <SidebarItem icon={<HousePlus size={20} />} text="Add Property" link={ADMIN_BASE_URL+"/add-property"} />
+            <SidebarItem icon={<Building2 size={20} />} text="Add Project" link={ADMIN_BASE_URL+"/add-project"} />
+            <SidebarItem icon={<HousePlus size={20} />} text="Add Property" link={ADMIN_BASE_URL+"/add-property"} />            
             {/* <SidebarItem icon={<UserCircle size={20} />} text="Profile" link={ADMIN_BASE_URL+"/profile"} /> */}
           </ul>
         </SidebarContext.Provider>
@@ -130,14 +125,7 @@ export function SidebarItem({ icon, text, link }) {
       >
         {text}
       </span>
-      {/* {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
-            expanded ? "" : "top-2"
-          }`}
-        />
-      )} */}
-
+     
       {!expanded && (
         <div
           className={`
