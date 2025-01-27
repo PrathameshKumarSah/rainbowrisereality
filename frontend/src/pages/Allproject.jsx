@@ -36,7 +36,7 @@ const Allproject = () => {
       <div className="flex-1 flex flex-col lg:flex-row relative">
       {/* Content Section */}
       <div className="lg:w-3/4 w-full p-4 space-y-4">
-        {properties.map((item) => (
+        {properties?.map((item) => (
           <ProjectLongCard key={item.id} data={item} />
         ))}
       </div>
