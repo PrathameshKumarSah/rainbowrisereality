@@ -2,7 +2,7 @@ import React from "react";
 
 const LatestProjects = () => {
   return (
-   <div className="max-padd-container h-full w-full bg-gray-800 pt-12 p-4 mb-10">\<div className="text-center mb-8">
+   <div className="max-padd-container h-full w-full bg-gray-800 pt-12 p-4 mb-10"><div className="text-center mb-8">
     <h2 className="text-2xl font-bold text-white">WHY CHOOSE US?</h2>
     <p className="text-white mt-2">
       With years of industry experience, our team of experts understands the nuances of the real estate market, ensuring that you make informed decisions.
