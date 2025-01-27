@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section className='w-full'>
       {/* < Inquiry/> */}
-      <div className='relative w-full h-[685px]'>
+      <div className='relative w-full h-[400px]'>
         {/* Background video */}
         <video
           className='absolute top-0 left-0 w-full h-full object-cover'
