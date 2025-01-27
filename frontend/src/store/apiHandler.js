@@ -127,6 +127,25 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  getProjects: async () => {
+  set({propertyLoading:true})
+  try{
+    const res = await axiosInstance.get("/projects");
+    // setPropertiesDetails(res.data);
+    set({ properties: res.data });
+    console.log(res.data);
+    // setPropertyData(res.data);
+  } catch (error) {
+    console.log(BASE_URL);
+    console.log(error.response);
+    set({ isError: true });
+    // toast.error("Error in getting Properties.");
+    throw error;
+  } finally{ 
+    set({propertyLoading:false})
+  }
+},
+
   addPropertyHandler: async (data) => {
     set({ isUploading: true });
     console.log(data);
