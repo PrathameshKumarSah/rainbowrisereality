@@ -4,15 +4,12 @@ import HeroSearchBar from '../components/HeroSearchBar'
 import ProjectLongCard from '../components/ProjectLongCard'
 import {apiStore} from "../store/apiHandler.js"
 
-
 const Allproject = () => {
   const {properties, getProjects, propertyLoading} = apiStore();
   
   useEffect(() => {
       getProjects();
     }, [])
-
-
   
   return (
     <div>
@@ -33,13 +30,13 @@ const Allproject = () => {
 
     {/* Main Content */}
     {!propertyLoading && 
-      <div className="flex-1 flex flex-col lg:flex-row relative">
-      {/* Content Section */}
-      <div className="lg:w-3/4 w-full p-4 space-y-4">
-        {properties?.map((item) => (
-          <ProjectLongCard key={item.id} data={item} />
-        ))}
-      </div>
+      <div className="flex-1 flex flex-col md:flex-row relative">
+        {/* Content Section */}
+        <div className="lg:w-3/4 w-full p-4 space-y-4">
+          {properties?.map((item) => (
+            <ProjectLongCard key={item.id} data={item} />
+          ))}
+        </div>
 
       {/* Enquiry Box */}
       <div className="lg:w-1/4 w-full p-4">
