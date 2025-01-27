@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Properties from '../components/Properties'
+import LatestProjects from '../components/LatestProjects'
 // import Blogs from '../components/Blogs'
 import BuilderAssociations from '../components/BuilderAssociations'
 
@@ -12,7 +13,7 @@ const Home = () => {
       <Properties />
       <BuilderAssociations />
       <About/>
-{/*       <LatestProjects /> */}
+      <LatestProjects />
 {/*       <Blogs /> */}
     </main>
   )
