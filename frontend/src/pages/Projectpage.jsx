@@ -18,7 +18,7 @@ const [mainImage, setMainImage] = useState(mainImageFile);
 
     return (
     <div>
-        <div className=" mx-auto p-4 mt-60px">
+        <div className=" mx-auto p-4 mt-20">
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-md rounded-lg overflow-hidden">
                 {/* Left Section */}
 <div className="lg:w-1/2 flex flex-col">
