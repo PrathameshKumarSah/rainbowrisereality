@@ -98,6 +98,24 @@ export const addPropertyHandler =  async (req, res) => {
       }
 } 
 
+export const showProjects = async (req, res) => {
+    const pool = await mysql2.createPool(config);
+    try{
+        const [rows] = await pool.query('SELECT * FROM projects');
+        // console.log(rows);
+        res.send(rows);
+    } catch(err){
+        console.log(err);
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
 // Handle when Project add 
 export const addProjectHandler =  async (req, res) => {
     const { developer, title, category, status, area_size, rooms, location, features, about, area, city, state } = req.body;
