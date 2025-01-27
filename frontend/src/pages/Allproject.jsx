@@ -30,7 +30,7 @@ const Allproject = () => {
     <div className='max-padd-container flex items-center my-4 justify-center'> <HeroSearchBar /> </div>
 
     {/* Main Content */}
-    <div className="flex-1 flex flex-col lg:flex-row relative">
+    <div className="flex-1 flex flex-col md:flex-row relative">
         {/* Content Section */}
         {!propertyLoading ?
           <div className="lg:w-3/4 w-full p-4 space-y-4">
