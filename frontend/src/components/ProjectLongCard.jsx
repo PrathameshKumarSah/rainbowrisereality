@@ -18,7 +18,7 @@ const ProjectLongCard = ({data}) => {
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
                 {/* Left Section */}
                 <div class="lg:w-1/2 flex flex-col">
-                    <img src={data?.imgs && BASE_URL + data?.imgs.split(',')[0]} alt={data?.imgs && data?.imgs.split(',')[0]}
+                    <img src={data?.imgs && BASE_URL + data?.imgs.split(',')[0]} alt={data?.title}
                     class="h-full w-full object-cover"
                     />
                 </div>
