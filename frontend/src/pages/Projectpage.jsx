@@ -1,46 +1,57 @@
-import Imag from '../assets/img3.png'
 import React, { useState } from "react";
+import CollapsibleSection from '../components/CollapsibleSection'
+import Spa from '../assets/img5.png'
+import mainImageFile from "../assets/img3.png";
+import Sunshine from '../assets/img4.png'
+import Three from '../assets/img2.png'
 
-const CollapsibleSection = ({ title, children }) => {
-    const [isOpen, setIsOpen] = useState(true);
-  
-    return (
-      <div className="border-b border-gray-200 py-4">
-        <div
-          className="flex justify-between items-center cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <h2 className="text-2xl font-medium text-black">{title}</h2>
-          <button
-            className="text-gray-600 focus:outline-none"
-            aria-label={isOpen ? "Collapse section" : "Expand section"}
-          >
-            {isOpen ? "-" : "+"}
-          </button>
-        </div>
-        {isOpen && <div className="mt-4">{children}</div>}
-      </div>
-    );
+
+const Projectpage = () => {
+
+const [mainImage, setMainImage] = useState(mainImageFile);
+
+  const images = [Spa, Sunshine, Three,];
+
+  const handleImageClick = (image) => {
+    setMainImage(image);
   };
-  
 
-const Projectpage = () => (
+    return (
     <div>
-        <div className=" mx-auto p-4 mt-20">
+        <div className=" mx-auto p-4 mt-60px">
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-md rounded-lg overflow-hidden">
                 {/* Left Section */}
-                <div className="lg:w-1/2 flex flex-col">
-                    <img
-                        src={Imag}
-                        alt="Building"
-                        className="h-max lg:h-auto w-full object-cover" />
-                </div>
+<div className="lg:w-1/2 flex flex-col">
+  <div className="flex flex-col items-center space-y-4">
+    {/* Main Image */}
+    <div className="w-full">
+      <img
+        src={mainImage}
+        alt="Main Display"
+        className=" w-full sm:w-full h-[300px] sm:h-[400px] rounded-lg shadow-lg object-cover"
+      />
+    </div>
+
+    {/* Thumbnail Images */}
+    <div className="flex justify-center space-x-4">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Thumbnail ${index + 1}`}
+          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-blue-500 transition-all"
+          onClick={() => handleImageClick(image)}
+        />
+      ))}
+    </div>
+  </div>
+</div>
                 {/* Right Section */}
                 <div className="lg:w-2/3 p-6">
 
 <div className='flex justify-between items-center'>
     <h1 className="text-3xl  font-bold text-gray-800">Gaur NYC Residences</h1>
-    <h1 className="text-3xl sm:top-0 right-0 font-bold text-gray-800">Gaur</h1>
+    {/* <h1 className="text-3xl sm:top-0 right-0 font-bold text-gray-800">Gaur</h1> */}
 </div>
 <div className="flex items-center mt-2">
 </div>
@@ -137,5 +148,6 @@ const Projectpage = () => (
 
     </div>
 )
+}
 
 export default Projectpage
