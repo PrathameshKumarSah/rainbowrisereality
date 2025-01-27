@@ -4,6 +4,7 @@ import HeroSearchBar from '../components/HeroSearchBar'
 import ProjectLongCard from '../components/ProjectLongCard'
 import {apiStore} from "../store/apiHandler.js"
 
+
 const Allproject = () => {
   const {properties, getProjects, propertyLoading} = apiStore();
   
@@ -29,14 +30,17 @@ const Allproject = () => {
     <div className='max-padd-container flex items-center my-4 justify-center'> <HeroSearchBar /> </div>
 
     {/* Main Content */}
-    {!propertyLoading && 
-      <div className="flex-1 flex flex-col md:flex-row relative">
+    <div className="flex-1 flex flex-col lg:flex-row relative">
         {/* Content Section */}
-        <div className="lg:w-3/4 w-full p-4 space-y-4">
-          {properties?.map((item) => (
-            <ProjectLongCard key={item.id} data={item} />
-          ))}
-        </div>
+        {!propertyLoading ?
+          <div className="lg:w-3/4 w-full p-4 space-y-4">
+            {properties?.map((item) => (
+              <ProjectLongCard key={item.id} data={item} />
+            ))}
+          </div>
+           :
+          <div className='lg:w-3/4 w-full p-4 space-y-4'><LoadingCard /> <LoadingCard /> <LoadingCard /></div>
+        }
 
       {/* Enquiry Box */}
       <div className="lg:w-1/4 w-full p-4">
@@ -85,16 +89,57 @@ const Allproject = () => {
         </div>
       </div>
     </div>
-    }
-
-    {propertyLoading && 'Loading...'}
-
 
     </div>
 
 
   )
 }
+
+export const LoadingCard = () => {
+  return (
+    <div className="p-4 animate-pulse">
+      <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
+        {/* Left Section */}
+        <div className="lg:w-1/2 flex flex-col">
+          <div className="h-full w-full bg-gray-300 rounded"></div>
+        </div>
+        {/* Right Section */}
+        <div className="lg:w-2/3">
+          <div className="p-4">
+            <div className="flex justify-between items-center">
+              <span className="h-4 w-20 bg-yellow-300 rounded"></span>
+            </div>
+            <div className="h-6 w-2/3 bg-gray-300 rounded mt-2"></div>
+            <div className="flex flex-col justify-center mt-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="flex items-center p-2">
+                  <div className="h-5 w-5 bg-blue-300 rounded-full mr-2"></div>
+                  <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                </div>
+                <div className="flex items-center p-2">
+                  <div className="h-5 w-5 bg-green-300 rounded-full mr-2"></div>
+                  <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                </div>
+                <div className="flex items-center p-2">
+                  <div className="h-5 w-5 bg-purple-300 rounded-full mr-2"></div>
+                  <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                </div>
+                <div className="flex items-center p-2">
+                  <div className="h-5 w-5 bg-red-300 rounded-full mr-2"></div>
+                  <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex gap-3">
+              <div className="h-10 w-32 bg-red-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Allproject
 
