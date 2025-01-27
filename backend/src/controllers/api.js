@@ -101,7 +101,7 @@ export const addPropertyHandler =  async (req, res) => {
 export const showProjects = async (req, res) => {
     const pool = await mysql2.createPool(config);
     try{
-        const [rows] = await pool.query('SELECT * FROM projects');
+        const [rows] = await pool.query('SELECT * FROM projects ORDER BY id DESC');
         // console.log(rows);
         res.send(rows);
     } catch(err){
