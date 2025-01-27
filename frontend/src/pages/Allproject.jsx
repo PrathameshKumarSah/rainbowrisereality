@@ -9,7 +9,7 @@ import HeroSearchBar from '../components/HeroSearchBar'
 const Allproject = () => {
   return (
     <div>
-       <div className="relative h-[400px]">
+       <div className="relative h-[280px]">
                            {/* Background Image */}
                             <video
                                      className='absolute top-0 left-0 w-full h-full object-cover'
@@ -20,7 +20,7 @@ const Allproject = () => {
                                    />
                          </div>
 
-    <h1 className='text-4xl font-bold text-center mt-10 mb-10'> PROJECTS </h1>
+    <h1 className='text-3xl font-bold text-center mt-5 mb-5'> PROJECTS </h1>
 
      <div className='max-padd-container items-center justify-center'> <HeroSearchBar /> </div>
 
