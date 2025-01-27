@@ -1,5 +1,5 @@
 import express from "express";
-import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler } from "../controllers/api.js";
+import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects } from "../controllers/api.js";
 import multer from 'multer';
 import fs from 'fs';
 
@@ -17,15 +17,28 @@ const createDirectories = () => {
 };
 createDirectories();
 
+
+// // Define storage configuration for multer ===========================
+// export const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './imgs'); // Directory to save uploaded files
+//   },
+//   filename: (req, file, cb) => {
+//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+//     const ext = path.extname(file.originalname);
+//     cb(null, file.fieldname + '-' + uniqueSuffix + ext); 
+//   }
+// });
+
 // Configure Multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    // console.log(file.fieldname);
     if (file.fieldname === "images") {
       cb(null, "uploads/images");
     } else if (file.fieldname === "brochure") {
       cb(null, "uploads/brochure");
     } else {
-      // console.log(file.fieldname);
       cb(null, "imgs");
     }
   },
@@ -37,6 +50,11 @@ const storage = multer.diskStorage({
 // Multer Middleware
 export const upload = multer({ storage });
 
+// const uploadHandler = upload.fields([
+//   { name: "images", maxCount: 6 }, // Multiple files from 'multipleFiles' field
+//   { name: "brochure", maxCount: 1 }, // Single file from 'singleFile' field
+// ]);
+
 // Define file upload fields
 const uploadFields = upload.fields([
   { name: "images", maxCount: 10 },
@@ -45,6 +63,7 @@ const uploadFields = upload.fields([
 
 
 router.get("/properties", showProperties);
+router.get("/projects", showProjects);
 router.post("/login", handleLogin);
 router.get("/latest-property",  latestProperty);
 router.post("/add-property", upload.single('img'), addPropertyHandler);
