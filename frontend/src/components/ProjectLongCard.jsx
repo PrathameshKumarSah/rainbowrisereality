@@ -1,14 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Imag from '../assets/img3.png'
-import Imag1 from '../assets/img2.png'
 import { MapPin, Building, Bed, Ruler, Phone } from "lucide-react"
 import { BASE_URL } from '../store/apiHandler';
 
 
-const ProjectLongCard = ({data}) => {
-    
-    
+const ProjectLongCard = ({data}) => {  
     const handleButtonClick = (event) => {
         event.preventDefault(); // Prevent default behavior of the card's link
         event.stopPropagation(); // Prevent the click from triggering the card's link
@@ -21,9 +17,9 @@ const ProjectLongCard = ({data}) => {
         <div className=" mx-auto p-4 ">
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
                 {/* Left Section */}
-                <div className="lg:w-1/2 flex flex-col">
-                    <img src={ BASE_URL + data?.imgs.split(',')[0]} alt={data?.imgs.split(',')[0]}
-                    className="h-full w-full object-cover"
+                <div class="lg:w-1/2 flex flex-col">
+                    <img src={data?.imgs && BASE_URL + data?.imgs.split(',')[0]} alt={data?.imgs && data?.imgs.split(',')[0]}
+                    class="h-full w-full object-cover"
                     />
                 </div>
                 {/* Right Section */}
