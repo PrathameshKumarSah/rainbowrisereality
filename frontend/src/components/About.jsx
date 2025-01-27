@@ -14,7 +14,7 @@ const About = () => {
    <div className="bg-white py-12 px-4">
       {/* Header Section */}
       <div className="text-center">
-        <h1 className="text-xl md:text-4xl font-extrabold text-black mt-2">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-black mt-2">
           End to End Assistance
         </h1>
       </div>
