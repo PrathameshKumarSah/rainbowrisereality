@@ -16,7 +16,7 @@ const BuilderAssociations = () => {
         <div className=" mb-[50px]">
              {/* Header Section */}
              <div className="text-center mb-8">
-                <h2 className="text-xl md:text-4xl font-bold text-[#000000]">
+                <h2 className="text-2xl md:text-4xl font-extrabold text-[#000000]">
                     Builders associated with
                 </h2>
                 <p className="text-gray-500 mt-2 text-sm md:text-xl">
