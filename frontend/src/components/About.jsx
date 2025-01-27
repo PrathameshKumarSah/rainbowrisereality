@@ -15,7 +15,7 @@ const road = () => {
 <div className="bg-white py-12 px-4">
       {/* Header Section */}
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-black mt-10 mb-5">
+        <h1 className="text-3xl md:text-4xl font-bold text-black mt-10 mb-5">
           End to End Assistance
         </h1>
         <div className="h-1 w-60 justify-self-center  bg-[#F72C5B] relative"></div>
