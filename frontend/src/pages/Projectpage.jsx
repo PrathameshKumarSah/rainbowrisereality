@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import CollapsibleSection from "../components/CollapsibleSection";
-import Spa from "../assets/img5.png";
-import mainImageFile from "../assets/img3.png";
-import Sunshine from "../assets/img4.png";
-import Three from "../assets/img2.png";
 import { MapPin, Building, Bed, Ruler, Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { apiStore, BASE_URL } from "../store/apiHandler";
+import { HashLoader } from "react-spinners";
 
 const Projectpage = () => {
-  const [mainImage, setMainImage] = useState(mainImageFile);
+  const {pathname} = useLocation();
+  const id = pathname.split('/').slice(-1)[0];
+  const {propertyLoading, getProject, isError, setModalOpen} = apiStore();
+  const [property, setProperty] = useState({});
+  const [mainImage, setMainImage] = useState(property.imgs && BASE_URL+property?.imgs.split(',')[0]);
   const navbarRef = useRef(null);
   const aboutRef = useRef(null);
   const configRef = useRef(null);
@@ -15,7 +18,18 @@ const Projectpage = () => {
   const localityRef = useRef(null);
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);
 
-  const images = [Spa, Sunshine, Three];
+
+  useEffect(() => {
+    const getData = async () => {
+      setProperty(await getProject(id));
+    };
+    getData();
+  }, []);
+
+  const handleOnClick = () => {
+    console.log("handle one click ", property);
+    setModalOpen(true, property.title);
+  }
 
   const handleImageClick = (image) => {
     setMainImage(image);
@@ -41,6 +55,55 @@ const Projectpage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setMainImage(property.imgs && BASE_URL+property?.imgs.split(',')[0]);
+  },[property.imgs]);
+
+  if (propertyLoading) {
+    return (
+      <div className="h-screen my-28 flex items-center justify-center">
+        <div className="space-y-6 w-full max-w-4xl mx-auto">
+          {/* Main Image Skeleton */}
+          <div className="w-full h-[300px] sm:h-[400px] bg-gray-300 animate-pulse rounded-lg"></div>
+  
+          {/* Property Details Skeleton */}
+          <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex-1 space-y-4">
+              <div className="h-8 bg-gray-300 animate-pulse rounded-lg w-3/4"></div>
+              <div className="h-6 bg-gray-300 animate-pulse rounded-lg w-1/2"></div>
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-300 animate-pulse rounded-lg w-full"></div>
+                <div className="h-4 bg-gray-300 animate-pulse rounded-lg w-5/6"></div>
+              </div>
+            </div>
+  
+            {/* Thumbnails Skeleton */}
+            <div className="w-1/3 flex flex-wrap gap-4">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-20 h-20 sm:w-24 sm:h-24 bg-gray-300 animate-pulse rounded-lg"
+                ></div>
+              ))}
+            </div>
+          </div>
+  
+          {/* Sticky Navbar Skeleton */}
+          <div className="hidden md:block h-12 bg-gray-300 animate-pulse rounded-lg"></div>
+        </div>
+      </div>
+    );
+  }
+  
+
+  if(isError){
+    return (
+      <div className=' h-80 flex items-center justify-center'>
+        Error while Fetching Data
+      </div>
+    )
+  }
+
   return (
     <div>
       {/* Main Content */}
@@ -50,47 +113,49 @@ const Projectpage = () => {
           <div className="lg:w-2/5 p-6">
             <div className="flex justify-between items-center">
               <span className="text-sm font-semibold bg-yellow-300 px-2 py-1 rounded">
-                Ready to Move
+                {property?.status}
               </span>
             </div>
             <div className="flex justify-between items-center my-4">
-              <h1 className="text-3xl font-bold text-gray-800">Gaur NYC Residences</h1>
+              <h1 className="text-3xl font-bold text-gray-800">{property?.title}</h1>
             </div>
-            <div className="text-sm text-gray-500 my-2">Wave City, Ghaziabad</div>
+            <div className="text-sm text-gray-500 my-2">{property?.location}</div>
             <div className="flex flex-col justify-center my-3">
               <div className="grid grid-cols-2 gap-2">
                 {/* Location */}
                 <div className="flex items-center p-2">
                   <MapPin className="text-blue-500 mr-2" />
-                  <p className="text-base">Location</p>
+                  <p className="text-base">{property?.location}</p>
                 </div>
 
                 <div className="flex items-center p-2">
                   <Building className="text-green-500 mr-2" />
-                  <p className="text-base">Category</p>
+                  <p className="text-base">{property?.category}</p>
                 </div>
 
                 {/* BHK */}
                 <div className="flex items-center p-2">
                   <Bed className="text-purple-500 mr-2" />
-                  <p className="text-base">Rooms</p>
+                  <p className="text-base">{property?.rooms}</p>
                 </div>
 
                 {/* Area Size */}
                 <div className="flex items-center p-2">
                   <Ruler className="text-red-500 mr-2" />
-                  <p className="text-base">Area Size</p>
+                  <p className="text-base">{property?.area_size}</p>
                 </div>
               </div>
             </div>
             <div className="mt-6 flex justify-between items-center">
-              <button className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600">
+              <button className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600"
+                onClick={handleOnClick}
+              >
                 <Phone />
                 Instant Call Back
               </button>
-              <button className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600">
+              {/* <button className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600">
                 Instant Enquiry
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -108,13 +173,13 @@ const Projectpage = () => {
 
               {/* Thumbnail Images */}
               <div className="flex justify-center space-x-4">
-                {images.map((image, index) => (
+                {property.imgs && property?.imgs.split(",").map((image, index) => (
                   <img
                     key={index}
-                    src={image}
+                    src={BASE_URL+image}
                     alt={`Thumbnail ${index + 1}`}
                     className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-blue-500 transition-all"
-                    onClick={() => handleImageClick(image)}
+                    onClick={() => handleImageClick(BASE_URL+image)}
                   />
                 ))}
               </div>
@@ -125,9 +190,9 @@ const Projectpage = () => {
 
       {/* Sticky Navbar */}
       <div
-        className={`${
+        className={`hidden ${
           isNavbarSticky ? "sticky top-0 z-10" : ""
-        } bg-black text-white`}
+        } bg-black text-white md:block`}
         ref={navbarRef}
       >
         <ul className="flex flex-wrap justify-around md:justify-center md:space-x-6 py-3">
@@ -161,12 +226,11 @@ const Projectpage = () => {
       {/* Content Sections */}
       <div className="flex flex-col md:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
         {/* Left Content */}
-        <div className="px-12 md:w-2/3">
+        <div className="px-6 lg:px-12 md:w-2/3">
           <div ref={aboutRef}>
             <CollapsibleSection title="About">
               <p>
-                Gaur NYC Residences are the living spaces that are surrounded by
-                limitless luxury and offer the best kind of living in Ghaziabad.
+                {property?.about}
               </p>
             </CollapsibleSection>
           </div>
@@ -180,20 +244,22 @@ const Projectpage = () => {
           </div>
           <div ref={amenitiesRef}>
             <CollapsibleSection title="Amenities">
-              <p>Swimming Pool, Fitness Center, Gardens, Clubhouse, etc.</p>
+              <p>{property?.features}</p>
             </CollapsibleSection>
           </div>
           <div ref={localityRef}>
             <CollapsibleSection title="Location">
-              <iframe
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=surat&amp;ie=UTF8&amp;hq=&amp;hnear=Surat,+Gujarat&amp;ll=21.195,72.819444&amp;spn=0.36299,0.676346&amp;t=m&amp;z=11&amp;output=embed"></iframe><br />
+
+              {/* <iframe
                 title="Location Map"
-                src="https://www.google.com/maps/embed?pb=..."
+                src={"https://www.google.com/maps?q="+property?.area+"+"+property?.city+"+"+property?.state}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
-              ></iframe>
+              ></iframe> */}
             </CollapsibleSection>
           </div>
         </div>
