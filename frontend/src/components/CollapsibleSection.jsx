@@ -1,4 +1,4 @@
-import { MinusCircle, PlusCircle } from "lucide-react";
+import { LucideBadgeMinus, LucideBadgePlus } from "lucide-react";
 import React, { useState } from "react";
 
 const CollapsibleSection = ({ title, children }) => {
@@ -15,7 +15,7 @@ const CollapsibleSection = ({ title, children }) => {
             className="text-orange-500 focus:outline-none"
             aria-label={isOpen ? "Collapse section" : "Expand section"}
           >
-            {isOpen ? <MinusCircle /> : <PlusCircle />}
+            {isOpen ? <LucideBadgeMinus /> : <LucideBadgePlus />}
           </button>
         </div>
         {isOpen && <div className="p-4 bg-white text-black">{children}</div>}
