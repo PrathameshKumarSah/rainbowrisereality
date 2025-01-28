@@ -56,7 +56,7 @@ const HomeEnquiryBox = ({ modalOpen, title }) => {
   return (
     <div className="relative">
       {/* Modal Overlay */}
-      <div className="fixed top-1/2 right-4 transform -translate-y-1/2 z-50 shadow-md hidden md:flex items-center">
+      <div className="fixed top-1/2 right-4 transform -translate-y-1/2 z-20 shadow-md hidden md:flex items-center">
         {/* Modal Content */}
         <div
           className="bg-white rounded p-4 shadow-lg w-full sm:w-3/4 md:w-full lg:w-full h-auto"
