@@ -49,7 +49,8 @@ const Footer = () => {
               <FooterColumn title={SOCIALS.title}>
                  <ul className="flex gap-4">
                   {SOCIALS.links.map((link)=> (
-                    <Link to={'/'} key={link.id} className="text-xl">
+                    <Link to={link.url} key={link.id}  target="_blank"
+                    rel="noopener noreferrer" className="text-xl">
                       {link.icon}
                     </Link>
                   ))}
