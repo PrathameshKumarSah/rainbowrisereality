@@ -108,6 +108,28 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  getProject: async (id) => {
+    set({propertyLoading:true})
+    try {
+      console.log("getPorject calle");
+      let res = await axiosInstance.get(`/get-project/${id}`, {
+        timeout: 20*1000,
+      });
+      if(res.status===400 || res.status===500){
+        throw res.data;
+      }
+      console.log(res.data[0]);
+      return res.data[0];
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+      set({ isError: true });
+      throw error;
+    } finally {
+      set({ propertyLoading: false });
+    }
+  },
+
   getProperties: async () => {
     set({propertyLoading:true})
     try{
@@ -128,23 +150,23 @@ export const apiStore = create((set, get) => ({
   },
 
   getProjects: async () => {
-  set({propertyLoading:true})
-  try{
-    const res = await axiosInstance.get("/projects");
-    // setPropertiesDetails(res.data);
-    set({ properties: res.data });
-    console.log(res.data);
-    // setPropertyData(res.data);
-  } catch (error) {
-    console.log(BASE_URL);
-    console.log(error.response);
-    set({ isError: true });
-    // toast.error("Error in getting Properties.");
-    throw error;
-  } finally{ 
-    set({propertyLoading:false})
-  }
-},
+    set({propertyLoading:true})
+    try{
+      const res = await axiosInstance.get("/projects");
+      // setPropertiesDetails(res.data);
+      set({ properties: res.data });
+      console.log(res.data);
+      // setPropertyData(res.data);
+    } catch (error) {
+      console.log(BASE_URL);
+      console.log(error.response);
+      set({ isError: true });
+      // toast.error("Error in getting Properties.");
+      throw error;
+    } finally{ 
+      set({propertyLoading:false})
+    }
+  },
 
   addPropertyHandler: async (data) => {
     set({ isUploading: true });
