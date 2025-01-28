@@ -19,7 +19,7 @@ const ProjectLongCard = ({data}) => {
         <div className=" mx-auto p-4 ">
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
                 {/* Left Section */}
-                <div class="lg:w-1/2 flex flex-col">
+                <div class="lg:w-1/2 h-64 flex flex-col">
                     <img src={data?.imgs && BASE_URL + data?.imgs.split(',')[0]} alt={data?.imgs && data?.imgs.split(',')[0]}
                     class="h-full w-full object-cover"
                     />
