@@ -45,7 +45,7 @@ const Home = () => {
 {/*       <Blogs /> */}
       <HomeEnquiryBox />
       {/* Social Media Sidebar */}
-<div className="fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-1 bg-black bg-transparent ">
+<div className="fixed left-4 bottom-2 transform -translate-y-1/2 flex flex-col gap-1 bg-black bg-transparent ">
   {[
     {
       name: "instagram",
