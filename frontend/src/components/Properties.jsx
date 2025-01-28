@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
 import {apiStore} from "../store/apiHandler.js"
+import ProjectItem from './ProjectItem.jsx';
 
 
 const Properties = () => {
-    const {properties, getProperties, propertyLoading} = apiStore();
+    const {properties, getProjects, propertyLoading} = apiStore();
 
     useEffect(() => {
-        getProperties();
+        getProjects();
       }, [])  
     
     const [category, setCategory] = useState("all");
@@ -74,12 +75,12 @@ const Properties = () => {
             {/* Property Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5  gap-4">
             {filteredProperties.map((property, index) => (
-                <Item property={property} key={index} />
+                <ProjectItem property={property} key={index} />
             ))}
             </div>
 
             {/* Show on Loading Data */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                 {propertyLoading && 
                     Array.from({ length: 4 }, (_, index) => (
                         <RepeatedElement key={index} />
