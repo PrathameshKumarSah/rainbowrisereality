@@ -1,5 +1,5 @@
 import express from "express";
-import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects } from "../controllers/api.js";
+import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects, getProject } from "../controllers/api.js";
 import multer from 'multer';
 import fs from 'fs';
 
@@ -69,6 +69,7 @@ router.get("/latest-property",  latestProperty);
 router.post("/add-property", upload.single('img'), addPropertyHandler);
 router.post("/add-project", uploadFields, addProjectHandler);
 router.get("/get-property/:id", getProperty);
+router.get("/get-project/:id", getProject);
 router.get("/auth-check", protectRoute);
 router.get("/remove-property/:id", removeProperty);
 router.post("/update-img", upload.single('img'), updateImg);
