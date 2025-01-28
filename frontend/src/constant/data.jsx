@@ -223,10 +223,10 @@ export const FOOTER_CONTACT_INFO = {
 export const SOCIALS = {
   title: "Social",
   links: [
-    { icon: <FaFacebook />, id: "facebook" },
-    { icon: <FaInstagram />, id: "instagram" },
-    { icon: <FaTwitter />, id: "twitter" },
-    { icon: <FaYoutube />, id: "youtube" },
-    { icon: <FaLinkedin />, id: "linkedin" },
+    { icon: <FaInstagram />, id: "instagram", url: "https://www.instagram.com/rainbowriserealty/" },
+    { icon: <FaLinkedin />, id: "linkedin",  url: "https://www.linkedin.com/in/rainbow-rise-realty-8641a1333" },
+    { icon: <FaFacebook />, id: "facebook", url: "/" },
+    { icon: <FaTwitter />, id: "twitter",  url: "/" },
+    { icon: <FaYoutube />, id: "youtube",  url: "/" },
   ],
 };
