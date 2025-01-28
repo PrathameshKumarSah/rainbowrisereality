@@ -6,6 +6,7 @@ import LatestProjects from '../components/LatestProjects'
 // import Blogs from '../components/Blogs'
 import BuilderAssociations from '../components/BuilderAssociations'
 import { apiStore } from '../store/apiHandler'
+import HomeEnquiryBox from '../components/HomeEnquiryBox'
 
 const Home = () => {
   const {setModalOpen} = apiStore();
@@ -23,6 +24,7 @@ const Home = () => {
       <About/>
       <LatestProjects />
 {/*       <Blogs /> */}
+      <HomeEnquiryBox />
     </main>
   )
 }
