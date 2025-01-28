@@ -9,13 +9,13 @@ import { apiStore } from '../store/apiHandler'
 import HomeEnquiryBox from '../components/HomeEnquiryBox'
 
 const Home = () => {
-  const {setModalOpen} = apiStore();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setModalOpen(true); 
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // const {setModalOpen} = apiStore();
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setModalOpen(true); 
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   return (
     <main>
       <Hero/>
