@@ -12,8 +12,8 @@ import { apiStore } from "../store/apiHandler";
 import ThankYou from "./ThankYou";
 import Property from "../pages/Property";
 import ScrollToTop from "../components/ScrollToTop"
-import Residential from '../pages/Residential'
-import Commercial from '../pages/Commercial'
+// import Residential from '../pages/Residential'
+// import Commercial from '../pages/Commercial'
 import ContactUs from '../pages/ContactUs'
 import Allproject from '../pages/Allproject'
 import ContactButtons from "./ContactButtons";
@@ -35,9 +35,9 @@ const WebsiteRoutes = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
             <Route path="/contactus" element={<ContactUs />}/>
             <Route path="/thankyou" element={<ThankYou />}/>
-            <Route path="/residential" element={<Residential />}/>
-            <Route path="/commercial" element={<Commercial />}/>
-            <Route path="/projectpage" element={<ProjectPage />}/>
+            {/* <Route path="/residential" element={<Residential />}/> */}
+            {/* <Route path="/commercial" element={<Commercial />}/> */}
+            <Route path="/project/:id" element={<ProjectPage />}/>
           <Route path="/allproject" element={<Allproject />}/>
         </Routes>
         <Toaster />
