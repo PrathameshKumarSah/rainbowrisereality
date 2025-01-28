@@ -169,6 +169,28 @@ export const getProperty = async (req, res) => {
       }
 }
 
+
+// Get Single Project
+export const getProject = async (req, res) => {
+    const {id} = req.params;
+    const pool = await mysql2.createPool(config);
+    // res.json({message: "Updated Property Successfully"});
+    try{
+        const [result] = await pool.query('SELECT * FROM projects WHERE id = ?',id);
+        res.send(result);
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'error in getting properties' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
 // Update Property Image
 export const updateImg = async (req, res) => {
     const values = [req.file.filename, req.body.id];
