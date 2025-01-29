@@ -67,6 +67,44 @@ export const searchQuery =  async (req, res) => {
         } catch (error) {
             console.error('Error closing the database connection pool:', error);
         }
+      }    
+}
+
+
+// search  More
+export const searchMore =  async (req, res) => {
+    const query = req.query.query;
+    if (!query) return res.status(400).json({ error: "Query is required" });
+    const pool = await mysql2.createPool(config);
+    try{
+        const sql = `
+        SELECT id, title, 'project' AS type, CONCAT('/project/', id) AS link, category, status, location, rooms, area_size, SUBSTRING_INDEX(imgs, ',', 1) AS imgs 
+        FROM projects
+        WHERE title LIKE ? OR developer LIKE ? OR location LIKE ? OR category LIKE ? OR status LIKE ? OR features LIKE ?
+        
+        UNION
+  
+        SELECT p_id, title, 'property' AS type, CONCAT('/properties/', p_id) AS link, category, status, location, bed AS rooms, area AS area_size, CONCAT('/imgs/', img) AS imgs
+        FROM properties
+        WHERE title LIKE ? OR description LIKE ? OR city LIKE ? OR address LIKE ? OR category LIKE ? OR status LIKE ? 
+  
+        ORDER BY title ASC
+        LIMIT 3;
+      `;
+  
+      const params = Array(12).fill(`%${query}%`); // Fill for both tables
+  
+      const [results] = await pool.query(sql, params);
+      
+      res.json(results);
+    } catch(err){
+        console.log(err);
+    } finally {
+        try {
+            await pool.end();            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
       }
   
     
