@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Properties from '../components/Properties'
 import LatestProjects from '../components/LatestProjects'
-// import Blogs from '../components/Blogs'
+import Blogs from '../components/Blogs'
 import BuilderAssociations from '../components/BuilderAssociations'
 import { apiStore } from '../store/apiHandler'
 import HomeEnquiryBox from '../components/HomeEnquiryBox'
@@ -42,7 +42,7 @@ const Home = () => {
       <BuilderAssociations />
       <About/>
       <LatestProjects />
-{/*       <Blogs /> */}
+      <Blogs />
       <HomeEnquiryBox />
       {/* Social Media Sidebar */}
 <div className="fixed left-4 bottom-0.5 transform -translate-y-1/2 flex flex-col gap-1 bg-black bg-transparent ">
