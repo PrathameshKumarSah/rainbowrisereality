@@ -30,7 +30,7 @@ const HeroSearchBar = () => {
   return (
       <form onSubmit={handleSubmit} className="flex gap-1 items-center w-full md:w-3/4 lg:w-2/3 shadow-md text-sm md:text-base">
         {/* Dropdown */}
-        <div className="relative w-1/3" ref={dropdownRef}>
+        {/* <div className="relative w-1/3" ref={dropdownRef}>
           <button
             className="w-full px-1 md:px-4 py-3 md:py-4 text-left bg-white rounded hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-800 flex justify-between items-center"
             onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -71,7 +71,7 @@ const HeroSearchBar = () => {
               </li>
             </ul>
           )}
-        </div>
+        </div> */}
 
         {/* Search Input */}
         <input
