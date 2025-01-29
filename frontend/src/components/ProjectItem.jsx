@@ -12,7 +12,7 @@ const ProjectItem = ({ property }) => {
 
   return (
     <div onClick={() => navigate(`../project/${property.id}`)} className="rounded-2xl p-5 bg-white">
-        <div className="pb-2 relative overflow-hidden rounded-xl h-28">
+        <div className="pb-2 relative overflow-hidden rounded-xl h-40">
             <img src={property?.imgs && BASE_URL + property?.imgs.split(',')[0] } alt={property.title} className='bg-cover rounded-xl ease-in duration-300 hover:scale-110' loading='lazy' />
         </div>
         <h5 className="bold-16 my-1 text-secondary">{property.location}</h5>
