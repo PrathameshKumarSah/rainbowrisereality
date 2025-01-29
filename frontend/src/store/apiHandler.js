@@ -91,9 +91,7 @@ export const apiStore = create((set, get) => ({
   getProperty: async (id) => {
     set({propertyLoading:true})
     try {
-      let res = await axiosInstance.get(`/get-property/${id}`, {
-        timeout: 20*1000,
-      });
+      let res = await axiosInstance.get(`/get-property/${id}`);
       if(res.status===400 || res.status===500){
         throw res.data;
       }
@@ -132,9 +130,7 @@ export const apiStore = create((set, get) => ({
     set({propertyLoading:true})
     try {
       console.log("getPorject calle");
-      let res = await axiosInstance.get(`/get-project/${id}`, {
-        timeout: 20*1000,
-      });
+      let res = await axiosInstance.get(`/get-project/${id}`);
       if(res.status===400 || res.status===500){
         throw res.data;
       }
