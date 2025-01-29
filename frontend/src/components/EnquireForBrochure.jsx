@@ -57,7 +57,7 @@ const EnquireForBrochure = ({ modalOpen, setModalOpen, brochureUrl }) => {
     <div className="relative">
       {modalOpen && (
         <div
-          className="fixed inset-0 shadow-md bg-black bg-opacity-50 flex items-center justify-center z-50"
+          className="fixed inset-0 shadow-md bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setModalOpen(false)}
         >
           <div
