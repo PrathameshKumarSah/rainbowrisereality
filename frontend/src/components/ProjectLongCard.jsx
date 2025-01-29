@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Building, Bed, Ruler, Phone } from "lucide-react"
-import { BASE_URL } from '../store/apiHandler';
+import { apiStore, BASE_URL } from '../store/apiHandler';
 
 
 const ProjectLongCard = ({data}) => {
+    const {setModalOpen} = apiStore();    
     
-    
-    const handleButtonClick = (event) => {
+    const handleOnClick = (event) => {
         event.preventDefault(); // Prevent default behavior of the card's link
         event.stopPropagation(); // Prevent the click from triggering the card's link
-        alert("Button inside the card clicked!");
+        window.location.href = `tel:+918058517274`;
+        setModalOpen(true, property.title);
         return ;
     }
 
@@ -63,11 +64,8 @@ const ProjectLongCard = ({data}) => {
                         </div>
 
                         <div className="mt-4 flex gap-3">
-                            {/* <button className="bg-[#F93827] text-white px-4 py-2 rounded">
-                                View Details
-                            </button> */}
                             <button className="bg-[#F93827] flex gap-2 shadow-md text-white px-4 py-2 rounded"
-                                onClick={handleButtonClick}
+                                onClick={handleOnClick}
                             >
                                 <Phone />
                                 Instant Callback
