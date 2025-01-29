@@ -1,12 +1,13 @@
 import { Loader, Search, X } from "lucide-react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiStore } from "../store/apiHandler";
 
 const HeroSearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [recommendations, setRecommendations] = useState([]);
   const { searchLoading, searchQuery } = apiStore();
+  const navigate = useNavigate();
 
   // Fetch recommendations from backend
   const fetchRecommendations = async (query) => {
@@ -37,7 +38,7 @@ const HeroSearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchText.trim()) return;
-    alert(`Searching for: ${searchText}`);
+    navigate('/search?query='+searchText);
     setSearchText("");
     setRecommendations([]);
   };
@@ -62,7 +63,7 @@ const HeroSearchBar = () => {
           <button
             type="button"
             onClick={handleClear}
-            className="absolute  right-12 md:right-40  text-gray-500 hover:text-gray-700"
+            className="absolute right-12 md:right-40 text-gray-500 hover:text-gray-700"
           >
             <X size={18} />
           </button>
