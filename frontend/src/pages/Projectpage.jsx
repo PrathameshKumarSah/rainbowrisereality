@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import CollapsibleSection from "../components/CollapsibleSection";
-import { MapPin, Building, Bed, Ruler, Phone } from "lucide-react";
+import { MapPin, Building, Bed, Ruler, Phone, ClipboardPenLine } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { apiStore, BASE_URL } from "../store/apiHandler";
-import { HashLoader } from "react-spinners";
+import Map from '../components/Map';
+import { Link } from 'react-router-dom'
+
 
 const Projectpage = () => {
   const {pathname} = useLocation();
@@ -147,15 +149,19 @@ const Projectpage = () => {
               </div>
             </div>
             <div className="mt-6 flex justify-between items-center">
+              <Link to={'tel:+918058517274'} className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600"
+                // onClick={handleOnClick}
+              >
+                <Phone />
+                <span className="flex"><span className="hidden md:block mr-1">Instant</span> Call Back</span>
+              </Link>
+
               <button className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600"
                 onClick={handleOnClick}
               >
-                <Phone />
-                Instant Call Back
+                <ClipboardPenLine />
+                Enquiry
               </button>
-              {/* <button className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600">
-                Instant Enquiry
-              </button> */}
             </div>
           </div>
 
@@ -249,17 +255,7 @@ const Projectpage = () => {
           </div>
           <div ref={localityRef}>
             <CollapsibleSection title="Location">
-            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=surat&amp;ie=UTF8&amp;hq=&amp;hnear=Surat,+Gujarat&amp;ll=21.195,72.819444&amp;spn=0.36299,0.676346&amp;t=m&amp;z=11&amp;output=embed"></iframe><br />
-
-              {/* <iframe
-                title="Location Map"
-                src={"https://www.google.com/maps?q="+property?.area+"+"+property?.city+"+"+property?.state}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe> */}
+              <Map address={property?.area} city={property?.city} country={'India'} />
             </CollapsibleSection>
           </div>
         </div>
