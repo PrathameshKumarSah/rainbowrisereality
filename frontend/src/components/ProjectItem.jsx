@@ -11,7 +11,7 @@ const ProjectItem = ({ property }) => {
         <div className="pb-2 relative overflow-hidden rounded-xl h-32">
             <img src={property?.imgs && BASE_URL + property?.imgs.split(',')[0] } alt={property.title} className='bg-cover rounded-xl ease-in duration-300 hover:scale-110' loading='lazy' />
         </div>
-        <h5 className="bold-16 my-1 text-secondary">{property.location}</h5>
+        <h5 className="bold-16 my-1 text-secondary line-clamp-1">{property.location}</h5>
         <h4 className="medium-18 line-clamp-1">{property.title}</h4>
         <p class Name="pt-2 mb-2 line-clamp-1">{property.status}</p>
         {/* info */}
