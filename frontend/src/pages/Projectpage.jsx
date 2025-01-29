@@ -5,12 +5,17 @@ import { useLocation } from "react-router-dom";
 import { apiStore, BASE_URL } from "../store/apiHandler";
 import Map from '../components/Map';
 import { Link } from 'react-router-dom'
+import EnquireModalBox from "../components/EnquireModalBox";
+import EnquireForProject from "../components/EnquireForProject";
 import Floor from '../assets/floor.jpg'
 import Floor1 from '../assets/floor1.jpg'
+import EnquireForBrochure from "../components/EnquireForBrochure";
+
 
 
 const Projectpage = () => {
   const {pathname} = useLocation();
+  const [brochureModalOpen, setBrochureModalOpen] = useState();
   const id = pathname.split('/').slice(-1)[0];
   const {propertyLoading, getProject, isError, setModalOpen} = apiStore();
   const [property, setProperty] = useState({});
@@ -244,34 +249,34 @@ const Projectpage = () => {
           </div>
           <div ref={configRef}>
             <CollapsibleSection title="Configuration">
-                <div className="grid grid-cols-2 gap2">
-                    <div className=" p-4 rounded shadow">
-                    <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
-                   <img
-                   src={Floor}
-                   alt="University of Southern California"
-                   className="absolute inset-0 h-full w-full object-cover blur-sm"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                   <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
-                    Tab To View
-                   </div>
-                   <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
-                   </article>
+            <div className="grid grid-cols-2 gap2">
+                    <div className=" p-4 rounded shadow" onClick={()=>setBrochureModalOpen(true)}>
+                          <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
+                        <img
+                        src={Floor}
+                        alt="University of Southern California"
+                        className="absolute inset-0 h-full w-full object-cover blur-sm"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+                        <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
+                          Tab To View
+                        </div>
+                        <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
+                        </article>
                     </div>
-                    <div className=" p-4 rounded shadow">
-                    <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
-                   <img
-                   src={Floor1}
-                   alt="University of Southern California"
-                   className="absolute inset-0 h-full w-full object-cover blur-sm"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                   <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
-                    Tab To View
-                   </div>
-                   <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
-                   </article>
+                    <div className=" p-4 rounded shadow" onClick={()=>setBrochureModalOpen(true)}>
+                      <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
+                    <img
+                    src={Floor1}
+                    alt="University of Southern California"
+                    className="absolute inset-0 h-full w-full object-cover blur-sm"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+                    <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
+                      Tab To View
+                    </div>
+                    <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
+                    </article>
                     </div>
                     {/* Add more configurations as needed */}
                 </div>
@@ -294,42 +299,12 @@ const Projectpage = () => {
           <div className="sticky top-20">
             <div className="bg-gray-100 border rounded-lg p-4 shadow-lg">
               <h2 className="text-xl font-bold mb-4">Enquire Box</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Name</label>
-                  <input
-                    type="text"
-                    className="w-full border rounded-lg p-2"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Email</label>
-                  <input
-                    type="email"
-                    className="w-full border rounded-lg p-2"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Message</label>
-                  <textarea
-                    className="w-full border rounded-lg p-2"
-                    rows="4"
-                    placeholder="Your Message"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
-                >
-                  Submit
-                </button>
-              </form>
+                <EnquireForProject />
             </div>
           </div>
         </div>
-      </div>
+        <EnquireForBrochure modalOpen={brochureModalOpen} setModalOpen={setBrochureModalOpen} brochureUrl={BASE_URL+property?.brochure} />
+    </div>
     </div>
   );
 };
