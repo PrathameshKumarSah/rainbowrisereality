@@ -126,6 +126,25 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  searchQueryMore: async (q) => {
+    set({propertyLoading:true})
+    try {
+      let res = await axiosInstance.get(`/searchmore?query=${q}`);
+      if(res.status===400 || res.status===500){
+        throw res.data;
+      }
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+      set({ isError: true });
+      throw error;
+    } finally {
+      set({ propertyLoading: false });
+    }
+  },
+
   getProject: async (id) => {
     set({propertyLoading:true})
     try {
@@ -332,6 +351,16 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  removeProject: async (id) => {
+    try{
+      const res = await axiosInstance.get(`/remove-project/${id}`);
+      toast.success(res.data.message);
+      console.log(res.data);
+    }catch(error){
+      console.log("Error in getting project details.");
+      toast.error(error.response.data.message);
+    }
+  },
   
   changePassword: async (data) => {
     set({ isUploading: true });
