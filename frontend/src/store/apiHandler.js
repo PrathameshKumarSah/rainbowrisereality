@@ -15,6 +15,7 @@ export const apiStore = create((set, get) => ({
   propertyLoading:false,
   totalProperties: null,
   modalOpen:false,
+  searchLoading:false,
   totalenq: null,
   properties: [],
   userData:null,
@@ -108,6 +109,25 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  searchQuery: async (q) => {
+    set({searchLoading:true})
+    try {
+      let res = await axiosInstance.get(`/search?query=${q}`);
+      if(res.status===400 || res.status===500){
+        throw res.data;
+      }
+      console.log(res.data[0]);
+      return res.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+      set({ isError: true });
+      throw error;
+    } finally {
+      set({ searchLoading: false });
+    }
+  },
+
   getProject: async (id) => {
     set({propertyLoading:true})
     try {
@@ -132,11 +152,12 @@ export const apiStore = create((set, get) => ({
 
   getProperties: async () => {
     set({propertyLoading:true})
+    set({properties:[]});
     try{
       const res = await axiosInstance.get("/properties");
       // setPropertiesDetails(res.data);
       set({ properties: res.data });
-      // console.log(res.data);
+      console.log(res.data);
       // setPropertyData(res.data);
     } catch (error) {
       console.log(BASE_URL);
@@ -150,7 +171,8 @@ export const apiStore = create((set, get) => ({
   },
 
   getProjects: async () => {
-    set({propertyLoading:true})
+    set({propertyLoading:true});
+    set({properties:[]});
     try{
       const res = await axiosInstance.get("/projects");
       // setPropertiesDetails(res.data);
