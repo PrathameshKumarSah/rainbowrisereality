@@ -21,7 +21,9 @@ const SearchQueries = () => {
 
         try {
             const data = await searchQueryMore(query);
-            setRecommendations(data); // Expecting data to be an array of top matches
+            setRecommendations(data); // Expecting data to be an array of top matchesa
+
+            console.log("fetch recommendation:"+data);
         } catch (error) {
             setRecommendations([]); // Ensure recommendations clear on error
         }
