@@ -4,7 +4,7 @@ import { MapPin, Building, Bed, Ruler, Phone } from "lucide-react"
 import { apiStore, BASE_URL } from '../store/apiHandler';
 
 
-const ProjectLongCard = ({data}) => {
+const ProjectLongCard = ({data, type='project'}) => {
     const {setModalOpen} = apiStore();    
     
     const handleOnClick = (event) => {
@@ -16,7 +16,7 @@ const ProjectLongCard = ({data}) => {
     }
 
   return (
-    <Link to={ '/project/'+data?.id}>
+    <Link to={ type==="project" ? '/project/'+data?.id : '/properties/'+data?.id }>
         <div className=" mx-auto p-4 ">
             <div className="flex flex-col lg:flex-row bg-[#F8FAFC] shadow-lg rounded-lg overflow-hidden">
                 {/* Left Section */}
