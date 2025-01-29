@@ -17,7 +17,8 @@ import ScrollToTop from "../components/ScrollToTop"
 import ContactUs from '../pages/ContactUs'
 import Allproject from '../pages/Allproject'
 import ContactButtons from "./ContactButtons";
-import ProjectPage from '../pages/Projectpage'
+import ProjectPage from '../pages/Projectpage';
+import SearchQueries from "../pages/SearchQueries";
 
 const WebsiteRoutes = () => {
   const {modalOpen, setModalOpen} = apiStore();
@@ -38,7 +39,8 @@ const WebsiteRoutes = () => {
             {/* <Route path="/residential" element={<Residential />}/> */}
             {/* <Route path="/commercial" element={<Commercial />}/> */}
             <Route path="/project/:id" element={<ProjectPage />}/>
-          <Route path="/allproject" element={<Allproject />}/>
+            <Route path="/allproject" element={<Allproject />}/>
+            <Route path="/search" element={<SearchQueries />}/>
         </Routes>
         <Toaster />
         <EnquireModalBox modalOpen={modalOpen.val} title={modalOpen.title} setModalOpen={setModalOpen} />
