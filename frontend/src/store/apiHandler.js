@@ -133,7 +133,7 @@ export const apiStore = create((set, get) => ({
       if(res.status===400 || res.status===500){
         throw res.data;
       }
-      console.log(res.data);
+      console.log("search More\n"+res.data);
       return res.data;
     } catch (error) {
       toast.error(error.response.data.message);
