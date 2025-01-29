@@ -394,6 +394,27 @@ export const removeProperty = async (req, res) => {
       }
 }
 
+// remove project
+export const removeProject = async (req, res) => {
+    const pool = await mysql2.createPool(config);
+    const {id} = req.params;
+    try{
+        await pool.query('DELETE FROM projects WHERE id=?',[id]);
+        res.json({ message: 'Removed project successfully'});
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Internal Server error' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
+
 // update Profile Details
 export const updateProfileDetails = async (req, res) => {
     const pool = await mysql2.createPool(config);
