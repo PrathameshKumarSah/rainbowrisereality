@@ -3,6 +3,7 @@ import Prov from '../assets/prov.mp4'
 import HeroSearchBar from '../components/HeroSearchBar'
 import ProjectLongCard from '../components/ProjectLongCard'
 import {apiStore} from "../store/apiHandler.js"
+import EnquireForProject from '../components/EnquireForProject.jsx'
 
 
 const Allproject = () => {
@@ -47,7 +48,7 @@ const Allproject = () => {
         <div className="lg:sticky lg:top-20 lg:bottom-20">
           <div className="bg-gray-100 border rounded-lg p-4 shadow-lg">
             <h2 className="text-xl font-bold mb-4">Enquire Box</h2>
-            <form className="space-y-4">
+            {/* <form className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Name
@@ -80,11 +81,13 @@ const Allproject = () => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
+                className="btn-secondary text-white py-2 px-4 rounded-lg w-full"
               >
                 Submit
               </button>
-            </form>
+            </form> */}
+
+            <EnquireForProject />
           </div>
         </div>
       </div>
