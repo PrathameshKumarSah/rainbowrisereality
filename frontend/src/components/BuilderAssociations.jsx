@@ -5,7 +5,7 @@ import img2 from '../assets/gaurs.png';
 import img3 from '../assets/green.png';
 import img4 from '../assets/ace logo.png';
 import img5 from '../assets/SKA India.png';
-import img6 from '../assets/Goorej.png';
+import img6 from '../assets/Goorej.jpg';
 import img7 from '../assets/m3m.png';
 
 const BuilderAssociations = () => {
