@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { apiStore, BASE_URL } from "../store/apiHandler";
 import Map from '../components/Map';
 import { Link } from 'react-router-dom'
+import Floor from '../assets/floor.jpg'
+import Floor1 from '../assets/floor1.jpg'
 
 
 const Projectpage = () => {
@@ -242,10 +244,37 @@ const Projectpage = () => {
           </div>
           <div ref={configRef}>
             <CollapsibleSection title="Configuration">
-              <div className="border p-4 rounded shadow">
-                <h3 className="text-xl font-bold text-center">Floor Plan</h3>
-                <p className="text-gray-600">Click To See</p>
-              </div>
+                <div className="grid grid-cols-2 gap2">
+                    <div className=" p-4 rounded shadow">
+                    <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
+                   <img
+                   src={Floor}
+                   alt="University of Southern California"
+                   className="absolute inset-0 h-full w-full object-cover blur-sm"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+                   <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
+                    Tab To View
+                   </div>
+                   <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
+                   </article>
+                    </div>
+                    <div className=" p-4 rounded shadow">
+                    <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
+                   <img
+                   src={Floor1}
+                   alt="University of Southern California"
+                   className="absolute inset-0 h-full w-full object-cover blur-sm"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+                   <div className="z-10 gap-y-1 overflow-hidden text-lg leading-6 text-gray-300">
+                    Tab To View
+                   </div>
+                   <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
+                   </article>
+                    </div>
+                    {/* Add more configurations as needed */}
+                </div>
             </CollapsibleSection>
           </div>
           <div ref={amenitiesRef}>
