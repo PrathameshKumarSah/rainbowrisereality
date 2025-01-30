@@ -206,7 +206,7 @@ export const addProjectHandler =  async (req, res) => {
     : null;
     
     const data = [[developer, title, category, status, area_size, rooms, location, features, about, imagePaths.join(","), brochurePath, area, city, state]];
-    // console.log(data);
+    console.log(data);
     
     const pool = await mysql2.createPool(config);
     try{
@@ -412,7 +412,7 @@ export const updateProjDetails = async (req, res) => {
     const pool = await mysql2.createPool(config);
     const sql = "UPDATE projects SET developer=?, title=? ,category=?, status=?, area_size=?, rooms=?, location=?, features=?, about=?, area=?, city=?, state=? WHERE id = ?"
     const values = [req.body.developer, req.body.title, req.body.category, req.body.status, req.body.area_size, req.body.rooms, req.body.location, req.body.features, req.body.about, req.body.area, req.body.city, req.body.state, ''+req.body.id];
-    // console.log(values);
+    console.log(values);
     try{
         await pool.query(sql, values);
         res.json({ message: 'Project Details Updated Successfully'});
