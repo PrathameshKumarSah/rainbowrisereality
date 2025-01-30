@@ -1,5 +1,5 @@
 import express from "express";
-import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects, getProject, searchQuery, removeProject, searchMore } from "../controllers/api.js";
+import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects, getProject, searchQuery, removeProject, searchMore, updateBrochure, updateProjImgs, updateProjDetails } from "../controllers/api.js";
 import multer from 'multer';
 import fs from 'fs';
 
@@ -16,19 +16,6 @@ const createDirectories = () => {
   });
 };
 createDirectories();
-
-
-// // Define storage configuration for multer ===========================
-// export const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, './imgs'); // Directory to save uploaded files
-//   },
-//   filename: (req, file, cb) => {
-//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-//     const ext = path.extname(file.originalname);
-//     cb(null, file.fieldname + '-' + uniqueSuffix + ext); 
-//   }
-// });
 
 // Configure Multer storage
 const storage = multer.diskStorage({
@@ -50,14 +37,17 @@ const storage = multer.diskStorage({
 // Multer Middleware
 export const upload = multer({ storage });
 
-// const uploadHandler = upload.fields([
-//   { name: "images", maxCount: 6 }, // Multiple files from 'multipleFiles' field
-//   { name: "brochure", maxCount: 1 }, // Single file from 'singleFile' field
-// ]);
-
 // Define file upload fields
 const uploadFields = upload.fields([
   { name: "images", maxCount: 10 },
+  { name: "brochure", maxCount: 1 },
+]);
+
+const uploadImgs = upload.fields([
+  { name: "images", maxCount: 10 },
+]);
+
+const uploadBrochure = upload.fields([
   { name: "brochure", maxCount: 1 },
 ]);
 
@@ -76,7 +66,10 @@ router.get("/remove-project/:id", removeProject);
 router.get("/search", searchQuery);
 router.get("/searchmore", searchMore);
 router.post("/update-img", upload.single('img'), updateImg);
+router.post("/update-brochure", uploadBrochure, updateBrochure);
+router.post("/update-project-imgs", uploadImgs, updateProjImgs);
 router.post("/update-details",  updatePropertyDetails);
+router.post("/update-project-details",  updateProjDetails);
 router.post("/change-password",  changePassword);
 router.post("/update-profile",  updateProfileDetails);
 router.post("/logout", logout);
