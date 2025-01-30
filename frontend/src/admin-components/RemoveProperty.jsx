@@ -63,14 +63,14 @@ const RemoveProperty = ({id}) => {
           >
             {/* <Warning */}
             <TriangleAlert size={40} className="text-orange-600 mx-auto" />
-            <h3 className="flex pb-[18px] text-xl font-semibold text-dark dark:text-white sm:text-2xl">
-             Are you sure you want to remove this property?
+            <h3 className="flex pb-[18px] text-xl font-semibold text-dark sm:text-2xl">
+             Are you sure you want to remove this Project?
             </h3>
             <span
               className={`mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary`}
             ></span>
             <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
-            Note: This action will permanently delete the property and its associated data from the database. Once deleted, the information will be lost forever. Please confirm if you want to proceed with this irreversible action.
+            Note: This action will permanently delete the project and its associated data from the database. Once deleted, the information will be lost forever. Please confirm if you want to proceed with this irreversible action.
             </p>
             <div className="-mx-3 flex flex-wrap">
               <div className="w-1/2 px-3">
