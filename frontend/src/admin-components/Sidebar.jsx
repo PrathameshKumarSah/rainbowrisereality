@@ -81,6 +81,7 @@ export default function Sidebar() {
         <SidebarContext.Provider value={{ expanded }}>
           <ul className="flex-1 px-3">
             <SidebarItem icon={<LayoutDashboard size={20} />} text="Dashboard" link={ADMIN_BASE_URL+"/"} active />
+            <SidebarItem icon={<House size={20} />} text="All Projects" link={ADMIN_BASE_URL+"/view-projects"} />
             <SidebarItem icon={<House size={20} />} text="Properties" link={ADMIN_BASE_URL+"/view-properties"} />
             <SidebarItem icon={<Building2 size={20} />} text="Add Project" link={ADMIN_BASE_URL+"/add-project"} />
             <SidebarItem icon={<HousePlus size={20} />} text="Add Property" link={ADMIN_BASE_URL+"/add-property"} />            
@@ -125,7 +126,7 @@ export function SidebarItem({ icon, text, link }) {
       >
         {text}
       </span>
-     
+
       {!expanded && (
         <div
           className={`
