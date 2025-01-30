@@ -64,14 +64,14 @@ const Properties = () => {
                     All
                 </button>
                 <button
-                    className={`px-4 py-2 rounded ${category === "residential" ? "bg-gray-700 text-white" : "bg-gray-200"}`}
-                    onClick={() => setCategory("residential")}
+                    className={`px-4 py-2 rounded ${category === "Residential" ? "bg-gray-700 text-white" : "bg-gray-200"}`}
+                    onClick={() => setCategory("Residential")}
                 >
                     Residential
                 </button>
                 <button
-                    className={`px-4 py-2 rounded ${category === "commercial" ? "bg-gray-700 text-white" : "bg-gray-200"}`}
-                    onClick={() => setCategory("commercial")}
+                    className={`px-4 py-2 rounded ${category === "Commercial" ? "bg-gray-700 text-white" : "bg-gray-200"}`}
+                    onClick={() => setCategory("Commercial")}
                 >
                     Commercial
                 </button>
