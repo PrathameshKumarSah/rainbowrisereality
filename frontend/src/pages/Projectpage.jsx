@@ -102,8 +102,7 @@ const Projectpage = () => {
         </div>
       </div>
     );
-  }
-  
+  }  
 
   if(isError){
     return (
@@ -299,7 +298,7 @@ const Projectpage = () => {
           <div className="sticky top-20">
             <div className="bg-gray-100 border rounded-lg p-4 shadow-lg">
               <h2 className="text-xl font-bold mb-4">Enquire Box</h2>
-                <EnquireForProject />
+                 <EnquireForProject />
             </div>
           </div>
         </div>
