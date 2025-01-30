@@ -6,6 +6,7 @@ import { Bed, MapPin, Ruler } from 'lucide-react';
 const ProjectItem = ({ property }) => {
   const navigate = useNavigate();
 
+
   return (
     <div onClick={() => navigate(`../project/${property.id}`)} className="rounded-2xl p-5 bg-white">
         <div className="pb-2 relative overflow-hidden rounded-xl h-32">
@@ -18,12 +19,13 @@ const ProjectItem = ({ property }) => {
         <div className='flex gap-x-2 py-2 line-clamp-1'>
           {property.rooms && <div className='flexCenter gap-x-2 border-r border-slate-900/50 pr-2 font-[400] text-sm'><Bed size={20}/> {property?.rooms}</div>}
           {property.area_size && <div className='flexCenter gap-x-2 border-slate-900/50 pr-2 font-[400] text-sm'><Ruler size={20} /> {property?.area_size}</div>}
-          
+          {/* {property.parking_spaces && <div className='flexCenter gap-x-2 border-slate-900/50 pr-2 font-[400] text-sm'><CarFront size={20} /> {property?.parking_spaces}</div>}               */}
+          {/* {property.area && <div className='flexCenter gap-x-2 border-slate-900/50 pr-2 font-[400] text-sm'><Ruler size={20} /> {property?.area} </div>} */}
         </div> 
 
         <p className="pt-2 mb-2 line-clamp-1">{property.about}</p>
         <p className="pt-1 mb-2 line-clamp-1 flex items-center"> <MapPin size={20} /> &nbsp; {property.location}</p>
-        
+        {/* <div className="bold-18 mb-4">{property.price_title}</div> */}
         <div 
           className='btn-secondary rounded-xl shadow-sm mt-5 text-center hover:bg-indigo-800 cursor-pointer'>View Details</div>
     </div>
