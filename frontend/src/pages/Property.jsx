@@ -60,7 +60,7 @@ const Property = () => {
           <h5 className="bold-16 my-1 text-secondary">{property?.location}</h5>
           <h4 className='flex justify-between flex-col md:flex-row pr-4'>
             <h4 className="bold-16 text-3xl">{property?.title}</h4>
-            <div className="bold-18 text-secondary my-4 md:my-0">{property?.price_title}</div>
+            {/* <div className="bold-18 text-secondary my-4 md:my-0">{property?.price_title}</div> */}
           </h4>
           <div className='flex gap-4 py-2 flex-wrap'>
               {property.bed && <div className='flexCenter gap-2 border-r border-slate-900/50 pr-4 font-[500]'><Bed /> {property?.bed}</div>}
