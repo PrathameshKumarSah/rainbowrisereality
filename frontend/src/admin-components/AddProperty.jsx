@@ -21,12 +21,10 @@ export default function AddProperty() {
 
   const initialForm= {
     title: '',
-    category: '',
+    category:'Residential',
+    status:'Ready to Move',
     location: '',
     img: '',
-    price: '',
-    price_title: '',
-    price_range: '',
     bed: '',
     bath: '',
     parking: '',
@@ -90,8 +88,9 @@ export default function AddProperty() {
                   onChange={(e) => {setFormData({ ...formData, category: e.target.value })}}
                   required
                 >
-                  <option value={"Apartment"}>Apartment</option>
                   <option value={"Residential"}>Residential</option>
+                  <option value={"Commercial"}>Commercial</option>
+                  <option value={"Apartment"}>Apartment</option>
                   <option value={"Villa"}>Villa</option>
                   <option value={"Duplex"}>Duplex</option>
                   <option value={"Townhouse"}>Townhouse</option>
@@ -99,6 +98,32 @@ export default function AddProperty() {
                   <option value={"Condos"}>Condos</option>
                   <option value={"Studio"}>Studio</option>
                   <option value={"Chalet"}>Chalet</option>
+                </select>
+                
+                <ChevronDown 
+                  aria-hidden="true"
+                  className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
+                />
+              </div>
+            </div>
+
+            {/* Status */}
+            <div className="sm:col-span-3">
+              <label htmlFor="status" className="block text-sm/6 font-medium text-gray-900">
+              Project Status
+              </label>
+              <div className="mt-2 grid grid-cols-1">
+                <select
+                  id="type"
+                  name="type"
+                  className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  value={formData.status}
+                  onChange={(e) => {setFormData({ ...formData, status: e.target.value })}}
+                  required
+                >
+                  <option value={"Ready to Move"}>Ready to Move</option>
+                  <option value={"Upcoming"}>Upcoming</option>
+                  <option value={"Under Construction"}>Under Construction</option>
                 </select>
                 
                 <ChevronDown 
@@ -124,73 +149,6 @@ export default function AddProperty() {
                     required
                   />
                 
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="price" className="block text-sm/6 font-medium text-gray-900">
-                Property Price (Only Numbers)
-              </label>
-              <div className="mt-2">
-                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">Rs. | </div>
-                  <input
-                    id="price"
-                    name="price"
-                    type="number"
-                    placeholder="Property Price"
-                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                  value={formData.price}
-                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                  required
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="price_w" className="block text-sm/6 font-medium text-gray-900">
-                Property Price (also in words)
-              </label>
-              <div className="mt-2">
-                <input
-                  id="price_w"
-                  name="price_w"
-                  type="text"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  placeholder={"Starting From 1.15 CR, From 3 CR Onwards..."}
-                  value={formData.price_title}
-                  onChange={(e) => setFormData({ ...formData, price_title: e.target.value })}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="range" className="block text-sm/6 font-medium text-gray-900">
-              Property Price Range
-              </label>
-              <div className="mt-2 grid grid-cols-1">
-                <select
-                  id="range"
-                  name="range"
-                  className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  value={formData.price_range}
-                  onChange={(e) => setFormData({ ...formData, price_range: e.target.value })}
-                  required
-                >
-                  <option value=''>Select your Property Range...</option>
-                  <option value={"Below 50L"}>Below 50L</option>
-                  <option value={"50L - 1CR"}>50L - 1CR</option>
-                  <option value={"1CR - 2CR"}>1CR - 2CR</option>
-                  <option value={"2CR - 3CR"}>2CR - 3CR</option>
-                  <option value={"Above 3CR"}>Above 3CR</option>
-                </select>
-                
-                <ChevronDown 
-                  aria-hidden="true"
-                  className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-                />
               </div>
             </div>
 
