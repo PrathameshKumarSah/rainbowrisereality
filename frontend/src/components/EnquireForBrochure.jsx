@@ -1,12 +1,12 @@
 import { X } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { apiStore } from "../store/apiHandler";
 import { SkewLoader } from "react-spinners";
 
 const EnquireForBrochure = ({ modalOpen, setModalOpen, brochureUrl }) => {
   const initialData = { title: "", name: "", phone: "", message: "", date: "" };
   const [formData, setFormData] = useState(initialData);
-  const { sendEnquire, enquireStatus, enquireLoading } = apiStore();
+  const { sendEnquire, enquireLoading } = apiStore();
   const [warning, setWarning] = useState("");
 
   const handleInputChange = (e) => {
