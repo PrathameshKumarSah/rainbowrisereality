@@ -10,14 +10,17 @@ export const apiStore = create((set, get) => ({
   isLoggingIn: false,
   isUploading: false,
   isImgUpdating: false,
+  isBrochureUpdating: false,
   isCheckingAuth: true,
   otpVerified:false,
   propertyLoading:false,
   totalProperties: null,
+  totalProjects: null,
   modalOpen:false,
   searchLoading:false,
   totalenq: null,
   properties: [],
+  projects: [],
   userData:null,
   enquireLoading: false,
   enquireStatus: false,
@@ -28,11 +31,9 @@ export const apiStore = create((set, get) => ({
       id: '',
       title: '',
       category: '',
+      status:'',
       location: '',
       img: '',
-      price: '',
-      price_title: '',
-      price_range: '',
       bed: '',
       bath: '',
       parking: '',
@@ -257,6 +258,7 @@ export const apiStore = create((set, get) => ({
         // id: id,
         title: res.title,
         category: res.category,
+        status: res.status,
         location: res.location,
         img: res.img,
         price: res.price,
@@ -299,10 +301,63 @@ export const apiStore = create((set, get) => ({
     }
   },
 
+  updateBrochure: async (data) => {
+    set({ isBrochureUpdating: true });
+    try {
+      // console.log(data);
+      const res = await axiosInstance.post("/update-brochure", data, 
+        {
+          headers: {"Content-Type" :  "multipart/form-data"},
+        }
+      );
+      toast.success(res.data.message);
+      return (res.data.brochure);
+      // set({ initialFormState: {img: res.data.img} });
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+    } finally {
+      set({ isBrochureUpdating: false });
+    }
+  },
+
+   updateProjImgs: async (data) => {
+    set({ isImgUpdating: true });
+    try {
+      // console.log(data);
+      const res = await axiosInstance.post("/update-project-imgs", data, 
+        {
+          headers: {"Content-Type" :  "multipart/form-data"},
+        }
+      );
+      toast.success(res.data.message);
+      return (res.data.imgs);
+      // set({ initialFormState: {img: res.data.img} });
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+    } finally {
+      set({ isImgUpdating: false });
+    }
+  },
+
   updatePropertyDetails: async (data) => {
     set({ isUploading: true });
     try {
       const res = await axiosInstance.post("/update-details", data);
+      toast.success(res.data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error.response.data.message);
+    } finally {
+      set({ isUploading: false });
+    }
+  },
+
+  updateProjDetails: async (data) => {
+    set({ isUploading: true });
+    try {
+      const res = await axiosInstance.post("/update-project-details", data);
       toast.success(res.data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -329,8 +384,11 @@ export const apiStore = create((set, get) => ({
     set({propertyLoading:true})
     try{
       const res = await axiosInstance.get("/latest-property");
+      console.log(res.data.noOfProjects[0].noOfProjects);
       set({ properties: res.data.properties });
+      set({ projects: res.data.projects });
       set({ totalProperties: res.data.noOfProperties[0].noOfProperties });
+      set({ totalProjects: res.data.noOfProjects[0].noOfProjects });
       set({ totalenq: res.data.noOfEnq[0].noOfEnq });
     }catch(error){
       console.log("Error in getting properties details.");
@@ -339,6 +397,21 @@ export const apiStore = create((set, get) => ({
       set({propertyLoading:false})
     }
   },
+
+  // latestProjects: async () => {
+  //   set({propertyLoading:true})
+  //   try{
+  //     const res = await axiosInstance.get("/latest-projects");
+  //     set({ projects: res.data.properties });
+  //     set({ totalProjects: res.data.noOfProjects[0].noOfProjects });
+  //     set({ totalenq: res.data.noOfEnq[0].noOfEnq });
+  //   }catch(error){
+  //     console.log("Error in getting properties details.");
+  //     toast.error(error.response.data.message);
+  //   } finally {
+  //     set({propertyLoading:false})
+  //   }
+  // },
 
   removeProperty: async (id) => {
     try{
