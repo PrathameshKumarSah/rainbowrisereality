@@ -30,8 +30,6 @@ const AddProjects = () => {
     // form submit handle...
     const validateForm = (e) => {
         e.preventDefault();
-        // const uploadedFiles = selectedImages.map((image) => image.file);
-        // console.log(formData);
         if(!formData.developer){
           toast.error('Please select or add project Developer Details')
           return ;
@@ -57,8 +55,8 @@ const AddProjects = () => {
         if (formData.brochure) {
           data.append("brochure", formData.brochure);
         }
-        // console.log('data\n'+data);
-        // console.log('formdata\n'+formData);
+        console.log('data\n'+data);
+        console.log('formdata\n'+formData);
 
         addProjectHandler(data);
         setFormData(initialForm);
@@ -127,7 +125,7 @@ const AddProjects = () => {
                 //   onChange={(e) => {setFormData({ ...formData, developer: e.target.value })}}
                 >
                   <option value=''>Select Developer</option>
-                  <option value={"custom"}>Add New Developer</option>
+                  <option value={"custom"} className='font-semibold'>Add New Developer</option>
                   <option value={"Godrej"}>Godrej</option>
                   <option value={"Page Three"}>Page Three</option>
                   <option value={"SKA"}>SKA</option>
@@ -342,7 +340,7 @@ const AddProjects = () => {
             {/* Multiple Images */}
             <div className="col-span-full border-b pb-4" >
               <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
-                Upload Images <span className='text-red-700'>(Note: Max 5 Images select)</span>
+                Upload Images <span className='text-red-700'>(Note: Max 5 Images uploads)</span>
               </label>
               {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
