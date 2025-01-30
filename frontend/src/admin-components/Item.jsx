@@ -14,11 +14,11 @@ const Item = ({ property }) => {
             </div>
         <h5 className="bold-16 my-1 text-indigo-600">{property.location}</h5>
         <h4 className="medium-18 line-clamp-3">{property.title}</h4>
+        <p className="pt-2 mb-2">{property.category} | {property.status}</p>
         <p className="pt-2 mb-2">{property.description}</p>
         <p className="pt-2 mb-2">{property.address}</p>
-        {/* {property.price} */}
 
-        <div className="bold-18 mb-4">{property.price_title}</div>
+        {/* <div className="bold-18 mb-4">{property.price_title}</div> */}
         <div className='flex flex-col'>
           {/* view details */}
           <div onClick={() => navigate(`../../properties/${property.p_id}`)} className='rounded-xl shadow-sm mt-2 bg-indigo-600 text-white py-2 flex justify-center items-center cursor-pointer hover:bg-indigo-800'>View Details&nbsp;<MoveRight size={20}/></div>
