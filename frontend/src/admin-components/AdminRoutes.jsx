@@ -17,6 +17,8 @@ import { Toaster } from 'react-hot-toast';
 import { Loader } from "lucide-react";
 import ChangePassword from "./ChangePassword.jsx";
 import AddProjects from "./AddProjects.jsx";
+import ViewProjects from "./ViewProjects.jsx";
+import UpdateProject from "./UpdateProject.jsx";
 
 
 const AdminRoutes = () => {
@@ -37,10 +39,13 @@ const AdminRoutes = () => {
       <>
         <Routes>
             <Route path="/" element={authUser ? <Main><Dashboard /> Dashboard</Main> : <AdminLogin />} />
+            {/* <Route path="/enquires" element={authUser ? <Main><Enquires /> Enquires</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} /> */}
             <Route path="/view-properties" element={authUser ? <Main><ViewProperty /> All Properties</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
+            <Route path="/view-projects" element={authUser ? <Main><ViewProjects /> All Projects</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/add-property" element={authUser ? <Main><AddProperty /> Add Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/add-project" element={authUser ? <Main><AddProjects /> Add Project</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/update-property/:id" element={authUser ? <Main><UpdatedProperty /> Updated Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
+            <Route path="/update-project/:id" element={authUser ? <Main><UpdateProject /> Updated Project</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/remove-property" element={authUser ? <Main><RemoveProperty /> Remove Property</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} />
             <Route path="/profile" element={authUser ? <Main><Profile />Profile</Main> : <Navigate to={ADMIN_BASE_URL + "/login"} />} /> 
             <Route path="/login" element={authUser ? <Navigate to={ADMIN_BASE_URL} /> : <AdminLogin />} />
