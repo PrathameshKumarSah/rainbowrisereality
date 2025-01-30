@@ -44,7 +44,7 @@ const LatestProperty = () => {
                     <h4 className="medium-18 line-clamp-3">{property.title}</h4>
                     <p className="pt-2 mb-2">{property.description}</p>
                     <p className="pt-2 mb-2">{property.address}</p>
-                    <div className="bold-18 mb-4">{property.price_title}</div>
+                    {/* <div className="bold-18 mb-4">{property.price_title}</div> */}
                 </div>
                 ))
             }
