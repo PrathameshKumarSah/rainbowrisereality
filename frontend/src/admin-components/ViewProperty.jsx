@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
-import Item from  "./Item"
+// import Item from  "./Item"
 import { ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
 import { BASE_URL } from '../store/apiHandler';
 import { PuffLoader } from 'react-spinners';
+import ProjectItem from './ProjectItem';
 
-const ViewProperty = () => {
+const ViewProjects = () => {
     const [propertiesDetails, setPropertiesDetails] = useState([]);
     const [propertyLoading, setPropertyLoading] = useState(true);
 
@@ -14,6 +15,15 @@ const ViewProperty = () => {
 
     const handleSearch = (e) => {
       setSearchTerm(e.target.value.toLowerCase());
+    };
+
+    const handleSort = () => {
+      const sortedProducts = [...propertiesDetails].sort((a, b) => {
+        return sortOrder === "asc" ? Number(a.price) - Number(b.price) : Number(b.price) - Number(a.price);
+      });
+      // setProducts(sortedProducts);
+      setPropertiesDetails(sortedProducts);
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     };
   
     const filteredProducts = propertiesDetails.filter(
@@ -28,11 +38,11 @@ const ViewProperty = () => {
     
     const getData = async () =>{
       try{
-        const res = await Axios.get(BASE_URL+'/api/properties');
+        const res = await Axios.get(BASE_URL+'/api/projects');
         setPropertiesDetails(res.data);
         setPropertyLoading(false);
       }catch{
-        console.log("Error in getting properties details.");
+        console.log("Error in getting projects details.");
       }
     }
     // getData();
@@ -58,6 +68,16 @@ const ViewProperty = () => {
       <div className="container xl:py-6 rounded-3xl">
         {/* Container Topbar */}
         <div className='flex flex-wrap items-center p-3 gap-6 w-full mt-4'>
+          <button
+           onClick={handleSort}
+           className='
+            relative flex items-center py-3 px-4 my-1
+            font-medium rounded-md cursor-pointer
+            group bg-indigo-600 text-white from-indigo-200 to-indigo-100 hover:bg-indigo-500 transition-all duration-300'>
+            
+            Sort Price: {sortOrder === "asc" ? <ArrowUpNarrowWide size={20} /> : <ArrowDownNarrowWide size={20} />}
+          </button>
+          
           <input
             id="search-title"
             name="search-title"
@@ -70,10 +90,10 @@ const ViewProperty = () => {
         </div>
         {/* container */}
         <div className='sm:flex gap-x-12 border-y py-4'>
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4">
             {
               filteredProducts.map((property)=> (
-                 <Item  key={property.p_id} property={property} /> 
+                 <ProjectItem  key={property.p_id} property={property} /> 
                 ))
             }
           </div>
@@ -87,4 +107,4 @@ const ViewProperty = () => {
   )
 }
 
-export default ViewProperty
+export default ViewProjects
