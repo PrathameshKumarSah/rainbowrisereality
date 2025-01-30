@@ -9,7 +9,6 @@ import sendEmail from "../middleware/mail.sender.js";
 import mysql2 from "mysql2/promise";
 import { contactTemplate, contactUsMailTemplate } from "../libs/contactEmailTemplate.js";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -17,8 +16,9 @@ const __dirname = dirname(__filename);
 
 export const showProperties = async (req, res) => {
     const pool = await mysql2.createPool(config);
+    const q = `SELECT * FROM properties;`;
     try{
-        const [rows] = await pool.query('SELECT * FROM properties');
+        const [rows] = await pool.query(q);
         // console.log(rows);
         res.send(rows);
     } catch(err){
@@ -27,6 +27,23 @@ export const showProperties = async (req, res) => {
         try {
             await pool.end();
             
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
+export const showProjects = async (req, res) => {
+    const pool = await mysql2.createPool(config);
+    try{
+        const [rows] = await pool.query('SELECT * FROM projects ORDER BY id DESC');
+        // console.log(rows);
+        res.send(rows);
+    } catch(err){
+        console.log(err);
+    } finally {
+        try {
+            await pool.end();            
         } catch (error) {
             console.error('Error closing the database connection pool:', error);
         }
@@ -67,9 +84,10 @@ export const searchQuery =  async (req, res) => {
         } catch (error) {
             console.error('Error closing the database connection pool:', error);
         }
-      }    
+      }
+  
+    
 }
-
 
 // search  More
 export const searchMore =  async (req, res) => {
@@ -109,7 +127,7 @@ export const searchMore =  async (req, res) => {
   
     
 }
-
+  
 
 export const handleLogin =  async (req, res) => {
     const { email, password } = req.body;
@@ -156,10 +174,10 @@ export const logout = (req, res) => {
 
 // Handle when Property add 
 export const addPropertyHandler =  async (req, res) => {
-    const data = [[req.body.title, req.body.category, req.body.location, req.file.filename, req.body.price, req.body.price_title, req.body.price_range, req.body.bed, req.body.bath, req.body.parking, req.body.area,  req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state]];
+    const data = [[req.body.title, req.body.category, req.body.location, req.file.filename, req.body.bed, req.body.bath, req.body.parking, req.body.area,  req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state]];
     const pool = await mysql2.createPool(config);
     try{
-        await pool.query('INSERT INTO properties (title, category, location, img, price, price_title, price_range, bed, bath, parking, area, description, address, city, postal_code, state) VALUES ?', [data]);
+        await pool.query('INSERT INTO properties (title, category, location, img, bed, bath, parking, area, description, address, city, postal_code, state) VALUES ?', [data]);
 
         res.json({ message: 'Property Added Successfully' });
     } catch(err){
@@ -175,24 +193,6 @@ export const addPropertyHandler =  async (req, res) => {
       }
 } 
 
-export const showProjects = async (req, res) => {
-    const pool = await mysql2.createPool(config);
-    try{
-        const [rows] = await pool.query('SELECT * FROM projects ORDER BY id DESC');
-        // console.log(rows);
-        res.send(rows);
-    } catch(err){
-        console.log(err);
-    } finally {
-        try {
-            await pool.end();
-            
-        } catch (error) {
-            console.error('Error closing the database connection pool:', error);
-        }
-      }
-}
-
 // Handle when Project add 
 export const addProjectHandler =  async (req, res) => {
     const { developer, title, category, status, area_size, rooms, location, features, about, area, city, state } = req.body;
@@ -206,7 +206,7 @@ export const addProjectHandler =  async (req, res) => {
     : null;
     
     const data = [[developer, title, category, status, area_size, rooms, location, features, about, imagePaths.join(","), brochurePath, area, city, state]];
-    console.log(data);
+    // console.log(data);
     
     const pool = await mysql2.createPool(config);
     try{
@@ -225,7 +225,7 @@ export const addProjectHandler =  async (req, res) => {
       }
 }
 
-// Update Property
+// Get Single Property
 export const getProperty = async (req, res) => {
     const {id} = req.params;
     const pool = await mysql2.createPool(config);
@@ -245,7 +245,6 @@ export const getProperty = async (req, res) => {
         }
       }
 }
-
 
 // Get Single Project
 export const getProject = async (req, res) => {
@@ -277,6 +276,65 @@ export const updateImg = async (req, res) => {
         const [rows] = await pool.query("UPDATE properties SET img= ? WHERE p_id = ?", values);
         // console.log(rows);
         res.json({ message: 'Image Updated Successfully', img: req.file.filename });
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Internal Server error' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
+// Update Brochure
+export const updateBrochure = async (req, res) => {
+    const brochurePath = req.files.brochure
+    ? `/uploads/brochure/${req.files.brochure[0].filename}`
+    : null;
+    const values = [brochurePath, req.body.id];
+    const pool = await mysql2.createPool(config);
+    try{
+        // deleteOldImg(req.body.id); // delete old brochure
+        const [rows] = await pool.query("UPDATE projects SET brochure= ? WHERE id = ?", values);
+        res.json({ message: 'Brochure Updated Successfully', brochure: brochurePath });
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Internal Server error' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
+// Update Project Images
+export const updateProjImgs = async (req, res) => {
+    // Get file paths
+    let imagePaths = req.files.images
+    ? req.files.images.map((file) => `/uploads/images/${file.filename}`)
+    : [];
+
+    const prevImgs = req.body.prevImgs.split(',')
+    // console.log("prev: ", prevImgs);
+    if(prevImgs[0] !=''){
+        imagePaths = prevImgs.concat(imagePaths);
+    }
+    // console.log(imagePaths);
+
+    const values = [imagePaths.join(','), req.body.id];
+    const pool = await mysql2.createPool(config);
+    try{
+        // --------------------------------------------------- imp to do
+        // deleteOldImg(req.body.id); // delete old brochure
+
+        const [rows] = await pool.query("UPDATE projects SET imgs= ? WHERE id = ?", values);
+        res.json({ message: 'Images Updated Successfully', imgs: imagePaths.join(',') });
     } catch(err){
         console.log(err);
         res.status(500).json({ message: 'Internal Server error' });
@@ -331,14 +389,36 @@ const deleteOldImg = async (id) => {
 // updatePropertyDetails
 export const updatePropertyDetails = async (req, res) => {
     const pool = await mysql2.createPool(config);
-    const sql = "UPDATE properties SET title=? ,category=?, location=?, price=?, price_title=?, price_range=?, bed=?, bath=?, parking=?, area=?, description=?, address=?, city=?, postal_code=?, state=?, updated_at=? WHERE p_id = ?"
-    const values = [req.body.title, req.body.category, req.body.location, req.body.price, req.body.price_title, req.body.price_range, req.body.bed, req.body.bath, req.body.parking, req.body.area, req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state, new Date(), req.body.id];
+    const sql = "UPDATE properties SET title=? ,category=?, location=?, bed=?, bath=?, parking=?, area=?, description=?, address=?, city=?, postal_code=?, state=?, updated_at=? WHERE p_id = ?"
+    const values = [req.body.title, req.body.category, req.body.location,  req.body.bed, req.body.bath, req.body.parking, req.body.area, req.body.description, req.body.address, req.body.city, req.body.postal_code, req.body.state, new Date(), req.body.id];
     try{
         await pool.query(sql, values);
         res.json({ message: 'Property Details Updated Successfully'});
     } catch(err){
         console.log(err);
         res.status(500).json({ message: 'Error in getting properties!' });
+    } finally {
+        try {
+            await pool.end();
+            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }
+}
+
+// updateProjDetails
+export const updateProjDetails = async (req, res) => {
+    const pool = await mysql2.createPool(config);
+    const sql = "UPDATE projects SET developer=?, title=? ,category=?, status=?, area_size=?, rooms=?, location=?, features=?, about=?, area=?, city=?, state=? WHERE id = ?"
+    const values = [req.body.developer, req.body.title, req.body.category, req.body.status, req.body.area_size, req.body.rooms, req.body.location, req.body.features, req.body.about, req.body.area, req.body.city, req.body.state, ''+req.body.id];
+    // console.log(values);
+    try{
+        await pool.query(sql, values);
+        res.json({ message: 'Project Details Updated Successfully'});
+    } catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Error in getting Projects!' });
     } finally {
         try {
             await pool.end();
@@ -357,9 +437,11 @@ export const latestProperty = async (req, res) => {
     try{
         const [row1] = await pool.query('SELECT * FROM properties ORDER BY created_at DESC LIMIT 5');
         const [row2] = await pool.query('SELECT COUNT(*) AS noOfProperties FROM properties;');
-        const [row3] = await pool.query('SELECT COUNT(*) AS noOfEnq FROM enquires;');
+        const [row3] = await pool.query('SELECT COUNT(*) AS noOfProjects FROM projects;');
+        const [row4] = await pool.query('SELECT * FROM projects ORDER BY created_at DESC LIMIT 5;');
+        const [row5] = await pool.query('SELECT COUNT(*) AS noOfEnq FROM enquires;');
         // console.log("data: ",row1,row2,row3);
-        const result = {properties: row1, noOfProperties: row2, noOfEnq: row3};
+        const result = {properties: row1, noOfProperties: row2, noOfProjects: row3, projects: row4, noOfEnq: row5};
         res.send(result);
     } catch(err){
         console.log(err);
@@ -413,7 +495,6 @@ export const removeProject = async (req, res) => {
         }
       }
 }
-
 
 // update Profile Details
 export const updateProfileDetails = async (req, res) => {
@@ -610,7 +691,7 @@ export const protectRoute = async (req, res) => {
 export const sendEnquire =  async (req, res) => {
     const { name, phone, message, date, title } = req.body;
     try{
-        const sub = `${name.split(" ")[0].toUpperCase()} wanted to Connect - Rainbow Rise Reality`;
+        const sub = `${name.split(" ")[0].toUpperCase()} sended Enquiry | Rainbow Rise Reality`;
         // console.log(date, title);
         const msg = contactTemplate(name, phone, message, date, title);
         await sendEmail(process.env.AUTH_EMAIL, sub, msg);
