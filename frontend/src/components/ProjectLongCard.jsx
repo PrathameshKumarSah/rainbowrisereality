@@ -45,19 +45,19 @@ const ProjectLongCard = ({data, type='project'}) => {
                                 </div>
                                 
                                 <div className="flex items-center p-2">
-                                    <Building className="text-green-500" />
+                                    <Building className="text-green-500 mr-1" />
                                     <p className="text-base">{data.category}</p>
                                 </div>
 
                                 {/* BHK */}
                                 <div className="flex items-center p-2">
-                                    <Bed className="text-purple-500" />
+                                    <Bed className="text-purple-500 mr-1" />
                                     <p className="text-base">{data.rooms}</p>
                                 </div>
 
                                 {/* Area Size */}
                                 <div className="flex items-center p-2">
-                                    <Ruler className="text-red-500" />
+                                    <Ruler className="text-red-500 mr-1" />
                                     <p className="text-base">{data.area_size}</p>
                                 </div>
                             </div>
