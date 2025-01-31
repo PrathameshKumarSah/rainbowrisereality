@@ -125,7 +125,7 @@ const EnquireForBrochure = ({ modalOpen, setModalOpen, brochureUrl }) => {
                 className="w-full btn-secondary rounded-xl shadow mt-5 text-center hover:bg-blue-900"
               >
                 {!enquireLoading ? (
-                  "Connect"
+                  "Click Here to get Brochure"
                 ) : (
                   <SkewLoader height="10" width="10" radius={1} color="#fff" aria-label="loading" />
                 )}
