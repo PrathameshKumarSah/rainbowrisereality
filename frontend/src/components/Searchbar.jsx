@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 const Searchbar = ({handleSearch}) => {
     const [selectedCity, setSelectedCity] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedPriceRange, setSelectedPriceRange] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleIptChange = (e) => {
@@ -19,14 +18,7 @@ const Searchbar = ({handleSearch}) => {
     const handleCategory = (e) => {
         setSelectedCategory(e.target.value);
         handleSearch(e);
-    }
-
-    const handlePriceRange = (e) => {
-        setSelectedPriceRange(e.target.value);
-        handleSearch(e);
-    }
-
-    
+    }    
 
   return (
 
@@ -57,21 +49,12 @@ const Searchbar = ({handleSearch}) => {
             <select className="text-sm w-full py-2 safari-1  p-3 font-medium font-montserrat focus-visible:focus-within:border text-[#6C6B6B]" value={selectedCategory} onChange={handleCategory}>
                 <option value="">Select property type</option>
                 <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
                 <option value="Apartment's">Apartment's</option>
                 <option value="Villas">Villas</option>
             </select>
         </div>
-        <div className="border border-[#E3E3E3] w-full  mb-3">
-            <h3 className="pt-3 px-3">Price Range</h3>
-            <select className="text-sm w-full py-2 safari-1  p-3 font-medium font-montserrat focus-visible:focus-within:border text-[#6C6B6B]" value={selectedPriceRange} onChange={handlePriceRange}>
-                <option value="">Select price range</option>
-                <option value={"Below 50L"}>Below 50L</option>
-                <option value={"50L - 1CR"}>50L - 1CR</option>
-                <option value={"1CR - 2CR"}>1CR - 2CR</option>
-                <option value={"2CR - 3CR"}>2CR - 3CR</option>
-                <option value={"Above 3CR"}>Above 3CR</option>
-            </select>
-        </div>
+        
     </div>
 </div>
   )
