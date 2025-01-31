@@ -68,7 +68,8 @@ const Property = () => {
               {property.parking && <div className='flexCenter gap-2 border-r border-slate-900/50 pr-4 font-[500]'><CarFront /> {property?.parking}</div>}              
               {property.area && <div className='flexCenter gap-4 border-slate-900/50 pr-4 font-[500]'><Ruler /> {property?.area} </div>}
           </div> 
-          <p className="pt-2 mb-2">{property?.description}</p>
+          <p className="my-2 font-semibold text-blue-600">{property?.status}</p>
+          <p className="my-2">{property?.description}</p>
           <p className="pt-2 mb-6 flex gap-2">
             <MapPin size={20} />
             <div>
