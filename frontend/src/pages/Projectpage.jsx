@@ -154,12 +154,12 @@ const Projectpage = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-6 flex justify-between items-center">
+            <div className="mt-6 flex items-center flex-wrap gap-3">
               <Link to={'tel:+918058517274'} className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600"
                 // onClick={handleOnClick}
               >
                 <Phone />
-                <span className="flex"><span className="hidden md:block mr-1">Instant</span> Call Back</span>
+                <span className="flex flex-wrap flex-row"><span className="hidden md:block mr-1">Instant</span> Call Back</span>
               </Link>
 
               <button className="flex gap-2 bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600"
