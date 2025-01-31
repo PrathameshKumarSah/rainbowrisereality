@@ -1,13 +1,15 @@
 import React from 'react'
 import LatestProperty from './LatestProperty'
 import { apiStore } from '../store/apiHandler'
+import { Link } from 'react-router-dom';
+import { ADMIN_BASE_URL } from '../App';
 
 const Dashboard = () => {
   const {totalProperties, totalProjects, projects, totalenq} = apiStore();
   return (
     <div>
       <div className='flex flex-col gap-4 md:flex-row m-4'>
-        <button className="
+        <Link to={ADMIN_BASE_URL+"/view-projects"} className="
           px-4 py-4 flex items-center rounded-xl text-white font-medium 
       bg-gradient-to-br from-purple-500 to-pink-500 
       hover:from-pink-500 hover:to-purple-500 
@@ -17,9 +19,9 @@ const Dashboard = () => {
           <div className='w-[75%] text-2xl font-bold text-gray-100'>Total Projects</div>
       
           <div className='w-[25%] text-4xl font-bold'>{totalProjects}</div>
-        </button>
+        </Link>
 
-        <button className="
+        <Link to={ADMIN_BASE_URL+"/view-properties"} className="
           px-4 py-4 flex items-center rounded-xl text-white font-medium 
       bg-gradient-to-br from-purple-500 to-pink-500 
       hover:from-pink-500 hover:to-purple-500 
@@ -29,7 +31,7 @@ const Dashboard = () => {
           <div className='w-[75%] text-2xl font-bold text-gray-100'>Total Properties</div>
       
           <div className='w-[25%] text-4xl font-bold'>{totalProperties}</div>
-        </button>
+        </Link>
       </div>
 
       {/* Latest Property Section */}
