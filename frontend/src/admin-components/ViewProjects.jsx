@@ -16,15 +16,6 @@ const ViewProjects = () => {
     const handleSearch = (e) => {
       setSearchTerm(e.target.value.toLowerCase());
     };
-
-    const handleSort = () => {
-      const sortedProducts = [...propertiesDetails].sort((a, b) => {
-        return sortOrder === "asc" ? Number(a.price) - Number(b.price) : Number(b.price) - Number(a.price);
-      });
-      // setProducts(sortedProducts);
-      setPropertiesDetails(sortedProducts);
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-    };
   
     const filteredProducts = propertiesDetails.filter(
       (property) =>
@@ -67,18 +58,7 @@ const ViewProjects = () => {
   return (
       <div className="container xl:py-6 rounded-3xl">
         {/* Container Topbar */}
-        <div className='flex flex-wrap items-center p-3 gap-6 w-full mt-4'>
-          <button
-           onClick={handleSort}
-           className='
-            relative flex items-center py-3 px-4 my-1
-            font-medium rounded-md cursor-pointer
-            group bg-indigo-600 text-white from-indigo-200 to-indigo-100 hover:bg-indigo-500 transition-all duration-300'>
-            {/* Sort Price &nbsp;
-            <ArrowUp size={20} /> */}
-            Sort Price: {sortOrder === "asc" ? <ArrowUpNarrowWide size={20} /> : <ArrowDownNarrowWide size={20} />}
-          </button>
-          
+        <div className='flex flex-wrap items-center p-3 gap-6 w-full mt-4'>          
           <input
             id="search-title"
             name="search-title"
