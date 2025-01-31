@@ -11,7 +11,6 @@ const ViewProjects = () => {
     const [propertyLoading, setPropertyLoading] = useState(true);
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [sortOrder, setSortOrder] = useState("asc");
 
     const handleSearch = (e) => {
       setSearchTerm(e.target.value.toLowerCase());
@@ -30,6 +29,7 @@ const ViewProjects = () => {
     const getData = async () =>{
       try{
         const res = await Axios.get(BASE_URL+'/api/projects');
+        console.log("View Projects\n",res);
         setPropertiesDetails(res.data);
         setPropertyLoading(false);
       }catch{
