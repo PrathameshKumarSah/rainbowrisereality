@@ -106,8 +106,7 @@ export const searchMore =  async (req, res) => {
         FROM properties
         WHERE title LIKE ? OR description LIKE ? OR city LIKE ? OR address LIKE ? OR category LIKE ? OR status LIKE ? 
   
-        ORDER BY title ASC
-        LIMIT 3;
+        ORDER BY title ASC;
       `;
   
       const params = Array(12).fill(`%${query}%`); // Fill for both tables
