@@ -117,7 +117,7 @@ const Properties = () => {
 
             {/* Show when no match property found */}
             {filteredProperties.length === 0 && !propertyLoading && (
-                <h3 className="h3 text-gray-700 text-center my-12">Not Found :(</h3>
+                <h3 className="h3 text-gray-700 text-center my-12">No Results Found</h3>
             )}
 
             {/* Show More / Show Less Button */}
