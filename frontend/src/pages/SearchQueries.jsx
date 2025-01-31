@@ -37,7 +37,7 @@ const SearchQueries = () => {
   useEffect(() => {
     fetchRecommendations(query); // Get projects when component mounts
     // getProjects();
-  }, []);
+  }, [query]);
 
   return (
     <div className='mt-24'>
