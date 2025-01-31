@@ -9,7 +9,6 @@ const ViewProperty = () => {
     const [propertyLoading, setPropertyLoading] = useState(true);
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [sortOrder, setSortOrder] = useState("asc");
 
     const handleSearch = (e) => {
       setSearchTerm(e.target.value.toLowerCase());
