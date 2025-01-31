@@ -70,7 +70,7 @@ const Projectpage = () => {
 
   if (propertyLoading) {
     return (
-      <div className="h-screen my-28 flex items-center justify-center">
+      <div className="h-screen my-28 mx-8 md:mx-2  flex items-center justify-center">
         <div className="space-y-6 w-full max-w-4xl mx-auto">
           {/* Main Image Skeleton */}
           <div className="w-full h-[300px] sm:h-[400px] bg-gray-300 animate-pulse rounded-lg"></div>
