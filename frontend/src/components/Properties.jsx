@@ -110,7 +110,7 @@ const Properties = () => {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                 {propertyLoading && 
                     Array.from({ length: 4 }, (_, index) => (
-                        <RepeatedElement /> // Loading placeholder
+                        <RepeatedElement key={index} /> // Loading placeholder
                     ))
                 }
             </div>
