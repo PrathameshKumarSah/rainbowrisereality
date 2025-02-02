@@ -5,11 +5,11 @@ import { useLocation } from "react-router-dom";
 import { apiStore, BASE_URL } from "../store/apiHandler";
 import Map from '../components/Map';
 import { Link } from 'react-router-dom'
-import EnquireModalBox from "../components/EnquireModalBox";
 import EnquireForProject from "../components/EnquireForProject";
 import Floor from '../assets/floor.jpg'
 import Floor1 from '../assets/floor1.jpg'
 import EnquireForBrochure from "../components/EnquireForBrochure";
+import RelatedProj from "../components/RelatedProj";
 
 
 
@@ -17,7 +17,7 @@ const Projectpage = () => {
   const {pathname} = useLocation();
   const [brochureModalOpen, setBrochureModalOpen] = useState();
   const id = pathname.split('/').slice(-1)[0];
-  const {propertyLoading, getProject, isError, setModalOpen} = apiStore();
+  const {propertyLoading, getProject, isError, setModalOpen, searchQueryMore, GetRelatedProj} = apiStore();
   const [property, setProperty] = useState({});
   const [mainImage, setMainImage] = useState(property.imgs && BASE_URL+property?.imgs.split(',')[0]);
   const navbarRef = useRef(null);
@@ -27,10 +27,26 @@ const Projectpage = () => {
   const localityRef = useRef(null);
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);
 
+  // related projects variable
+  const [recommendations, setRecommendations] = useState([]);
+
+  // Fetch recommendations from backend
+  const fetchRecommendations = async (id) => {
+      try {
+          const data = await GetRelatedProj(id);
+          setRecommendations(data); // Expecting data to be an array of top matchesa
+
+          console.log("fetch recommendation:"+data);
+      } catch (error) {
+          setRecommendations([]); // Ensure recommendations clear on error
+      }
+  };
+
 
   useEffect(() => {
     const getData = async () => {
       setProperty(await getProject(id));
+      fetchRecommendations(id);
     };
     getData();
   }, []);
@@ -70,7 +86,7 @@ const Projectpage = () => {
 
   if (propertyLoading) {
     return (
-      <div className="h-screen my-28 mx-8 md:mx-2  flex items-center justify-center">
+      <div className="h-screen my-28 mx-8 md:mx-2 flex items-center justify-center">
         <div className="space-y-6 w-full max-w-4xl mx-auto">
           {/* Main Image Skeleton */}
           <div className="w-full h-[300px] sm:h-[400px] bg-gray-300 animate-pulse rounded-lg"></div>
@@ -248,7 +264,7 @@ const Projectpage = () => {
           </div>
           <div ref={configRef}>
             <CollapsibleSection title="Configuration">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap2">
                     <div className=" p-4 rounded shadow" onClick={()=>setBrochureModalOpen(true)}>
                           <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
                         <img
@@ -263,7 +279,7 @@ const Projectpage = () => {
                         <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
                         </article>
                     </div>
-                    <div className=" p-4 rounded shadow" onClick={()=>setBrochureModalOpen(true)}>
+                    <div className=" p-4 rounded shadow hidden md:block" onClick={()=>setBrochureModalOpen(true)}>
                       <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
                     <img
                     src={Floor1}
@@ -277,7 +293,6 @@ const Projectpage = () => {
                     <h3 class="z-10 mt-3 text-3xl font-bold text-white">Floor Plan</h3>
                     </article>
                     </div>
-                    {/* Add more configurations as needed */}
                 </div>
             </CollapsibleSection>
           </div>
@@ -291,6 +306,7 @@ const Projectpage = () => {
               <Map address={property?.area} city={property?.city} country={'India'} />
             </CollapsibleSection>
           </div>
+
         </div>
 
         {/* Enquiry Box */}
@@ -298,13 +314,28 @@ const Projectpage = () => {
           <div className="sticky top-20">
             <div className="bg-gray-100 border rounded-lg p-4 shadow-lg">
               <h2 className="text-xl font-bold mb-4">Enquire Box</h2>
-                 <EnquireForProject />
+                <EnquireForProject />
             </div>
           </div>
         </div>
-        <EnquireForBrochure modalOpen={brochureModalOpen} setModalOpen={setBrochureModalOpen} brochureUrl={BASE_URL+property?.brochure} />
+      <EnquireForBrochure modalOpen={brochureModalOpen} setModalOpen={setBrochureModalOpen} brochureUrl={BASE_URL+property?.brochure} />
     </div>
-    </div>
+
+    <hr class="my-8 border-0 h-1 mx-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full shadow-md" />
+
+    {/* <RelatedProj /> */}
+    {recommendations.length>0 && 
+      <div className="mb-12 mx-6">
+        <h1 className="text-3xl font-bold mb-3 text-gray-800">Related Project</h1>
+          <div className="grid grid-cols-2 gap-1 md:gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {recommendations?.map((item) => (
+              <RelatedProj key={item.id} data={item} type={item.type} />
+            ))}
+          </div>
+      </div>
+    }
+    
+  </div>
   );
 };
 
