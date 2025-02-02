@@ -56,7 +56,7 @@ const UpdateProject = () => {
         data.append('area', formData.area);
         data.append('city', formData.city);
         data.append('state', formData.state);
-      
+
         // console.log('data\n'+formData.id);
         // console.log('formdata\n'+formData);
 
@@ -83,8 +83,8 @@ const UpdateProject = () => {
       // max length to accept images...
       let tLen = selectedImages.length+files.length+prevImages.length;
       // console.log("tLen: ",tLen);
-      if(tLen>5){
-        toast.error("Limit exceeds, only 5 images allow to can upload.")
+      if(tLen>10){
+        toast.error("Limit exceeds, only 10 images allow to upload.")
         return ;
       }
       const filePreviews = files.map((file) => ({
@@ -95,7 +95,6 @@ const UpdateProject = () => {
     };
 
     const submitBrochure = async (e) => {
-      // console.log('on click submit brochure');
       const data = new FormData();
       data.append("id", id);
       data.append("brochure", formData.brochure);
@@ -105,6 +104,7 @@ const UpdateProject = () => {
     }    
 
     const submitProjImgs = async (e) => {
+      console.log('on click submit images ');
       const data = new FormData();
       data.append("id", id);
       data.append("prevImgs", prevImages.join(','));
@@ -113,7 +113,7 @@ const UpdateProject = () => {
       });
       const path = await updateProjImgs(data);
       setFormData({ ...formData, images: path });
-      // console.log("images path", path);
+      console.log("images path", path);
     } 
 
     useEffect(()=>{
@@ -145,12 +145,11 @@ const UpdateProject = () => {
             setShowCustomInput(true);
         }
         setPrevImages(data.imgs.split(','));
-        // console.log(prevImages);
+        console.log(prevImages);
     }
 
     useEffect(() => {
         getData();
-        // setImgData({ ...imgData, id:id});
     },[])
 
     if(propertyLoading){
@@ -188,7 +187,6 @@ const UpdateProject = () => {
                   className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   value={formData.developer}
                   onChange={handleDeveloperDropdownChange}
-                //   onChange={(e) => {setFormData({ ...formData, developer: e.target.value })}}
                 >
                   <option value=''>Select Developer</option>
                   <option value={"custom"} className='font-semibold'>Add New Developer</option>
@@ -406,7 +404,7 @@ const UpdateProject = () => {
             {/* Multiple Images */}
             <div className="col-span-full border-b pb-4" >
               <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
-                Upload Images <span className='text-red-700'>(Note: Max 5 Images uploads & make sure to click upload Image button after adding new images)</span>
+                Upload Images <span className='text-red-700'>(Note: Max 10 Images uploads & make sure to click upload Image button after adding new images)</span>
               </label>
               {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
@@ -492,7 +490,14 @@ const UpdateProject = () => {
               <label htmlFor="brochure" className="block text-sm/6 font-medium text-gray-900">
                 Select Brochure
               </label>
-                            
+              {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                <div className="text-center">
+                  <ImagePlus aria-hidden="true" className="mx-auto size-12 text-gray-300" />
+                  
+                  <p className="text-xs/5 text-gray-600">PNG, JPG up to 5MB</p>
+                </div>
+              </div> */}
+              
               <div className="mt-4 mb-6 flex items-center text-sm/6 text-gray-600">
                 <label htmlFor="brochure" className="block mr-3 text-sm/6 font-medium text-gray-900">
                   Choose File: 
