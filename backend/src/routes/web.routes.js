@@ -1,5 +1,5 @@
 import express from "express";
-import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects, getProject, searchQuery, removeProject, searchMore, updateBrochure, updateProjImgs, updateProjDetails } from "../controllers/api.js";
+import { showProperties, handleLogin, addPropertyHandler, getProperty, updateImg, updatePropertyDetails, latestProperty, removeProperty, logout, updateProfileDetails, changePassword, sendOTP, otpVerification, createNewPass, protectRoute, sendEnquire, sendContactMsg, addProjectHandler, showProjects, getProject, searchQuery, removeProject, searchMore, updateBrochure, updateProjImgs, updateProjDetails, GetRelatedProj } from "../controllers/api.js";
 import multer from 'multer';
 import fs from 'fs';
 
@@ -37,6 +37,11 @@ const storage = multer.diskStorage({
 // Multer Middleware
 export const upload = multer({ storage });
 
+// const uploadHandler = upload.fields([
+//   { name: "images", maxCount: 6 }, // Multiple files from 'multipleFiles' field
+//   { name: "brochure", maxCount: 1 }, // Single file from 'singleFile' field
+// ]);
+
 // Define file upload fields
 const uploadFields = upload.fields([
   { name: "images", maxCount: 10 },
@@ -65,6 +70,7 @@ router.get("/remove-property/:id", removeProperty);
 router.get("/remove-project/:id", removeProject);
 router.get("/search", searchQuery);
 router.get("/searchmore", searchMore);
+router.get("/get-related-project/:id", GetRelatedProj);
 router.post("/update-img", upload.single('img'), updateImg);
 router.post("/update-brochure", uploadBrochure, updateBrochure);
 router.post("/update-project-imgs", uploadImgs, updateProjImgs);
@@ -78,7 +84,6 @@ router.post("/verify-otp", otpVerification);
 router.post("/create-new-password", createNewPass);
 router.post("/send-enquire", sendEnquire);
 router.post("/send-contactus", sendContactMsg);
-
 
 
 export default router
