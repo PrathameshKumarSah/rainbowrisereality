@@ -179,7 +179,7 @@ export const GetRelatedProj =  async (req, res) => {
     try{  
       const [results] = await pool.query(sql, [id, id, id, id, id, id, id, id]);
 
-      console.log(results);
+      // console.log(results);
       
       res.json(results);
     } catch(err){
