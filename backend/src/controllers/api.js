@@ -126,7 +126,73 @@ export const searchMore =  async (req, res) => {
   
     
 }
-  
+
+// get related project
+export const GetRelatedProj =  async (req, res) => {
+    const {id} = req.params;
+    const sql = `
+            (
+            SELECT
+    			id,
+                title,
+                category,
+ 				status,
+   				area_size,
+    			rooms,
+    			location,
+    			imgs,
+                'project' AS type,
+                (
+                (developer = (SELECT developer FROM projects WHERE id = 6)) +
+                (city = (SELECT city FROM projects WHERE id = 6)) +
+                (category = (SELECT category FROM projects WHERE id = 6))
+                ) AS relevance_score
+            FROM 
+                projects 
+            WHERE 
+                id != 6
+            )
+            UNION
+            (
+            SELECT 
+                p_id AS id,
+                title, 
+                category,
+ 				status,
+   				area AS area_size,
+    			bed AS rooms,
+    			location,
+    			CONCAT('/imgs/',img) AS imgs, 
+                'property' AS type,
+                (
+                (location = (SELECT location FROM projects WHERE id = 6)) +
+                (city = (SELECT city FROM projects WHERE id = 6)) +
+                (title LIKE CONCAT('%', (SELECT title FROM projects WHERE id = 6), '%'))
+                ) AS relevance_score
+            FROM 
+                properties 
+            )
+            ORDER BY relevance_score DESC;
+
+    `;
+    const pool = await mysql2.createPool(config);
+    try{  
+      const [results] = await pool.query(sql, [id, id, id, id, id, id, id, id]);
+
+      console.log(results);
+      
+      res.json(results);
+    } catch(err){
+        console.log(err);
+    } finally {
+        try {
+            await pool.end();            
+        } catch (error) {
+            console.error('Error closing the database connection pool:', error);
+        }
+      }    
+}
+
 
 export const handleLogin =  async (req, res) => {
     const { email, password } = req.body;
