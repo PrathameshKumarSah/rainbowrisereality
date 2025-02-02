@@ -104,7 +104,6 @@ const UpdateProject = () => {
     }    
 
     const submitProjImgs = async (e) => {
-      console.log('on click submit images ');
       const data = new FormData();
       data.append("id", id);
       data.append("prevImgs", prevImages.join(','));
@@ -113,7 +112,7 @@ const UpdateProject = () => {
       });
       const path = await updateProjImgs(data);
       setFormData({ ...formData, images: path });
-      console.log("images path", path);
+      // console.log("images path", path);
     } 
 
     useEffect(()=>{
@@ -145,7 +144,6 @@ const UpdateProject = () => {
             setShowCustomInput(true);
         }
         setPrevImages(data.imgs.split(','));
-        console.log(prevImages);
     }
 
     useEffect(() => {
@@ -490,13 +488,6 @@ const UpdateProject = () => {
               <label htmlFor="brochure" className="block text-sm/6 font-medium text-gray-900">
                 Select Brochure
               </label>
-              {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                <div className="text-center">
-                  <ImagePlus aria-hidden="true" className="mx-auto size-12 text-gray-300" />
-                  
-                  <p className="text-xs/5 text-gray-600">PNG, JPG up to 5MB</p>
-                </div>
-              </div> */}
               
               <div className="mt-4 mb-6 flex items-center text-sm/6 text-gray-600">
                 <label htmlFor="brochure" className="block mr-3 text-sm/6 font-medium text-gray-900">
@@ -509,7 +500,6 @@ const UpdateProject = () => {
                       <SquareDashedMousePointerIcon className='mr-1' />
                       <span>Select Brochure</span>
                       <input id="file-brochure" name="file-brochure" type="file" className="sr-only" 
-                      // value={formData.brochure.name}
                       onChange={(e) => setFormData({ ...formData, brochure: e.target.files[0] })}
                       
                       required
