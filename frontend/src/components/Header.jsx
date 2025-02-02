@@ -64,7 +64,7 @@ const Header = () => {
             </div>
             {/* button */}
             <div className="flexBetween gap-x-3 sm:gap-x-5 bold-16">
-            {!menuOpened ? (<MdMenu onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl text-[#D84040] hover:text-secondary"/>) : (<MdClose onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl text-[#D84040] hover:text-secondary" />)}
+            {!menuOpened ? (<MdMenu onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl text-white hover:text-secondary"/>) : (<MdClose onClick={toggleMenu} className="xl:hidden cursor-pointer text-3xl text-white hover:text-secondary" />)}
             <button className=" flexCenter gap-x-6 medium-10 rounded-full pr-3">
                   <Link to={"/contactus"}><img src={Icon} alt="" height={30} width={30} /></Link>
                     <span className='hidden'>Contact</span>
