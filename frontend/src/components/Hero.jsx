@@ -28,7 +28,7 @@ const Hero = () => {
             </div>
           </div>
           <p className='my-10 max-w-[33rem] text-white'>
-            Luxury, comfort, and convenience—properties that match your lifestyle. Invest in your future with properties designed to inspire and grow.
+            Luxury, comfort, and convenience—properties that match your lifestyle. 
           </p>
           {/* button */}
           <HeroSearchBar />
