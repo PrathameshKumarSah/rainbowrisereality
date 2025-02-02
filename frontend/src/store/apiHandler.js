@@ -51,7 +51,7 @@ export const apiStore = create((set, get) => ({
 
   checkAuth: async () => {
     try {
-      console.log('checkauth has been started...');
+      // console.log('checkauth has been started...');
       // const res = await axiosInstance.get("/auth-check");
       // console.log(res.data);
       // set({ authUser: res.data });
@@ -68,7 +68,7 @@ export const apiStore = create((set, get) => ({
     try {
       let res = await axiosInstance.post("/login", data);
       toast.success("Logged in successfully");
-      console.log(res.data);
+      // console.log(res.data);
       set({ userData: res.data.user });
       set({ authUser: res.data.loggedIn });
     } catch (error) {
@@ -96,7 +96,7 @@ export const apiStore = create((set, get) => ({
       if(res.status===400 || res.status===500){
         throw res.data;
       }
-      console.log(res.data[0]);
+      // console.log(res.data[0]);
       return res.data[0];
     } catch (error) {
       toast.error(error.response.data.message);
@@ -115,7 +115,7 @@ export const apiStore = create((set, get) => ({
       if(res.status===400 || res.status===500){
         throw res.data;
       }
-      console.log(res.data[0]);
+      // console.log(res.data[0]);
       return res.data;
     } catch (error) {
       toast.error(error.response.data.message);
