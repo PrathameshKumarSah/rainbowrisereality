@@ -248,7 +248,7 @@ const Projectpage = () => {
           </div>
           <div ref={configRef}>
             <CollapsibleSection title="Configuration">
-            <div className="grid grid-cols-2 gap2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap2">
                     <div className=" p-4 rounded shadow" onClick={()=>setBrochureModalOpen(true)}>
                           <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-2">
                         <img
