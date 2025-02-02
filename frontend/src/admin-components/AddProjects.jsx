@@ -78,8 +78,8 @@ const AddProjects = () => {
       const files = Array.from(e.target.files);
       // max length to accept images..
       let tLen = selectedImages.length+files.length;
-      if(tLen>5){
-        toast.error("Limit exceeds, only 5 images allow to can upload.")
+      if(tLen>10){
+        toast.error("Limit exceeds, only 10 images allow to upload.")
         return ;
       }
       const filePreviews = files.map((file) => ({
@@ -340,7 +340,7 @@ const AddProjects = () => {
             {/* Multiple Images */}
             <div className="col-span-full border-b pb-4" >
               <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
-                Upload Images <span className='text-red-700'>(Note: Max 5 Images uploads)</span>
+                Upload Images <span className='text-red-700'>(Note: Max 10 Images uploads)</span>
               </label>
               {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
