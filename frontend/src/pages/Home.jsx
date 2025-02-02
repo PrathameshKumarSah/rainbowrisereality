@@ -4,6 +4,7 @@ import About from '../components/About'
 import Properties from '../components/Properties'
 import LatestProjects from '../components/LatestProjects'
 import Blogs from '../components/Blogs'
+import Team from '../components/team'
 import BuilderAssociations from '../components/BuilderAssociations'
 import { apiStore } from '../store/apiHandler'
 import HomeEnquiryBox from '../components/HomeEnquiryBox'
@@ -42,6 +43,7 @@ const Home = () => {
       <Properties />
       <BuilderAssociations />
       <About/>
+      <Team />
       <LatestProjects />
       <Blogs />
       <HomeEnquiryBox />
