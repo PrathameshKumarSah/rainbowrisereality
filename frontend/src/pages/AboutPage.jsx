@@ -1,8 +1,8 @@
 import React from 'react'
-import Team from '../assets/team.png'
-import Sunshine from '../assets/sunshine.png'
-import Spa from '../assets/spa.png'
-import Spa1 from '../assets/gig.png'
+import Team from '../assets/home1.jpeg'
+import Sunshine from '../assets/home2.jpeg'
+import Spa from '../assets/home4.jpeg'
+import Spa1 from '../assets/home3.jpeg'
 import Heroback5 from '../assets/res.png'
 
 const AboutPage = () => {
@@ -106,69 +106,45 @@ const AboutPage = () => {
         </div>
       </div>
     </section>
-    <section className="container mx-auto p-6">
-      {/* Property 1: Rise Resort Residences */}
-      <div className="flex flex-col md:flex-row items-center mb-12">
-        {/* Image */}
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img
-            src={Sunshine}
-            alt="Rise Resort Residences"
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-        {/* Content */}
-        <div className="w-full md:w-1/2 md:pl-8 text-left">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          GODREJ
-          </h2>
-          <p className="text-gray-600 leading-relaxed">
-          Godrej Properties Noida is a prestigious real estate development offering modern homes with world-class amenities and sustainable designs. Located in prime areas of Noida, these properties blend luxury, comfort, and innovation. With a reputation for quality and timely delivery, Godrej Properties ensures an exceptional lifestyle in one of India's fastest-growing cities.
-          </p>
-        </div>
-      </div>
-
-      {/* Property 2: M3M The Cullinan */}
-      <div className="flex flex-col-reverse md:flex-row items-center mb-12">
-        {/* Content */}
-        <div className="w-full md:w-1/2 md:pr-8 text-left">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          SKA DESTINY ONE
-          </h2>
-          <p className="text-gray-600 leading-relaxed">
-          SKA Destiny One, developed by SKA Group, is a premium residential project located in Sector ZETA 1, Greater Noida. Spanning approximately 6 acres, it offers luxurious 3 and 4 BHK apartments designed to provide a lavish lifestyle. The project boasts world-class amenities, including a swimming pool, clubhouse, gym, and indoor games facilities, ensuring residents enjoy both comfort and convenience.
-          </p>
-        </div>
-        {/* Image */}
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img
-            src={Spa}
-            alt="M3M The Cullinan"
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-      </div>
-            {/* Property 1: Rise Resort Residences */}
-            <div className="flex flex-col md:flex-row items-center mb-12">
-        {/* Image */}
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img
-            src={Spa1}
-            alt="Rise Resort Residences"
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-        {/* Content */}
-        <div className="w-full md:w-1/2 md:pl-8 text-left mt-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          Three Page
-          </h2>
-          <p className="text-gray-600 leading-relaxed">
-          Page Three Residences by H&S is a luxury residential project located in Jaypee Greens, Greater Noida. Spanning approximately 1.28 acres, it offers 4 and 5 BHK apartments, presidential penthouses, and duplex villas, totaling around 46 units. The development boasts modern amenities, including a spa, restaurant, cycling and jogging tracks, gymnasium, and swimming pool.
-          </p>
-        </div>
-      </div>
-    </section>
+   <div className="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 mb-7  flex flex-col justify-center">
+    <div className="flex flex-col sm:flex-row mx-auto">
+      {/*- Starts component */}{" "}
+      <a href="#_">
+        {" "}
+        <img
+          src={Spa}
+          className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-60 w-60 object-cover hover:scale-150 transform origin-bottom"
+          alt="#_"
+        />{" "}
+      </a>
+      <a href="#_">
+        {" "}
+        <img
+          src={Spa1}
+          className="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-60 w-60 object-cover hover:scale-150 transform origin-bottom"
+          alt="#_"
+        />{" "}
+      </a>
+      <a href="#_">
+        {" "}
+        <img
+          src={Sunshine}
+          className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-60 w-60 object-cover hover:scale-150 transform origin-bottom"
+          alt="#_"
+        />{" "}
+      </a>
+      <a href="#_">
+        {" "}
+        <img
+          src={Team}
+          className="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-60 w-60 object-cover hover:scale-150 transform origin-bottom"
+          alt="#_"
+        />{" "}
+      </a>
+      {/*- Ends component */}
+    </div>
+    {/* Ends links to tutorial */}
+  </div>
   </div>
   )
 }
