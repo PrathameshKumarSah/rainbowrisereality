@@ -200,7 +200,7 @@ const Projectpage = () => {
               </div>
 
               {/* Thumbnail Images */}
-              <div className="flex justify-center space-x-4">
+              <div className="flex justify-center space-x-4 overflow-x-auto">
                 {property.imgs && property?.imgs.split(",").map((image, index) => (
                   <img
                     key={index}
