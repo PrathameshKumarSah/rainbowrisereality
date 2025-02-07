@@ -19,7 +19,7 @@ const team = () => {
     <div className="text-center">
     <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 max-w-sm mx-auto">
   <img
-    src={Team1}
+    src={Team3}
     alt="University of Southern California"
     className="rounded object-cover w-full sm:h-80 h-80"
   />
@@ -29,7 +29,7 @@ const team = () => {
     <div className="text-center">
     <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8  max-w-sm mx-auto">
   <img
-    src={Team2}
+    src={Team1}
     alt="University of Southern California"
     className="rounded object-cover w-full sm:h-80 h-80"
     />
@@ -39,7 +39,7 @@ const team = () => {
     <div className="text-center">
     <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8  max-w-sm mx-auto">
   <img
-    src={Team3}
+    src={Team2}
     alt="University of Southern California"
     className="rounded object-cover w-full sm:h-80 h-80"
     />
